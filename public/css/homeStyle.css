@@ -15,13 +15,14 @@ label{
 	color: navy;
 	margin-top: 10px;
 	margin-left: 10px;
-	float: right;
-	
 }
 
 #btnSubmit{
 	margin: 10px 10px 10px 10px;
 }
 
+.dataInput{
+	margin-left: 35px;
+}
 
 

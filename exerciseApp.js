@@ -41,25 +41,26 @@ app.get("/", function(req,res,next){
 	});
 });
 
-app.post("/formSubmit", function(req,res){
+app.post("/formSubmit", function(req,res,next){
 	var context={};
 	var qParams=[];
 	for (var p in req.body){
 		qParams.push({"name":p, "value":req.body[p]});
 	}
 	context.dataList = qParams;
-	pool.query("insert into workouts set ?", req.body, function(err, results){
 	/*
+	pool.query("insert into workouts set ?", req.body, function(err, results){
+	*/
+	
 	pool.query("insert into workouts" + 
 			  "(`id`, `name`, `reps`, `weight`, `date`, `lbs`)" +
 			  "values (?)", [req.query.id], [req.query.name], [req.query.reps], [req.query.weight], [req.query.date], [req.query.lbs], function(err, results){
-	*/
+	
 		if (err){
 			next(err);
 			console.log("insert query failure. " + err.description);
 			return;
 		}else{
-			
 			context.results = JSON.stringify(rows);
 			context.greeting = "Welcome to the Exercise Tracker!";
 			context.date = new Date();
