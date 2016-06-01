@@ -5,18 +5,18 @@
 <section id="inputArea">
 <form id="frmInput" method="POST">
 	<label id="lblDate">Date:</label>
-		<input id="txtDate" type="text" name="Date" value={{date}}><br>
+		<input class="dataInput" id="txtDate" type="text" name="Date" value={{date}}><br>
 	<label id="lblExercise">Exercise:</label>
-		<input id="txtExercise" type="text" name="Exercise" value=""><br>
+		<input class="dataInput" id="txtExercise" type="text" name="Exercise" value=""><br>
 	<label id="lblReps">Reps:</label>
-		<input id="txtReps" type="text" name="Reps" value=""><br>
+		<input class="dataInput" id="txtReps" type="text" name="Reps" value=""><br>
 	<label id="lblWeight">Weight:</label>
-		<input id="txtWeight" type="text" name="Weight" value=""><br>
+		<input class="dataInput" id="txtWeight" type="text" name="Weight" value=""><br>
 	<label id="lblUnits">Units in Lbs.:</label>
-		<input id="optLbs" type="checkbox" name="units" value="Lbs" checked> (uncheck for Kgs)
-		
+		<input class="dataInput" id="optLbs" type="checkbox" name="units" value="Lbs" checked> (uncheck for Kgs)
+	<button id="btnSubmit">Submit</button>		
 </form>
-<button id="btnSubmit">Submit</button>
+
 </section>
 <section id="outputArea">
 <table id="tblOutput">

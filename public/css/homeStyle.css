@@ -1,10 +1,18 @@
+#inputArea{
+	margin-left: 50px;
+	margin-top: 50px;
+	border-style: solid;
+	border-color: DarkGreen;
+}
+
 label{
 	color: DarkBlue;
-	padding-top: 10px;
-	padding-right: 10px;
+	margin: 10px 10px 10px 10px;
+	
 }
+
 #btnSubmit{
-	margin-top: 10px;
+	margin: 10px 10px 10px 10px;
 }
 
 
