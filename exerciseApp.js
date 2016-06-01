@@ -54,8 +54,9 @@ app.post("/formSubmit", function(req,res,next){
 	/*
 	pool.query("insert into workouts" + 
 			  "(`id`, `name`, `reps`, `weight`, `date`, `lbs`)" +
-			  "values (?)", [req.query.id], [req.query.name], [req.query.reps], [req.query.weight], [req.query.date], [req.query.lbs], function(err, results){
+			  "values (?)", [req.body.id], [req.body.name], [req.body.reps], [req.body.weight], [req.body.date], [req.body.lbs], function(err, rows){
 	*/
+	
 		if (err){
 			next(err);
 			console.log("insert query failure. " + err.description);

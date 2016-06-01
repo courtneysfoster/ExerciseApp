@@ -12,7 +12,7 @@ document.getElementById("btnSubmit").addEventListener("click", function(){
 		inputParams.push({"name":inputForm[i].name, "value":inputForm[i].value}); 
 	}
 	*/
-	req.open("POST", submitURL, true);
+	req.open("POST", "http://54.213.219.47:3000/formSubmit", true);
 	req.setRequestHeader("Content-Type", "application/json");
 	req.send(JSON.stringify(inputParams));
 	
