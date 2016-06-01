@@ -35,7 +35,7 @@ app.get("/", function(req,res,next){
 		}else{
 			context.results = JSON.stringify(rows);
 			context.greeting = "Welcome to the Exercise Tracker!";
-			context.date = new Date();
+			context.date = (new Date(Date.now())).toLocaleDateString('en-US');
 			res.render("home", context);
 		}
 	});
@@ -49,7 +49,7 @@ app.post("/formSubmit", function(req,res,next){
 	}
 	context.dataList = qParams;
 	
-	pool.query("insert into workouts set ?", req.body, function(err, results){
+	pool.query("insert into workouts (`id`) values ?", req.body.id, function(err, results){
 	
 	/*
 	pool.query("insert into workouts" + 
@@ -62,9 +62,10 @@ app.post("/formSubmit", function(req,res,next){
 			return;
 		}else{
 			context.results = JSON.stringify(rows);
-			context.greeting = "Welcome to the Exercise Tracker!";
+			/* context.greeting = "Welcome to the Exercise Tracker!"; */ 
 			context.date = new Date();
-			res.send(context);
+			res.render("home",context);
+			/* res.send(context); */
 		}
 	});
 });
@@ -86,7 +87,6 @@ app.get("/make-table",function(req,res,next){
   });
 });
 
-/* function used to insert dummy data */
 app.get('/insert',function(req,res,next){
   console.log("we got here");
   var context = {};
