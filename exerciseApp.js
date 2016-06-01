@@ -49,7 +49,7 @@ app.post("/formSubmit", function(req,res,next){
 	}
 	context.dataList = qParams;
 	console.log(req.body.id);
-	pool.query("INSERT INTO workouts (`id`) VALUES (?)", [req.body.id], function(err, results){
+	pool.query("INSERT INTO workouts (`id`) VALUES (?)", [req.body.id], function(err, rows, fields){
 	
 	/*
 	pool.query("insert into workouts" + 
@@ -63,7 +63,7 @@ app.post("/formSubmit", function(req,res,next){
 		}else{
 			context.results = JSON.stringify(rows);
 			/* context.greeting = "Welcome to the Exercise Tracker!"; */ 
-			context.date = new Date();
+			/* context.date = new Date(); */
 			res.render("home",context);
 			/* res.send(context); */
 		}
