@@ -49,7 +49,7 @@ app.post("/formSubmit", function(req,res,next){
 	}
 	context.dataList = qParams;
 	console.log(req.body.id);
-	pool.query("INSERT INTO workouts (`id`) VALUES (?)", [req.body.id], function(err, rows, fields){
+	pool.query("INSERT INTO workouts (`date`) VALUES (?)", [req.body.date], function(err, rows, fields){
 	
 	/*
 	pool.query("insert into workouts" + 
