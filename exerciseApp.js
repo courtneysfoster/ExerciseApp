@@ -46,10 +46,6 @@ app.post("/formSubmit", function(req,res,next){
 	var qParams=[];
 	for (var p in req.body){
 		qParams.push({"name":p, "value":req.body[p]});
-		if(err){
-			next(err);
-			return;
-		}
 	}
 	context.dataList = qParams;
 	/* res.render("home", context); */
