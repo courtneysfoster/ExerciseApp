@@ -1,18 +1,18 @@
 #greeting{
 	margin: auto;
-	color: 990099;
+	color: maroon;
 }
 
 #inputArea{
 	margin-left: 50px;
 	margin-top: 50px;
 	border-style: solid;
-	border-color: DarkGreen;
+	border-color: teal;
 	width: 300px;
 }
 
 label{
-	color: DarkBlue;
+	color: navy;
 	margin: 10px 10px 10px 10px;
 	
 }

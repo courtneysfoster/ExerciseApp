@@ -52,7 +52,8 @@ app.post("/formSubmit", function(req,res,next){
 		}
 	}
 	context.dataList = qParams;
-	res.render("home", context);
+	/* res.render("home", context); */
+	return context;
 });
 
 app.get("/make-table",function(req,res,next){
