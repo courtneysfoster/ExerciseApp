@@ -43,16 +43,11 @@ app.get("/", function(req,res,next){
 
 app.post("/formSubmit", function(req,res,next){
 	var context={};
-	var qParams=[];
-	for (var p in req.body){
-		qParams.push({"name":p, "value":req.body[p]});
-	}
-	context.dataList = qParams;
 	console.log(req.body.date);
 	/* pool.query("INSERT INTO workouts (`date`) VALUES (?)", [req.body.date], function(err, rows, fields){*/
 	
 	
-	pool.query("insert into workouts" + 
+	pool.query("INSERT INTO workouts" + 
 			  "(`name`, `reps`, `weight`, `date`, `lbs`)" +
 			  "values (?)", [req.body.name], [req.body.reps], [req.body.weight], [req.body.date], [req.body.lbs], function(err, rows){
 	
