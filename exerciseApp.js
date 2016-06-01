@@ -48,8 +48,8 @@ app.post("/formSubmit", function(req,res,next){
 		qParams.push({"name":p, "value":req.body[p]});
 	}
 	context.dataList = qParams;
-	/* res.render("home", context); */
-	return context;
+	res.render("postTest", context);
+	
 });
 
 app.get("/make-table",function(req,res,next){
