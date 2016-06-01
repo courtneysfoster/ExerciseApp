@@ -48,9 +48,12 @@ app.post("/formSubmit", function(req,res){
 		qParams.push({"name":p, "value":req.body[p]});
 	}
 	context.dataList = qParams;
+	pool.query("insert into workouts set ?", req.body, function(err, results){
+	/*
 	pool.query("insert into workouts" + 
 			  "(`id`, `name`, `reps`, `weight`, `date`, `lbs`)" +
 			  "values (?)", [req.query.id], [req.query.name], [req.query.reps], [req.query.weight], [req.query.date], [req.query.lbs], function(err, results){
+	*/
 		if (err){
 			next(err);
 			console.log("insert query failure. " + err.description);
@@ -60,12 +63,9 @@ app.post("/formSubmit", function(req,res){
 			context.results = JSON.stringify(rows);
 			context.greeting = "Welcome to the Exercise Tracker!";
 			context.date = new Date();
-			res.render("home", context);
+			res.send(context);
 		}
 	});
-	/* res.render("postTest", context); */
-	res.send(context);
-	
 });
 
 app.get("/make-table",function(req,res,next){
@@ -82,6 +82,19 @@ app.get("/make-table",function(req,res,next){
       context.results = "Table Created";
       res.render("home",context);
       });
+  });
+});
+
+/* function used to insert dummy data */
+app.get('/insert',function(req,res,next){
+  var context = {};
+  mysql.pool.query("INSERT INTO todo set ?", [req.query.c], function(err, result){
+    if(err){
+      next(err);
+      return;
+    }
+    context.results = "Inserted id " + result.insertId;
+    res.render('home',context);
   });
 });
 
