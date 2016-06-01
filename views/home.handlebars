@@ -20,8 +20,13 @@
 </section>
 <section id="outputArea">
 <table id="tblOutput">
-	{{results}}
+	{{dataList}}
 </table>
+<ul>
+  {{#each dataList}}
+    <li>{{this.name}}: {{this.value}}
+  {{/each}}
+</ul>
 </section>
 <script src="js/home.js"></script>
 
