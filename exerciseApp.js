@@ -48,14 +48,14 @@ app.post("/formSubmit", function(req,res,next){
 		qParams.push({"name":p, "value":req.body[p]});
 	}
 	context.dataList = qParams;
-	/*
-	pool.query("insert into workouts set ?", req.body, function(err, results){
-	*/
 	
+	pool.query("insert into workouts set ?", req.body, function(err, results){
+	
+	/*
 	pool.query("insert into workouts" + 
 			  "(`id`, `name`, `reps`, `weight`, `date`, `lbs`)" +
 			  "values (?)", [req.query.id], [req.query.name], [req.query.reps], [req.query.weight], [req.query.date], [req.query.lbs], function(err, results){
-	
+	*/
 		if (err){
 			next(err);
 			console.log("insert query failure. " + err.description);
@@ -89,7 +89,7 @@ app.get("/make-table",function(req,res,next){
 /* function used to insert dummy data */
 app.get('/insert',function(req,res,next){
   var context = {};
-  mysql.pool.query("INSERT INTO todo set ?", [req.query.c], function(err, result){
+  mysql.pool.query("INSERT INTO todo (`id`) VALUES (?)", [req.query.id], function(err, result){
     if(err){
       next(err);
       return;
