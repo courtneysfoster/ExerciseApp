@@ -1,0 +1,29 @@
+
+<h1>{{greeting}}</h1>
+<br>
+<label id="lblName">Enter your name</label>
+	<input id="txtName" type="text" name="Name" value="">
+<br>
+<section id="inputArea">
+<form id="frmInput" method="POST">
+	<label id="lblDate">Date:</label>
+		<input id="txtDate" type="text" name="Date" value=""><br>
+	<label id="lblExercise">Exercise:</label>
+		<input id="txtExercise" type="text" name="Exercise" value=""><br>
+	<label id="lblReps">Reps:</label>
+		<input id="txtReps" type="text" name="Reps" value=""><br>
+	<label id="lblWeight">Weight:</label>
+		<input id="txtWeight" type="text" name="Weight" value=""><br>
+	<label id="lblUnits">Units in Lbs.:</label>
+		<input id="optLbs" type="checkbox" name="units" value="Lbs" checked> (uncheck for Kgs)
+		
+</form>
+<button id="btnSubmit">Submit</button>
+</section>
+<section id="outputArea">
+<table id="tblOutput">
+	{{results}}
+</table>
+</section>
+<script src="js/home.js"></script>
+

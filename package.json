@@ -1,0 +1,24 @@
+{
+  "name": "timeApp",
+  "version": "1.0.0",
+  "description": "Time Demo",
+  "main": "timeApp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Time",
+    "Demo"
+  ],
+  "author": "NPM Time Demo User",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.13.4",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.13.0",
+    "mysql": "^2.10.2",
+    "path": "^0.12.7"
+  }
+}
