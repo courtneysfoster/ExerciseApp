@@ -1,8 +1,14 @@
+#greeting{
+	margin: auto;
+	color: 990099;
+}
+
 #inputArea{
 	margin-left: 50px;
 	margin-top: 50px;
 	border-style: solid;
 	border-color: DarkGreen;
+	width: 300px;
 }
 
 label{
