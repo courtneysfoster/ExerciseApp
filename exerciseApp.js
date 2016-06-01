@@ -88,8 +88,9 @@ app.get("/make-table",function(req,res,next){
 
 /* function used to insert dummy data */
 app.get('/insert',function(req,res,next){
+  console.log("we got here");
   var context = {};
-  mysql.pool.query("INSERT INTO todo (`id`) VALUES (?)", [req.query.id], function(err, result){
+  pool.query("INSERT INTO todo (`id`) VALUES (?)", [req.query.id], function(err, result){
     if(err){
       next(err);
       return;
