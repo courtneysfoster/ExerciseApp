@@ -91,36 +91,9 @@ function afterPageLoad(){
 }
 
 
-	
-
-    
-
-            newEntryReq.addEventListener('load', function(){
-
-            if(newEntryReq.status >= 200 && newEntryReq.status < 400){
-
-                var newEntryResponse = JSON.parse(newEntryReq.responseText);
-
-                console.log(newEntryResponse.data);
-
-            }
-
-            else
-
-                console.log('Error in network request: ' + newEntryReq.statusText);
-
-            });
-
- 
-
-            console.log(JSON.stringify(newEntry));
-
-            newEntryReq.send(JSON.stringify(newEntry));
-
-            event.preventDefault();
-
-            });
-
-        }
-
- 
+function getDate(){
+	var dtDate = new date(date.now());
+	var dtString = dtDate.getFullYear() + "-" + dtDate.getMonth() + "-" + dtDate.getDay();
+	document.getElementById("txtDate").value = dtString;
+	return;
+}
