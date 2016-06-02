@@ -57,9 +57,7 @@ app.get("/", function(req,res,next){
 app.post("/formSubmit", function(req,res,next){
 	var context={};
 	console.log(req.body.exercise)
-	/* mysql.query('insert into workouts (, price) values ("' + req.body.name + '", "' + req.body. + '")' */
-	
-	pool.query("INSERT INTO workouts" + 
+	pool.query("insert into workouts" + 
 			  "(`exercise`, `reps`, `weight`, `date`, `lbs`)" +
 			  "values (?, ?, ?, ?, ?)"
 			  , [req.body.exercise
@@ -75,6 +73,7 @@ app.post("/formSubmit", function(req,res,next){
 					}else{
 						context.results = JSON.stringify(results);	
 						res.render("home",context);
+						return;
 					}
 				});
 	/*
@@ -103,9 +102,7 @@ app.get("/make-table",function(req,res,next){
 app.get('/insert',function(req,res,next){
   console.log("we got here");
   var context = {};
-/*	 pool.query('insert into workouts (exercise, reps) values ("' + req.query.exercise + '", "' + req.query.reps + '")'
-	  pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES (?, ?, ?, ?, ?)",[req.body.name, req.body.reps, req.body.weight, req.body.date, req.body.lbs] */
-   pool.query("INSERT INTO workouts (exercise, reps, ) VALUES (?, ?, ?, ?, ?)"
+   pool.query("insert into workouts (exercise, reps, ) values (?, ?, ?, ?, ?)"
 			, [req.query.exercise, req.query.reps, req.query.weight, req.query.date, req.query.lbs] 
 			,function(err, result){
 		if(err){
