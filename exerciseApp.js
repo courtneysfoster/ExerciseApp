@@ -40,9 +40,23 @@ app.get("/", function(req,res,next){
 			var dtDate = (new Date(Date.now())).toLocaleDateString('en-US');
 			context.date = (dtDate.getMonth() + 1) + "-" + dtDate.getDate() + "-" + dtDate.getFullYear();
 			*/
-			res.send(context);
+			res.render("home", context);
 		}
 	});
+});
+
+app.post("/", function(req,res,next){
+	var context={};
+	pool.query("SELECT * FROM workouts"
+				, function(err, rows, fields){
+		if(err){
+			console.log("query failure. " + err.description);
+			next(err);
+			return;
+		}else{
+			context.results = JSON.stringify(rows);
+			context.greeting = "Welcome to the Exercise Tracker!";
+			res.render("home", context);
 });
 
 app.post("/formSubmit", function(req,res,next){
