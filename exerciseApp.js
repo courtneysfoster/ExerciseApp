@@ -78,7 +78,7 @@ app.post("/formSubmit", function(req,res,next){
 						return;
 					}else{
 						pool.query("select * from workouts", function(err, rows, fields){
-							context.results = JSON.stringify(rows);	
+							context.results = rows;	
 							res.render("postTest",results);
 							return;	
 						});
