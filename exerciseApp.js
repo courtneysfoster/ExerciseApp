@@ -105,15 +105,16 @@ app.get('/insert',function(req,res,next){
   var context = {};
 /*	 pool.query('insert into workouts (exercise, reps) values ("' + req.query.exercise + '", "' + req.query.reps + '")'
 	  pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES (?, ?, ?, ?, ?)",[req.body.name, req.body.reps, req.body.weight, req.body.date, req.body.lbs] */
-   pool.query("INSERT INTO workouts (exercise, reps, ) VALUES (?, ?, ?, ?, ?)", [req.query.exercise, req.query.reps], 
-  ,function(err, result){
-    if(err){
-      next(err);
-      return;
-    }
-    context.results = "Insert successful. " + result.insertID;
-    res.render('home',context);
-  });
+   pool.query("INSERT INTO workouts (exercise, reps, ) VALUES (?, ?, ?, ?, ?)"
+			, [req.query.exercise, req.query.reps, req.query.weight, req.query.date, req.query.lbs] 
+			,function(err, result){
+		if(err){
+			next(err);
+			return;
+		}
+		context.results = "Insert successful. " + result.insertID;
+		res.render('home',context);
+		});
 });
 
 app.use(function(req,res){
