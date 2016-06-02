@@ -5,7 +5,7 @@ function buildTable(response){
 	    var cols = [];
         var p = response[0];
         for (var key in p) {
-            console.log(' name=' + key + ' value=' + p[key]);
+            console.log(key);
             cols.push(key);
         }
 		
