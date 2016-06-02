@@ -26,22 +26,6 @@ app.set("port", 3000);
 /* ********* Routes & Code *********** */
 
 app.get("/", function(req,res,next){
-	/*
-	var context={};
-	pool.query("SELECT * FROM workouts"
-				, function(err, rows, fields){
-		if(err){
-			console.log("query failure. " + err.description);
-			next(err);
-			return;
-		}else{
-			context.results = rows;
-			context.greeting = "Welcome to the Exercise Tracker!";
-			console.log(context.results);
-			res.render("home", context);
-		}
-	});
-	*/
 	var context = {};
 	context.greeting = "Welcome to the Exercise Tracker!";
 	res.render("home", context);
@@ -77,10 +61,9 @@ app.post("/formSubmit", function(req,res,next){
 					}else{
 						pool.query("select * from workouts", function(err, rows, fields){
 							context.results = rows;
-							res.send(context.results);
+							res.render("home", context.results);
 							return;	
 						});
-						
 					}
 				});
 	});
