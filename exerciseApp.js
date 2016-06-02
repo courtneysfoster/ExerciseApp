@@ -44,30 +44,23 @@ app.get("/", function(req,res,next){
 app.post("/formSubmit", function(req,res,next){
 	var context={};
 	
-	// console.log(req.body.date);
-	/* pool.query("INSERT INTO workouts (`date`) VALUES (?)", [req.body.date], function(err, rows, fields){*/
-	
-	/*
 	pool.query("INSERT INTO workouts" + 
 			  "(`name`, `reps`, `weight`, `date`, `lbs`)" +
 			  "values (?)", [req.body.name], [req.body.reps], [req.body.weight], [req.body.date], [req.body.lbs], function(err, rows){
-	
 	
 		if (err){
 			next(err);
 			console.log("insert query failure. " + err.description);
 			return;
 		}else{
-			context.results = JSON.stringify(rows);
-		
-		
+			context.results = JSON.stringify(rows);	
 			res.render("home",context);
-		
 		}
 	});
-	*/
+	/*
 	context.results = JSON.stringify(req.body);
 	res.render("home",context);
+	*/
 });
 
 app.get("/make-table",function(req,res,next){
