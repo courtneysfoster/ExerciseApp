@@ -1,4 +1,4 @@
-/* ********* Var declarations and setup *********** */
+/* ********* Global Var declarations and Setup *********** */
 var express = require("express");
 var app = express();
 
@@ -23,14 +23,16 @@ var pool = mysql.createPool({
 
 app.set("port", 3000);
 
-/* ********* Routes & Code *********** */
+/* ********* Routes & Handlers *********** */
 
+/* Root */
 app.get("/", function(req,res,next){
 	var context = {};
 	context.greeting = "Welcome to the Exercise Tracker!";
 	res.render("home", context);
 });
 
+/* Select Query*/
 app.get("/select", function(req,res,next){
 	pool.query("SELECT * FROM workouts", function(err, rows, fields){
 		if(err){
@@ -43,16 +45,9 @@ app.get("/select", function(req,res,next){
 	});
 });
 
-app.post("/formSubmit", function(req,res,next){
+/* Insert Query */
+app.post("/insert", function(req,res,next){
 	var context={};
-	
-	var dtDate = req.body.date;
-	console.log(dtDate);
-	
-	
-	/*; (dtDate.getFullYear() + "-" + dtDate.getMonth() + "-" + dtDate.getDay());*/
-	console.log(dtDate);
-	
 	pool.query("insert into workouts" + 
 			  "(`exercise`, `reps`, `weight`, `date`, `lbs`)" +
 			  "values (?, ?, ?, ?, ?)"
@@ -76,6 +71,54 @@ app.post("/formSubmit", function(req,res,next){
 				});
 	});
 
+/* Delete Query */
+app.post("/delete", function(req,res,next){
+	var context={};
+	pool.query("delete from workouts where id=?", [req.body.id], function(err, results){
+		if (err){
+			console.log("delete query failure. " + err.description);
+			next(err);
+			return;
+		}else{
+			pool.query("select * from workouts", function(err, rows, fields){
+				context.results = rows;
+				res.render("home", context);
+				return;	
+			});
+		}
+	});
+});
+
+/* Update Query */
+app.post("/update", function(req,res,next){
+	var context = {};
+	pool.query("select * from workouts where id=?", [req.body.id], function(err,result){
+		if(err){
+			console.log("update select query failure. " + err.description);
+			next(err);
+			return;
+		}else if(result.length==1){
+			var curVals = result[0];
+			pool.query("update workouts set exercise=?, reps=?, due=?, where id=?",
+				[req.body.exercise || curVals.exercise, req.body.reps || curVals.reps
+				[req.body.weight || curVals.weight, req.body.date || curVals.date, req.body.lbs || curVals.lbs]
+				,function(err,result){
+					if(err){
+						console.log("update query failure. " + err.description);
+						next(err);
+						return;
+					}else{
+						pool.query("select * from workouts", function(err,rows,fields){
+						context.results = rows;
+						res.send(context);
+						});
+					}			
+				});
+		}
+	});
+});
+
+/* delete old table and make a new one */
 app.get("/make-table",function(req,res,next){
     var context = {};
     pool.query("DROP TABLE IF EXISTS workouts", function(err){ //replace your connection pool with the your variable containing the connection pool
@@ -93,40 +136,7 @@ app.get("/make-table",function(req,res,next){
   });
 });
 
-/*
-app.get('/insert',function(req,res,next){
-  console.log("we got here");
-  var context = {};
-   pool.query("insert into workouts (exercise, reps, ) values (?, ?, ?, ?, ?)"
-			, [req.query.exercise, req.query.reps, req.query.weight, req.query.date, req.query.lbs] 
-			,function(err, result){
-		if(err){
-			next(err);
-			return;
-		}
-		context.results = "Insert successful. " + result.insertID;
-		res.render('home',context);
-		});
-});
-*/
-
-app.post("/delete", function(req,res,next){
-	var context={};
-	pool.query("delete from workouts where id=?", [req.body.id], function(err, results){
-			if (err){
-				console.log("delete query failure. " + err.description);
-				next(err);
-				return;
-			}else{
-				pool.query("select * from workouts", function(err, rows, fields){
-					context.results = rows;
-					res.render("home", context);
-					return;	
-				});
-			}
-		});
-	});
-	
+/* Error handlers and port listener */	
 app.use(function(req,res){
 	res.status(404);
 	res.render("404");
