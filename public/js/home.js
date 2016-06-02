@@ -23,11 +23,9 @@ function afterPageLoad(){
 		var data = {};
 		req.open("GET", "http://54.213.219.47:3000/select", true);
 		req.setRequestHeader("Content-Type", "application/json");
-		req.addEventListener("load", function(data, status){
+		req.addEventListener("load", function(dataResponse, status){
 			if(req.status >= 200 && req.status < 400){
-				var dataResponse = JSON.parse(data);
-				/*dataResponse =  JSON.parse(req.responseText);*/
-				/*dataResponse =  req.responseText;*/
+				dataResponse =  JSON.parse(req.responseText);
 			}else{
 				console.log("Error: " + req.statusText);
 			}
