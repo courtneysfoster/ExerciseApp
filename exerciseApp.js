@@ -34,7 +34,7 @@ app.get("/", function(req,res,next){
 			next(err);
 			return;
 		}else{
-			context.results = rows;
+			context.results = rows[0];
 			context.greeting = "Welcome to the Exercise Tracker!";
 			/* 
 			var dtDate = (new Date(Date.now())).toLocaleDateString('en-US');
