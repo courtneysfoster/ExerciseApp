@@ -26,8 +26,9 @@ function afterPageLoad(){
 		req.addEventListener("load", function(){
 			if(req.status >= 200 && req.status < 400){
 				var dataResponse = [];
-				dataResponse =  JSON.parse(req.responseText);
-				console.log(dataResponse.response);
+				/*dataResponse =  JSON.parse(req.responseText);*/
+				dataResponse =  req.responseText;
+				console.log(dataResponse);
 			}else{
 				console.log("Error: " + req.statusText);
 			}
