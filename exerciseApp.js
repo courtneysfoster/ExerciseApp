@@ -34,13 +34,13 @@ app.get("/", function(req,res,next){
 			next(err);
 			return;
 		}else{
-			context.results = JSON.stringify(rows);
+			context.results = rows;
 			context.greeting = "Welcome to the Exercise Tracker!";
 			/* 
 			var dtDate = (new Date(Date.now())).toLocaleDateString('en-US');
 			context.date = (dtDate.getMonth() + 1) + "-" + dtDate.getDate() + "-" + dtDate.getFullYear();
 			*/
-			res.render("home", context);
+			res.render("home", context.results);
 		}
 	});
 });
