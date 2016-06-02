@@ -102,12 +102,12 @@ app.get("/make-table",function(req,res,next){
 app.get('/insert',function(req,res,next){
   console.log("we got here");
   var context = {};
-  pool.query("INSERT INTO workouts (`id`) VALUES (?)", [req.query.id], function(err, result){
+  pool.query("INSERT INTO workouts (`exercise`) VALUES (?)", [req.query.exercise], function(err, result){
     if(err){
       next(err);
       return;
     }
-    context.results = "Inserted id " + result.insertId;
+    context.results = "Inserted exercise " + result.exercise;
     res.render('home',context);
   });
 });
