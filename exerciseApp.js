@@ -26,8 +26,7 @@ app.set("port", 3000);
 /* ********* Routes & Code *********** */
 app.get("/", function(req,res,next){
 	var context={};
-	/* If no prior session exists, then return empty dataset for table structure */
-	pool.query("select * from workouts", function(err, rows, fields){
+	pool.query("select * from workouts", function(err, rows, next){
 		if (err){
 			console.log("this is where the error is");
 			next(err);
