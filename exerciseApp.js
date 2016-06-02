@@ -24,7 +24,7 @@ var pool = mysql.createPool({
 app.set("port", 3000);
 
 /* ********* Routes & Code *********** */
-/*
+
 app.get("/", function(req,res,next){
 	var context={};
 	console.log("this is where the error is");
@@ -42,7 +42,8 @@ app.get("/", function(req,res,next){
 		}
 	});
 });
-*/
+
+/*
 app.get('/',function(req,res,next){
   var context = {};
   pool.query('SELECT * FROM workouts', function(err, rows, fields){
@@ -54,6 +55,7 @@ app.get('/',function(req,res,next){
     res.render('home', context);
   });
 });
+*/
 
 app.post("/formSubmit", function(req,res,next){
 	var context={};
