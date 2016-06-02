@@ -66,7 +66,7 @@ app.post("/insert", function(req,res,next){
 						pool.query("select * from workouts", function(err, rows, fields){
 							context.results = rows;
 							console.log(context);
-							res.render("home", context.results);
+							res.send(context.results);
 							return;	
 						});
 					}
