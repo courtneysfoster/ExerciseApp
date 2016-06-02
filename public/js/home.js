@@ -27,7 +27,7 @@ function afterPageLoad(){
 			if(req.status >= 200 && req.status < 400){
 				var dataResponse = [];
 				dataResponse =  JSON.parse(req.responseText);
-				console.log(dataResponse);
+				console.log(dataResponse.response);
 			}else{
 				console.log("Error: " + req.statusText);
 			}
