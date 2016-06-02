@@ -30,7 +30,7 @@ function buildTable(response){
 	var tr;
 	for(var i=0, iLen=response.length; i<iLen; i++){
 		tr = document.createElement("tr");
-		for(var j=0, i<colNames.length; j++){
+		for(var j=0; i<colNames.length; j++){
 			td.textContent = response[colNames[j]].value;
 			tr.appendChild(td);	
 		}
