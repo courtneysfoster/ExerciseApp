@@ -1,13 +1,5 @@
 /*Exercise Tracker home page javascript*/
 
-var submitURL = "http://54.213.219.47:3000/formSubmit";
-/* var submitURL = "http://localhost:3000/formSubmit"; */
-
-
-function submitForm(){
-
-}
-
 function buildTable(response){
 	var table = document.getElementById("tblOutput");
 	table.parentNode.removeChild(table);
@@ -55,7 +47,7 @@ function afterPageLoad(){
 		}else{
 			data.lbs = 0;
 		}
-		req.open("POST", "http://54.213.219.47:3000/formSubmit", true);
+		req.open("POST", "http://54.213.219.47:3000/insert", true);
 		req.setRequestHeader("Content-Type", "application/json");
 		req.addEventListener("load", function(){
 			if (req.status>200 && req.status<400){
