@@ -8,12 +8,13 @@
 	margin-top: 50px;
 	border-style: solid;
 	border-color: teal;
-	width: 500px;
+	width: 600px;
 }
 
 hr{
 	margin-top: 15px;
 	margin-bottom: 15px;
+	color: maroon;
 }
 
 #outputArea{
@@ -34,17 +35,23 @@ label{
 	display: inline-block;
 	width: 140px;
 	text-align: right;
-	
 }
 
-#btnSubmit{
+#btnNew{
+	margin-left: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#btnEdit{
 	margin-left: 15px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .dataInput{
 	margin-left: 20px;
 	margin-top: 10px;
-	
 }
 
 ul{

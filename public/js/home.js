@@ -1,6 +1,7 @@
 /*Exercise Tracker home page javascript*/
 
 function buildTable(response){
+	console.log("we got here!");
 	var table = document.getElementById("tblOutput");
 	table.parentNode.removeChild(table);
 	
@@ -35,8 +36,12 @@ function afterPageLoad(){
 		});
 		req.send(JSON.stringify(data));
 	
+
+}
+
 	/* button click event listener */
-	document.getElementById("btnSubmit").addEventListener("click", function(event){
+	document.getElementById("btnNew").addEventListener("click", function(event){
+		
 		var req = new XMLHttpRequest();
 		var data = {};
 		data.exercise = document.getElementById("txtExercise").value;
@@ -47,19 +52,28 @@ function afterPageLoad(){
 		}else{
 			data.lbs = 0;
 		}
+		
 		req.open("POST", "http://54.213.219.47:3000/insert", true);
 		req.setRequestHeader("Content-Type", "application/json");
+		
 		req.addEventListener("load", function(){
+			console.log("we got to load event listener");
 			if (req.status>200 && req.status<400){
 				var response = req.response;
+				buildTable(response);
 			}else{
 				console.log("error " + req.statusText);
+				return;
 			}
+			console.log("We fell through the cracks")
 		});
-		/* event.preventDefault(); */
+		console.log("we got passed load listener");
+		req.send(JSON.stringify(data));
+		console.log("We got passed send");
+			
+		
+		event.preventDefault();
 	});
-}
-
 
 function getDate(){
 	var dtDate = new date(date.now());

@@ -1,9 +1,14 @@
-
+<!doctype HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="../public/css/homeStyle.css">
+</head>
 <h1 id="greeting">{{greeting}}</h1>
 
 <br>
 <section id="inputArea">
-	<form id="frmInput" action="http://54.213.219.47:3000/insert" method="POST">
+	<form id="frmInput">
 		<label id="lblID" type="hidden"></label>
 			<input class="dataInput" id="txtID" type="hidden" name="id"><br>
 		<label id="lblDate">Date (yyyy-mm-dd):</label>
@@ -17,7 +22,7 @@
 		<label id="lblUnits">Units in Lbs.:</label>
 			<input class="dataInput" id="optLbs" type="checkbox" name="units" value="Lbs" checked> (uncheck for Kgs)
 		<!-- <button id="btnSubmit">Submit</button>	-->
-		<button id="btnNew" name="Submit">Submit as New</button><button id="btnEdit" type="hidden" name="Submit">Submit Changes</button>
+		<input type="Submit" id="btnNew" name="Submit" value="Submit as New"><input id="btnEdit" type="hidden" name="Submit" value="Submit Changes">
 	</form>
 	
 </section>
@@ -34,5 +39,5 @@
 		</table>
 </section>
 
-<script src="js/home.js"></script>
-
+<script src="../public/js/home.js"></script>
+</html>
