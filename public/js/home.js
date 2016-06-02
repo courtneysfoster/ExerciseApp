@@ -35,7 +35,7 @@ function afterPageLoad(){
 		event.preventDefault();
 	
 	/* button click event listener */
-	document.getElementById("btnSubmit").addEventListener("click", function(event){
+	document.getElementById("btnSubmit").addEventListener("click", function(){
 		var req = new XMLHttpRequest();
 		var data = {};
 		data.exercise = document.getElementById("txtExercise").value;

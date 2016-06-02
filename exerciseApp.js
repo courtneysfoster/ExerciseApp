@@ -59,7 +59,6 @@ app.get("/select", function(req,res,next){
 		}else{
 			context.results = rows;
 			context.greeting = "Welcome to the Exercise Tracker!";
-			console.log("/select was reached");
 			res.send(context);
 		}
 	});
