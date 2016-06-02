@@ -2,7 +2,7 @@
 
 function buildTable(response){
 	console.log("we got to build table");
-	console.log(response.id.value);
+	console.log(response);
 	return;
 	/*
 	var table = document.getElementById("tblOutput");
