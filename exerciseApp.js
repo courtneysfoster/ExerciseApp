@@ -47,9 +47,10 @@ app.get("/", function(req,res,next){
 
 app.post("/formSubmit", function(req,res,next){
 	var context={};
+	console.log(req.body.exercise)
 	pool.query("INSERT INTO workouts" + 
 			  "(`name`, `reps`, `weight`, `date`, `lbs`) values (?)"
-			  , [req.body.name]
+			  , [req.body.exercise]
 			  , [req.body.reps]
 			  , [req.body.weight]
 			  , [req.body.date]
