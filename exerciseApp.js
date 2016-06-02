@@ -66,7 +66,7 @@ app.post("/formSubmit", function(req,res,next){
 		}
 	});
 	*/
-	context.results = stringify(req.body);
+	context.results = JSON.stringify(req.body);
 	res.render("postTest",context);
 });
 
