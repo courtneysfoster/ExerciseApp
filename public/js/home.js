@@ -11,7 +11,28 @@ function init(){
 	
 }
 
-var table = document.createElement("table");
+
+document.addEventListener("DOMContentLoaded", afterPageLoad);
+
+function afterPageLoad(){
+	document.getElementById("exerciseSubmit").addEventListener("click", function(event){
+		var req = new XMLHttpRequest();
+		var data = {};
+		req.open("POST", "http://54.213.219.47:3000", true);
+		req.setRequestHeader("Content-Type", "application/json");
+		req.addEventListener("load", function(){
+			if(req.status >= 200 && req.status < 400){
+				var dataResponse = JSON.parse(req.responseText);
+				console.log(dataResponse.data);
+			}else{
+				console.log("Error: " + req.statusText);
+			}
+		});
+		console.log(JSON.stringify(data));
+		req.send(JSON.stringify(data));
+		event.preventDefault();
+	});
+	var table = document.createElement("table");
 table.id = "tblOutput";
 table.border = 1;
 table.style.borderCollapse = "collapse";
@@ -38,35 +59,5 @@ for (var i=0; i<4; i++){
 		nr.appendChild(td);
 	}
 }
-
 document.getElementById("outputArea").appendChild(table);
-
-
-
-
-
-
-
-
-
-document.addEventListener("DOMContentLoaded", afterPageLoad);
-
-function afterPageLoad(){
-	document.getElementById("exerciseSubmit").addEventListener("click", function(event){
-		var req = new XMLHttpRequest();
-		var data = {};
-		req.open("POST", "http://54.213.219.47:3000", true);
-		req.setRequestHeader("Content-Type", "application/json");
-		req.addEventListener("load", function(){
-			if(req.status >= 200 && req.status < 400){
-				var dataResponse = JSON.parse(req.responseText);
-				console.log(dataResponse.data);
-			}else{
-				console.log("Error: " + req.statusText);
-			}
-		});
-		console.log(JSON.stringify(data));
-		req.send(JSON.stringify(data));
-		event.preventDefault();
-	});
 }
