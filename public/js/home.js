@@ -34,7 +34,6 @@ function afterPageLoad(){
 	
 	/* button click event listener */
 	document.getElementById("btnSubmit").addEventListener("click", function(event){
-		alert("button clicked!");
 		var req = new XMLHttpRequest();
 		var data = {};
 		data.exercise = document.getElementById("txtExercise").value;
@@ -54,7 +53,7 @@ function afterPageLoad(){
 				console.log("error " + req.statusText);
 			}
 		});
-		event.preventDefault();
+		/* event.preventDefault(); */
 	});
 }
 
