@@ -43,6 +43,7 @@ app.get("/", function(req,res,next){
 	});
 	*/
 	var context = {};
+	context.greeting = "Welcome to the Exercise Tracker!";
 	res.render("home", context);
 });
 
