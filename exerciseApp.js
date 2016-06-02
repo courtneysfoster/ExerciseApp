@@ -44,7 +44,6 @@ app.get("/", function(req,res,next){
 	*/
 	var context = {};
 	context.greeting = "Welcome to the Exercise Tracker!";
-	console.log(context.greeting);
 	res.render("home", context);
 });
 
@@ -59,6 +58,7 @@ app.get("/select", function(req,res,next){
 		}else{
 			context.results = rows;
 			context.greeting = "Welcome to the Exercise Tracker!";
+			console.log(context.greeting);
 			res.send(context);
 		}
 	});
