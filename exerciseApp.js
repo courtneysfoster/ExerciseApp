@@ -63,7 +63,6 @@ app.get("/select", function(req,res,next){
 
 app.post("/formSubmit", function(req,res,next){
 	var context={};
-	console.log("did we get here?");
 	pool.query("insert into workouts" + 
 			  "(`exercise`, `reps`, `weight`, `date`, `lbs`)" +
 			  "values (?, ?, ?, ?, ?)"
@@ -79,7 +78,7 @@ app.post("/formSubmit", function(req,res,next){
 						return;
 					}else{
 						pool.query("select * from workouts", function(err, rows, fields){
-							context.results = rows;	
+							context.results = JSON.stringify(rows);	
 							res.render("postTest",results);
 							return;	
 						});
