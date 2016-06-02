@@ -36,7 +36,7 @@ app.get("/", function(req,res,next){
 			context.results = JSON.stringify(rows);
 			context.greeting = "Welcome to the Exercise Tracker!";
 			var dtDate = (new Date(Date.now())).toLocaleDateString('en-US');
-			context.date = (dtDate.getMonth() + 1) + "-" + dtDate.getDate() + "-" + dtDate.getFullYear());
+			context.date = (dtDate.getMonth() + 1) + "-" + dtDate.getDate() + "-" + dtDate.getFullYear();
 			res.render("home", context);
 		}
 	});
