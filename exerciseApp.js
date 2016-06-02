@@ -40,6 +40,7 @@ app.get("/", function(req,res,next){
 			var dtDate = (new Date(Date.now())).toLocaleDateString('en-US');
 			context.date = (dtDate.getMonth() + 1) + "-" + dtDate.getDate() + "-" + dtDate.getFullYear();
 			*/
+			console.log(context.results);
 			res.render("home", context.results);
 		}
 	});
