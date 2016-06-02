@@ -40,14 +40,13 @@ app.get("/", function(req,res,next){
 			var dtDate = (new Date(Date.now())).toLocaleDateString('en-US');
 			context.date = (dtDate.getMonth() + 1) + "-" + dtDate.getDate() + "-" + dtDate.getFullYear();
 			*/
-			res.render("home", context);
+			res.send(context);
 		}
 	});
 });
 
 app.post("/formSubmit", function(req,res,next){
 	var context={};
-	console.log(req.body.exercise)
 	pool.query("insert into workouts" + 
 			  "(`exercise`, `reps`, `weight`, `date`, `lbs`)" +
 			  "values (?, ?, ?, ?, ?)"
