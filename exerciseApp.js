@@ -26,9 +26,10 @@ app.set("port", 3000);
 /* ********* Routes & Code *********** */
 app.get("/", function(req,res,next){
 	var context={};
-	pool.query("select * from workouts", function(err, rows, next){
+	console.log("this is where the error is");
+	pool.query("select * from workouts", function(err, rows, fields){
 		if (err){
-			console.log("this is where the error is");
+			
 			next(err);
 			console.log("query failure. " + err.description);
 			return;
