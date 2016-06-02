@@ -35,7 +35,8 @@ app.get("/", function(req,res,next){
 		}else{
 			context.results = JSON.stringify(rows);
 			context.greeting = "Welcome to the Exercise Tracker!";
-			context.date = (new Date(Date.now())).toLocaleDateString('en-US');
+			var dtDate = (new Date(Date.now())).toLocaleDateString('en-US');
+			context.date = (dtDate.getMonth() + 1) + "-" + dtDate.getDate() + "-" + dtDate.getFullYear());
 			res.render("home", context);
 		}
 	});
@@ -45,18 +46,23 @@ app.post("/formSubmit", function(req,res,next){
 	var context={};
 	
 	pool.query("INSERT INTO workouts" + 
-			  "(`name`, `reps`, `weight`, `date`, `lbs`)" +
-			  "values (?)", [req.body.name], [req.body.reps], [req.body.weight], [req.body.date], [req.body.lbs], function(err, rows){
-	
-		if (err){
-			next(err);
-			console.log("insert query failure. " + err.description);
-			return;
-		}else{
-			context.results = JSON.stringify(rows);	
-			res.render("home",context);
-		}
-	});
+			  "(`name`, `reps`, `weight`, `date`, `lbs`) values (?)"
+			  , [req.body.name]
+			  , [req.body.reps]
+			  , [req.body.weight]
+			  , [req.body.date]
+			  , [req.body.lbs]
+			  , function(err, rows){
+				
+					if (err){
+						next(err);
+						console.log("insert query failure. " + err.description);
+						return;
+					}else{
+						context.results = JSON.stringify(rows);	
+						res.render("home",context);
+					}
+				});
 	/*
 	context.results = JSON.stringify(req.body);
 	res.render("home",context);
