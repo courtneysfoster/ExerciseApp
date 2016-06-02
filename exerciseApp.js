@@ -41,7 +41,7 @@ app.get("/", function(req,res,next){
 			context.date = (dtDate.getMonth() + 1) + "-" + dtDate.getDate() + "-" + dtDate.getFullYear();
 			*/
 			console.log(context.results);
-			res.render("home", context.results);
+			res.render("home", context);
 		}
 	});
 });
