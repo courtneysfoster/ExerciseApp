@@ -47,7 +47,9 @@ app.post("/formSubmit", function(req,res,next){
 	var context={};
 	
 	var dtDate = req.body.date;
-	/* var dtString = (dtDate.getFullYear() + "-" + dtDate.getMonth() + "-" + dtDate.getDay());
+	var dtString = new Date();
+	dtString = dtDate.getFullYear();
+	/*; (dtDate.getFullYear() + "-" + dtDate.getMonth() + "-" + dtDate.getDay());*/
 	console.log(dtString);*/
 	
 	pool.query("insert into workouts" + 
