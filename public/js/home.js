@@ -53,7 +53,7 @@ document.getElementById("btnNew").addEventListener("click", function(event){
 	req.open("POST", "http://54.213.219.47:3000/insert", true);
 	req.setRequestHeader("Content-Type", "application/json");
 	req.addEventListener("load", function(){
-		if (req.status>200 && req.status<400){
+		if (req.status>=200 && req.status<400){
 			var response = JSON.parse(req.response);
 			console.log("req.status= " + req.status);
 			buildTable(response);
