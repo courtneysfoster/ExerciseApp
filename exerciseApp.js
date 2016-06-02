@@ -34,7 +34,7 @@ app.get("/", function(req,res,next){
 			next(err);
 			return;
 		}else{
-			context.results = rows[0];
+			context.results = rows;
 			context.greeting = "Welcome to the Exercise Tracker!";
 			/* 
 			var dtDate = (new Date(Date.now())).toLocaleDateString('en-US');
@@ -57,7 +57,7 @@ app.get("/select", function(req,res,next){
 		}else{
 			context.results = JSON.stringify(rows);
 			context.greeting = "Welcome to the Exercise Tracker!";
-			res.render("home", context);
+			res.render("home", context.results);
 		}
 	});
 });
@@ -80,7 +80,7 @@ app.post("/formSubmit", function(req,res,next){
 					}else{
 						pool.query("select * from workouts", function(err, rows, fields){
 							context.results = rows;
-							res.render("postTest",results);
+							res.render("postTest", context.results);
 							return;	
 						});
 						
