@@ -48,13 +48,15 @@ app.get("/", function(req,res,next){
 app.post("/formSubmit", function(req,res,next){
 	var context={};
 	console.log(req.body.exercise)
+	/* mysql.query('insert into workouts (, price) values ("' + req.body.name + '", "' + req.body. + '")' */
+	
 	pool.query("INSERT INTO workouts" + 
-			  "(`name`, `reps`, `weight`, `date`, `lbs`) values (?)"
+			  "(`exercise`, `reps`, `weight`, `date`, `lbs`) values (?)"
 			  , [req.body.exercise]
 			  , [req.body.reps]
 			  , [req.body.weight]
 			  , [req.body.date]
-			  , [req.body.lbs]
+			  , [req.body.lbs] 
 			  , function(err, rows){
 					if (err){
 						next(err);
