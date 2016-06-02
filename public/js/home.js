@@ -1,10 +1,16 @@
 /*Exercise Tracker home page javascript*/
 
 function buildTable(response){
-	console.log("we got to build table");
-	console.log(response[0].id);
+	
+	    var cols = [];
+        var p = response[0];
+        for (var key in p) {
+            console.log(' name=' + key + ' value=' + p[key]);
+            cols.push(key);
+        }
+		
 	return;
-	/*
+	
 	var table = document.getElementById("tblOutput");
 	table.parentNode.removeChild(table);
 	
@@ -13,13 +19,19 @@ function buildTable(response){
 	table.border = 1;
 	table.style.borderCollapse = "collapse";
 	
-	var idCol = document.createElement("col")
-	idCol.id = "id";
+	var idCol = document.createElement("col");
 	idCol.style.visibility =0;
 	table.appendChild(idCol);
 	
+	/* Set Header Row */
 	var th = document.createElement("th");
-	idCol.appendChild(th);
+	table.appendChild(th);
+	
+	var td: = document.createElement("td");
+	
+	
+	
+	
 	
 	var td = document.createElement("td");
 	td.textContent = response.id;
@@ -28,7 +40,7 @@ function buildTable(response){
 	
 	td.textContent = "Exercise";
 	table.appendChild(th);
-	*/
+	
 }
 
 document.addEventListener("DOMContentLoaded", afterPageLoad);
