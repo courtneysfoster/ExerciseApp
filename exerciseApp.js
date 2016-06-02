@@ -57,6 +57,8 @@ app.post("/", function(req,res,next){
 			context.results = JSON.stringify(rows);
 			context.greeting = "Welcome to the Exercise Tracker!";
 			res.render("home", context);
+		}
+	});
 });
 
 app.post("/formSubmit", function(req,res,next){
