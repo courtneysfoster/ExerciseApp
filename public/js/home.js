@@ -10,7 +10,7 @@ function buildTable(response){
         }
 		
 	return;
-	
+	/*
 	var table = document.getElementById("tblOutput");
 	table.parentNode.removeChild(table);
 	
@@ -23,11 +23,11 @@ function buildTable(response){
 	idCol.style.visibility =0;
 	table.appendChild(idCol);
 	
-	/* Set Header Row */
+	
 	var th = document.createElement("th");
 	table.appendChild(th);
 	
-	var td: = document.createElement("td");
+	var td = document.createElement("td");
 	
 	
 	
@@ -40,7 +40,7 @@ function buildTable(response){
 	
 	td.textContent = "Exercise";
 	table.appendChild(th);
-	
+	*/
 }
 
 document.addEventListener("DOMContentLoaded", afterPageLoad);
