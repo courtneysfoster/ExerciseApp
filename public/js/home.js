@@ -2,15 +2,6 @@
 
 function buildTable(response){
 	
-	    var cols = [];
-        var p = response[0];
-        for (var key in p) {
-            console.log(key);
-            cols.push(key);
-        }
-		
-	return;
-	/*
 	var table = document.getElementById("tblOutput");
 	table.parentNode.removeChild(table);
 	
@@ -27,20 +18,24 @@ function buildTable(response){
 	var th = document.createElement("th");
 	table.appendChild(th);
 	
-	var td = document.createElement("td");
-	
-	
-	
-	
-	
-	var td = document.createElement("td");
-	td.textContent = response.id;
-	th.appendChild(td);
-	
-	
-	td.textContent = "Exercise";
-	table.appendChild(th);
-	*/
+	var td;
+	var colNames = [];
+    var item = response[0];
+    for (var key in item) {
+        colNames.push(key);
+		td = document.createElement("td");
+		td.textContent = key;
+		th.appendChild(td);
+    }
+	var tr;
+	for(var i=0, iLen=response.length; i<iLen; i++){
+		tr = document.createElement("tr");
+		for(var j=0, i<colNames.length; j++){
+			td.textContent = response[colNames[j]].value;
+			tr.appendChild(td);	
+		}
+	}
+	document.getElementById("outputArea").appendChild(table);
 }
 
 document.addEventListener("DOMContentLoaded", afterPageLoad);
