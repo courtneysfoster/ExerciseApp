@@ -4,6 +4,8 @@
 <br>
 <section id="inputArea">
 	<form id="frmInput" action="http://54.213.219.47:3000/formSubmit" method="POST">
+		<label id="lblID" type="hidden"></label>
+			<input class="dataInput" id="txtID" type="hidden" name="id"><br>
 		<label id="lblDate">Date (yyyy-mm-dd):</label>
 			<input class="dataInput" id="txtDate" type="text" name="date" onload="getDate()" value=""><br>
 		<label id="lblExercise">Exercise:</label>

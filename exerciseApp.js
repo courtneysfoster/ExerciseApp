@@ -57,7 +57,7 @@ app.get("/select", function(req,res,next){
 		}else{
 			context.results = rows;
 			context.greeting = "Welcome to the Exercise Tracker!";
-			res.render("home", context.results);
+			res.send(context.results);
 		}
 	});
 });
