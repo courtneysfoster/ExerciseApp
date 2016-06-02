@@ -1,9 +1,12 @@
 <h1>You sent the following data in a POST request:</h1>
-Listed Results
-<ul>
-  {{#each results}}
-    <li>{{this.name}}: {{this.value}}
-  {{/each}}
-</ul>
-Complete Results
-{{results}}
+<table>
+{{#each results}}
+	<tr>
+		<td>{{this.name}} </td>
+		<td>{{this.reps}}}} </td>
+		<td>{{this.weight}} </td>
+		<td>{{this.date}} </td>
+		<td>{{this.lbs}} </td>
+	</tr>
+{{/each}}
+</table>
