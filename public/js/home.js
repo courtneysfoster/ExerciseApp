@@ -28,7 +28,7 @@ function afterPageLoad(){
 				var dataResponse = [];
 				/*dataResponse =  JSON.parse(req.responseText);*/
 				dataResponse =  req.responseText;
-				console.log(dataResponse);
+				console.log(dataResponse.results);
 			}else{
 				console.log("Error: " + req.statusText);
 			}
