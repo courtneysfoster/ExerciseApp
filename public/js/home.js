@@ -2,7 +2,7 @@
 
 function buildTable(response){
 	console.log("we got to build table");
-	console.log(response.id);
+	console.log(response.id.value);
 	return;
 	/*
 	var table = document.getElementById("tblOutput");
@@ -68,7 +68,6 @@ document.getElementById("btnNew").addEventListener("click", function(event){
 	req.addEventListener("load", function(){
 		if (req.status>=200 && req.status<400){
 			var response = JSON.parse(req.responseText);
-			console.log("req.status= " + req.status);
 			buildTable(response);
 			console.log("passed buildTable");
 		}else{
