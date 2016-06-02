@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", afterPageLoad);
 function afterPageLoad(){
 	/* Initial table select section */
 	var req = new XMLHttpRequest();
-		/* var data = {}; */
+		var data = {};
 		req.open("GET", "http://54.213.219.47:3000/select", true);
 		req.setRequestHeader("Content-Type", "application/json");
 		req.addEventListener("load", function(data, status){
