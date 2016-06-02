@@ -45,7 +45,7 @@ app.get("/", function(req,res,next){
 	});
 });
 
-app.post("/", function(req,res,next){
+app.get("/select", function(req,res,next){
 	var context={};
 	pool.query("SELECT * FROM workouts"
 				, function(err, rows, fields){

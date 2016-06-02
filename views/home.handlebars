@@ -20,7 +20,15 @@
 </section>
 <hr>
 <section id="outputArea">
-
+	<table id="tblOutput">
+	{{#each results}}
+		<tr>
+			<td>{{this.name}} </td>
+			<td>{{this.reps}} </td>
+			etc...
+		</tr>
+	{{/each}}
+	</table>
 </section>
 
 <script src="js/home.js"></script>

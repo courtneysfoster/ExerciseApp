@@ -7,10 +7,35 @@ document.getElementById("btnSubmit").addEventListener("click", function(){
 	
 });
 
-function init(){
-	
+function submitForm(){
+	var req = new XMLHttpRequest();
+	var data = {};
+	data.exercise = document.getElementById("txtExercise").value;
+	data.reps = document.getElementById("txtReps").value;
+	data.weight = document.getElementById("txtWeight").value;
+	if (document.getElementById("optLbs").checked){
+		data.lbs = 1;
+	}else{
+		data.lbs = 0;
+	}
+	req.open("POST", "http://54.213.219.47:3000/formSubmit", true);
+	req.setRequestHeader("Content-Type", "application/json");
+	req.addEventListener("load", function(){
+		if (req.status>200 && req.status<400){
+			var response = JSON.parse(req.response);
+			
+		}else{
+			console.log("error " + req.statusText);
+		}
+	});
 }
 
+function buildTable(response){
+	var table = document.getElementById("tblOutput");
+	table.parentNode.removeChild(table);
+	
+
+}
 
 document.addEventListener("DOMContentLoaded", afterPageLoad);
 
@@ -64,3 +89,38 @@ function afterPageLoad(){
 	}
 	document.getElementById("outputArea").appendChild(table);
 }
+
+
+	
+
+    
+
+            newEntryReq.addEventListener('load', function(){
+
+            if(newEntryReq.status >= 200 && newEntryReq.status < 400){
+
+                var newEntryResponse = JSON.parse(newEntryReq.responseText);
+
+                console.log(newEntryResponse.data);
+
+            }
+
+            else
+
+                console.log('Error in network request: ' + newEntryReq.statusText);
+
+            });
+
+ 
+
+            console.log(JSON.stringify(newEntry));
+
+            newEntryReq.send(JSON.stringify(newEntry));
+
+            event.preventDefault();
+
+            });
+
+        }
+
+ 
