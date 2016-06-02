@@ -46,11 +46,11 @@ app.get("/select", function(req,res,next){
 app.post("/formSubmit", function(req,res,next){
 	var context={};
 	
-	var dtDate = req.body.date;
+	var dtDate = Date(req.body.date.getFullYear());
 	var dtString = new Date();
-	dtString = dtDate.getFullYear();
+	
 	/*; (dtDate.getFullYear() + "-" + dtDate.getMonth() + "-" + dtDate.getDay());*/
-	console.log(dtString);
+	console.log(dtDate);
 	
 	pool.query("insert into workouts" + 
 			  "(`exercise`, `reps`, `weight`, `date`, `lbs`)" +
