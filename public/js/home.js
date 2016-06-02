@@ -16,7 +16,6 @@ function buildTable(response){
 		td.textContent = "Exercise";
 		table.appendChild(th);
 	}
-
 }
 
 document.addEventListener("DOMContentLoaded", afterPageLoad);
@@ -71,6 +70,7 @@ function afterPageLoad(){
 		*/
 		
 		req.addEventListener("load", function(){
+			console.log("Inside Load Event");
 			if (req.status>200 && req.status<400){
 				var response = JSON.parse(req.response);
 				buildTable(response);
@@ -81,10 +81,7 @@ function afterPageLoad(){
 			console.log("We fell through the cracks");
 		});
 		req.send(JSON.stringify(data));
-		console.log(req.statusText);
-		
-			
-		
+		console.log(req.status);
 		event.preventDefault();
 	});
 
