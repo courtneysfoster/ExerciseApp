@@ -23,6 +23,15 @@ var pool = mysql.createPool({
 
 app.set("port", 3000);
 
+var nextTick = process.nextTick;
+
+process.nextTick = function(callback) {
+  if (typeof callback !== 'function') {
+    console.trace(typeof callback + ' is not a function');
+  }
+  return nextTick(callback);
+};
+
 /* ********* Routes & Code *********** */
 
 app.get("/", function(req,res,next){
@@ -57,13 +66,13 @@ app.post("/formSubmit", function(req,res,next){
 			  , [req.body.weight]
 			  , [req.body.date]
 			  , [req.body.lbs] 
-			  , function(err, rows){
+			  , function(err, results){
 					if (err){
-						next(err);
 						console.log("insert query failure. " + err.description);
+						next(err);
 						return;
 					}else{
-						context.results = JSON.stringify(rows);	
+						context.results = JSON.stringify(results);	
 						res.render("home",context);
 					}
 				});
