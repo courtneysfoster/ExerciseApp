@@ -45,11 +45,11 @@ app.get("/select", function(req,res,next){
 
 app.post("/formSubmit", function(req,res,next){
 	var context={};
-	/*
+	
 	var dtDate = req.body.date;
 	var dtString = (dtDate.getFullYear() + "-" + dtDate.getMonth() + "-" + dtDate.getDay());
 	console.log(dtString);
-	*/
+	
 	pool.query("insert into workouts" + 
 			  "(`exercise`, `reps`, `weight`, `date`, `lbs`)" +
 			  "values (?, ?, ?, ?, ?)"
@@ -90,6 +90,7 @@ app.get("/make-table",function(req,res,next){
   });
 });
 
+/*
 app.get('/insert',function(req,res,next){
   console.log("we got here");
   var context = {};
@@ -104,7 +105,25 @@ app.get('/insert',function(req,res,next){
 		res.render('home',context);
 		});
 });
+*/
 
+app.post("/delete", function(req,res,next){
+	var context={};
+	pool.query("delete from workouts where id=?", [req.body.id], function(err, results){
+			if (err){
+				console.log("delete query failure. " + err.description);
+				next(err);
+				return;
+			}else{
+				pool.query("select * from workouts", function(err, rows, fields){
+					context.results = rows;
+					res.render("home", context);
+					return;	
+				});
+			}
+		});
+	});
+	
 app.use(function(req,res){
 	res.status(404);
 	res.render("404");
