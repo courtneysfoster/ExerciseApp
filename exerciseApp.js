@@ -67,7 +67,7 @@ app.post("/formSubmit", function(req,res,next){
 	});
 	*/
 	context.results = JSON.stringify(req.body);
-	res.render("postTest",context);
+	res.render("home",context);
 });
 
 app.get("/make-table",function(req,res,next){
@@ -75,7 +75,7 @@ app.get("/make-table",function(req,res,next){
     pool.query("DROP TABLE IF EXISTS workouts", function(err){ //replace your connection pool with the your variable containing the connection pool
     var createString = "CREATE TABLE workouts("+
     "id INT PRIMARY KEY AUTO_INCREMENT,"+
-    "name VARCHAR(255) NOT NULL,"+
+    "exercise VARCHAR(255) NOT NULL,"+
     "reps INT,"+
     "weight INT,"+
     "date DATE,"+
