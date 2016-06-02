@@ -69,7 +69,7 @@ app.post("/insert", function(req,res,next){
 						});
 					}
 				});
-	});
+});
 
 /* Delete Query */
 app.post("/delete", function(req,res,next){
@@ -101,7 +101,7 @@ app.post("/update", function(req,res,next){
 			var curVals = result[0];
 			pool.query("update workouts set exercise=?, reps=?, due=?, where id=?",
 				[req.body.exercise || curVals.exercise, req.body.reps || curVals.reps
-				[req.body.weight || curVals.weight, req.body.date || curVals.date, req.body.lbs || curVals.lbs]
+				,req.body.weight || curVals.weight, req.body.date || curVals.date, req.body.lbs || curVals.lbs]
 				,function(err,result){
 					if(err){
 						console.log("update query failure. " + err.description);
@@ -109,8 +109,8 @@ app.post("/update", function(req,res,next){
 						return;
 					}else{
 						pool.query("select * from workouts", function(err,rows,fields){
-						context.results = rows;
-						res.send(context);
+							context.results = rows;
+							res.send(context);
 						});
 					}			
 				});
