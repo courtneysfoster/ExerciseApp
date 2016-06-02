@@ -3,6 +3,7 @@
 function buildTable(response){
 	console.log(response.id);
 	return;
+	/*
 	var table = document.getElementById("tblOutput");
 	table.parentNode.removeChild(table);
 	
@@ -26,7 +27,7 @@ function buildTable(response){
 	
 	td.textContent = "Exercise";
 	table.appendChild(th);
-
+	*/
 }
 
 document.addEventListener("DOMContentLoaded", afterPageLoad);
