@@ -46,8 +46,9 @@ app.get("/select", function(req,res,next){
 app.post("/formSubmit", function(req,res,next){
 	var context={};
 	
-	var dtDate = Date(req.body.date.getFullYear());
-	var dtString = new Date();
+	var dtDate = req.body.date;
+	console.log(dtDate);
+	
 	
 	/*; (dtDate.getFullYear() + "-" + dtDate.getMonth() + "-" + dtDate.getDay());*/
 	console.log(dtDate);
