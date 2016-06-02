@@ -8,7 +8,23 @@
 	margin-top: 50px;
 	border-style: solid;
 	border-color: teal;
-	width: 300px;
+	width: 500px;
+}
+
+hr{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+#outputArea{
+	margin: auto;
+	border-style: solid;
+	border-color: teal;
+}
+
+#tblOutput{
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 label{
@@ -22,9 +38,10 @@ label{
 }
 
 .dataInput{
-	margin-left: 35px;
+	margin-left: 20px;
 }
 
 ul{
 	border-style: solid;
 }
+

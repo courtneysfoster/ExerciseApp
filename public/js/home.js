@@ -37,17 +37,20 @@ table.id = "tblOutput";
 table.border = 1;
 table.style.borderCollapse = "collapse";
 
+
 var td;
 for (var i=0; i<4; i++){
 	for (var j=0; j<4; j++){
 		td = document.createElement("td");
 		td.id = ("td"+j)+i;
 		switch (i){
+			// 0 = header row
 			case 0:
 				var nr = document.createElement("th");
 				table.appendChild(nr);
-				td.textContent = "Header " + (j+1);
+				td.textContent = responseText.exercise;
 				break;
+			// else table data
 			default:
 				if (j==0){
 					var nr = document.createElement("tr");
