@@ -47,18 +47,13 @@ app.get("/", function(req,res,next){
 });
 
 app.get("/select", function(req,res,next){
-	var context={};
-	pool.query("SELECT * FROM workouts"
-				, function(err, rows, fields){
+	pool.query("SELECT * FROM workouts", function(err, rows, fields){
 		if(err){
 			console.log("query failure. " + err.description);
 			next(err);
 			return;
 		}else{
-			context.results = rows;
-			context.greeting = "Welcome to the Exercise Tracker!";
-			console.log(context.results);
-			res.send(context);
+			res.send(JSON.stringify(rows));
 		}
 	});
 });

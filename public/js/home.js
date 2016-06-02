@@ -20,15 +20,14 @@ document.addEventListener("DOMContentLoaded", afterPageLoad);
 function afterPageLoad(){
 	/* Initial table select section */
 	var req = new XMLHttpRequest();
-		var data = {};
+		/* var data = {}; */
 		req.open("GET", "http://54.213.219.47:3000/select", true);
 		req.setRequestHeader("Content-Type", "application/json");
-		req.addEventListener("load", function(){
+		req.addEventListener("load", function(data, status){
 			if(req.status >= 200 && req.status < 400){
-				var dataResponse = [];
+				var dataResponse = JSON.parse(data);
 				/*dataResponse =  JSON.parse(req.responseText);*/
-				dataResponse =  req.responseText;
-				console.log(dataResponse);
+				/*dataResponse =  req.responseText;*/
 			}else{
 				console.log("Error: " + req.statusText);
 			}
