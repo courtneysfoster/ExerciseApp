@@ -40,6 +40,7 @@ function buildTable(response){
 document.addEventListener("DOMContentLoaded", afterPageLoad);
 
 function afterPageLoad(){
+	alert("Page is loaded!");
 	document.getElementById("btnSubmit").addEventListener("click", function(event){
 		var req = new XMLHttpRequest();
 		var data = {};
