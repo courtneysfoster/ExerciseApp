@@ -5,7 +5,7 @@ function buildTable(response){
 	var table = document.getElementById("tblOutput");
 	table.parentNode.removeChild(table);
 	
-	table = document.createElement(table);
+	table = document.createElement("table");
 	table.id = "tblOutput";
 	table.border = 1;
 	table.style.borderCollapse = "collapse";
