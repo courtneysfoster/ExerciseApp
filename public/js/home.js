@@ -53,18 +53,9 @@ function afterPageLoad(){
 				console.log("Error: " + req.statusText);
 			}
 		});
-		console.log(JSON.stringify(data));
 		req.send(JSON.stringify(data));
 		event.preventDefault();
 	});
-	var table = document.createElement("table");
-	table.id = "tblOutput";
-	table.border = 1;
-	table.style.borderCollapse = "collapse";
-
-
-
-	document.getElementById("outputArea").appendChild(table);
 }
 
 
