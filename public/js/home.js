@@ -43,7 +43,7 @@ function afterPageLoad(){
 	document.getElementById("btnSubmit").addEventListener("click", function(event){
 		var req = new XMLHttpRequest();
 		var data = {};
-		req.open("POST", "http://54.213.219.47:3000", true);
+		req.open("GET", "http://54.213.219.47:3000/select", true);
 		req.setRequestHeader("Content-Type", "application/json");
 		req.addEventListener("load", function(){
 			if(req.status >= 200 && req.status < 400){

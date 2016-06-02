@@ -31,6 +31,10 @@ label{
 	color: navy;
 	margin-top: 10px;
 	margin-left: 10px;
+	display: inline-block;
+	width: 140px;
+	text-align: right;
+	
 }
 
 #btnSubmit{
@@ -39,6 +43,8 @@ label{
 
 .dataInput{
 	margin-left: 20px;
+	margin-top: 10px;
+	
 }
 
 ul{
