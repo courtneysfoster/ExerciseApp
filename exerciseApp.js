@@ -72,15 +72,11 @@ app.post("/formSubmit", function(req,res,next){
 						return;
 					}else{
 						context.results = JSON.stringify(results);	
-						res.render("home",context);
+						res.render("postTest",context);
 						return;
 					}
 				});
-	/*
-	context.results = JSON.stringify(req.body);
-	res.render("home",context);
-	*/
-});
+	});
 
 app.get("/make-table",function(req,res,next){
     var context = {};
