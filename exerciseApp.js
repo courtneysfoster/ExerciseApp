@@ -24,14 +24,14 @@ var pool = mysql.createPool({
 app.set("port", 3000);
 
 /* ********* Routes & Code *********** */
+/*
 app.get("/", function(req,res,next){
 	var context={};
 	console.log("this is where the error is");
-	pool.query("select * from workouts", function(err, rows, fields){
-		if (err){
-			
-			next(err);
+	pool.query("SELECT * FROM workouts", function(err, rows, fields){
+		if(err){
 			console.log("query failure. " + err.description);
+			next(err);
 			return;
 		}else{
 			context.results = JSON.stringify(rows);
@@ -41,6 +41,18 @@ app.get("/", function(req,res,next){
 			res.render("home", context);
 		}
 	});
+});
+*/
+app.get('/',function(req,res,next){
+  var context = {};
+  pool.query('SELECT * FROM workouts', function(err, rows, fields){
+    if(err){
+      next(err);
+      return;
+    }
+    context.results = JSON.stringify(rows);
+    res.render('home', context);
+  });
 });
 
 app.post("/formSubmit", function(req,res,next){
