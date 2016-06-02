@@ -60,12 +60,13 @@ app.post("/formSubmit", function(req,res,next){
 	/* mysql.query('insert into workouts (, price) values ("' + req.body.name + '", "' + req.body. + '")' */
 	
 	pool.query("INSERT INTO workouts" + 
-			  "(`exercise`, `reps`, `weight`, `date`, `lbs`) values (?)"
-			  , [req.body.exercise]
-			  , [req.body.reps]
-			  , [req.body.weight]
-			  , [req.body.date]
-			  , [req.body.lbs] 
+			  "(`exercise`, `reps`, `weight`, `date`, `lbs`)" +
+			  "values (?, ?, ?, ?, ?)"
+			  , [req.body.exercise
+			  , req.body.reps
+			  , req.body.weight
+			  , req.body.date
+			  , req.body.lbs] 
 			  , function(err, results){
 					if (err){
 						console.log("insert query failure. " + err.description);
@@ -102,8 +103,9 @@ app.get("/make-table",function(req,res,next){
 app.get('/insert',function(req,res,next){
   console.log("we got here");
   var context = {};
-	 pool.query('insert into workouts (exercise, reps) values ("' + req.query.exercise + '", "' + req.query.reps + '")'
- /*  pool.query("INSERT INTO workouts (`exercise`,`reps`) VALUES (?)", [req.query.exercise, req.query.reps], */
+/*	 pool.query('insert into workouts (exercise, reps) values ("' + req.query.exercise + '", "' + req.query.reps + '")'
+	  pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES (?, ?, ?, ?, ?)",[req.body.name, req.body.reps, req.body.weight, req.body.date, req.body.lbs] */
+   pool.query("INSERT INTO workouts (exercise, reps, ) VALUES (?, ?, ?, ?, ?)", [req.query.exercise, req.query.reps], 
   ,function(err, result){
     if(err){
       next(err);
