@@ -23,10 +23,12 @@
 <hr>
 <section id="outputArea">
 		<ul>
-		{{#each response}}
-		
+		{{#each results}}
 			<li>{{this.exercise}}</li>
-			
+			<li>{{this.reps}}</li>
+			<li>{{this.weight}}</li>
+			<li>{{this.date}}</li>
+			<li>{{this.lbs}}</li>
 		{{/each}}
 		</ul>
 </section>
