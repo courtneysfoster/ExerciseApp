@@ -15,7 +15,7 @@ function init(){
 document.addEventListener("DOMContentLoaded", afterPageLoad);
 
 function afterPageLoad(){
-	document.getElementById("exerciseSubmit").addEventListener("click", function(event){
+	document.getElementById("btnSubmit").addEventListener("click", function(event){
 		var req = new XMLHttpRequest();
 		var data = {};
 		req.open("POST", "http://54.213.219.47:3000", true);
@@ -33,34 +33,34 @@ function afterPageLoad(){
 		event.preventDefault();
 	});
 	var table = document.createElement("table");
-table.id = "tblOutput";
-table.border = 1;
-table.style.borderCollapse = "collapse";
+	table.id = "tblOutput";
+	table.border = 1;
+	table.style.borderCollapse = "collapse";
 
 
-var td;
-for (var i=0; i<4; i++){
-	for (var j=0; j<4; j++){
-		td = document.createElement("td");
-		td.id = ("td"+j)+i;
-		switch (i){
-			// 0 = header row
-			case 0:
-				var nr = document.createElement("th");
-				table.appendChild(nr);
-				td.textContent = responseText.exercise;
-				break;
-			// else table data
-			default:
-				if (j==0){
-					var nr = document.createElement("tr");
-					nr.style.textAlign = "center";
+	var td;
+	for (var i=0; i<4; i++){
+		for (var j=0; j<4; j++){
+			td = document.createElement("td");
+			td.id = ("td"+j)+i;
+			switch (i){
+				// 0 = header row
+				case 0:
+					var nr = document.createElement("th");
 					table.appendChild(nr);
-				}
-				td.textContent = (j+1) + ", " + (i);		
+					td.textContent = responseText.exercise;
+					break;
+				// else table data
+				default:
+					if (j==0){
+						var nr = document.createElement("tr");
+						nr.style.textAlign = "center";
+						table.appendChild(nr);
+					}
+					td.textContent = (j+1) + ", " + (i);		
+			}
+			nr.appendChild(td);
 		}
-		nr.appendChild(td);
 	}
-}
-document.getElementById("outputArea").appendChild(table);
+	document.getElementById("outputArea").appendChild(table);
 }
