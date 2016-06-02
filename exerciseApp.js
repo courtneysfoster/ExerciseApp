@@ -107,7 +107,7 @@ app.get('/insert',function(req,res,next){
       next(err);
       return;
     }
-    context.results = "Inserted exercise " + result.exercise;
+    context.results = "Inserted exercise " + JSON.stringify(result);
     res.render('home',context);
   });
 });
