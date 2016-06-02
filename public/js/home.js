@@ -11,7 +11,7 @@ function buildTable(response){
 	table.style.borderCollapse = "collapse";
 	
 	var idCol = document.createElement("col");
-	idCol.style.visibility =0;
+	idCol.style.visibility ="hidden";
 	table.appendChild(idCol);
 	
 	
@@ -31,9 +31,9 @@ function buildTable(response){
 	for(var i=0, iLen=response.length; i<iLen; i++){
 		tr = document.createElement("tr");
 		var exerciseData = response[i];
-		console.log(exerciseData.length);
+		//console.log(exerciseData.length);
 		for(var j=0; j<exerciseData.length; j++){
-			console.log("inner loop " + exercise[j]);
+			console.log("inner loop " + exerciseData[j]);
 			/*
 			td.textContent = exerciseData[colNames[j]].value;
 			tr.appendChild(td);	
