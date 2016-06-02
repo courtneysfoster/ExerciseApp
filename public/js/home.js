@@ -56,20 +56,33 @@ function afterPageLoad(){
 		req.open("POST", "http://54.213.219.47:3000/insert", true);
 		req.setRequestHeader("Content-Type", "application/json");
 		
+		/* Example Code
+		req.addEventListener('load',function(){
+			if(req.status >= 200 && req.status < 400){
+				var response = JSON.parse(req.responseText);
+				document.getElementById('originalUrl').textContent = response.longUrl;
+				document.getElementById('shortUrl').textContent = response.id;
+			} else {
+				console.log("Error in network request: " + request.statusText);
+			}
+			});
+			req.send(JSON.stringify(payload));
+			event.preventDefault();
+		*/
+		
 		req.addEventListener("load", function(){
-			console.log("we got to load event listener");
 			if (req.status>200 && req.status<400){
-				var response = req.response;
+				var response = JSON.parse(req.response);
 				buildTable(response);
 			}else{
 				console.log("error " + req.statusText);
 				return;
 			}
-			console.log("We fell through the cracks")
+			console.log("We fell through the cracks");
 		});
-		console.log("we got passed load listener");
 		req.send(JSON.stringify(data));
-		console.log("We got passed send");
+		console.log(req.statusText);
+		
 			
 		
 		event.preventDefault();
