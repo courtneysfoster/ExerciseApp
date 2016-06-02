@@ -32,10 +32,9 @@ function afterPageLoad(){
 			}
 		});
 		req.send(JSON.stringify(data));
-		event.preventDefault();
 	
 	/* button click event listener */
-	document.getElementById("btnSubmit").addEventListener("click", function(){
+	document.getElementById("btnSubmit").addEventListener("click", function(event){
 		var req = new XMLHttpRequest();
 		var data = {};
 		data.exercise = document.getElementById("txtExercise").value;
@@ -51,11 +50,11 @@ function afterPageLoad(){
 		req.addEventListener("load", function(){
 			if (req.status>200 && req.status<400){
 				var response = JSON.parse(req.response);
-				
 			}else{
 				console.log("error " + req.statusText);
 			}
 		});
+		event.preventDefault();
 	});
 }
 
