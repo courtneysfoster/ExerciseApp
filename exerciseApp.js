@@ -27,8 +27,8 @@ app.set("port", 3000);
 
 app.get("/", function(req,res,next){
 	var context={};
-	console.log("this is where the error is");
-	pool.query("SELECT * FROM workouts", function(err, rows, fields){
+	pool.query("SELECT * FROM workouts"
+				, function(err, rows, fields){
 		if(err){
 			console.log("query failure. " + err.description);
 			next(err);
@@ -36,7 +36,7 @@ app.get("/", function(req,res,next){
 		}else{
 			context.results = JSON.stringify(rows);
 			context.greeting = "Welcome to the Exercise Tracker!";
-			/*
+			/* 
 			var dtDate = (new Date(Date.now())).toLocaleDateString('en-US');
 			context.date = (dtDate.getMonth() + 1) + "-" + dtDate.getDate() + "-" + dtDate.getFullYear();
 			*/
@@ -45,23 +45,8 @@ app.get("/", function(req,res,next){
 	});
 });
 
-/*
-app.get('/',function(req,res,next){
-  var context = {};
-  pool.query('SELECT * FROM workouts', function(err, rows, fields){
-    if(err){
-      next(err);
-      return;
-    }
-    context.results = JSON.stringify(rows);
-    res.render('home', context);
-  });
-});
-*/
-
 app.post("/formSubmit", function(req,res,next){
 	var context={};
-	
 	pool.query("INSERT INTO workouts" + 
 			  "(`name`, `reps`, `weight`, `date`, `lbs`) values (?)"
 			  , [req.body.name]
@@ -70,7 +55,6 @@ app.post("/formSubmit", function(req,res,next){
 			  , [req.body.date]
 			  , [req.body.lbs]
 			  , function(err, rows){
-				
 					if (err){
 						next(err);
 						console.log("insert query failure. " + err.description);
