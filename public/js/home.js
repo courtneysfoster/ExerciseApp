@@ -1,7 +1,7 @@
 /*Exercise Tracker home page javascript*/
 
 function buildTable(response){
-	console.log("we got here!");
+	console.log("we got to buildTable");
 	var table = document.getElementById("tblOutput");
 	table.parentNode.removeChild(table);
 	
@@ -34,8 +34,6 @@ function afterPageLoad(){
 			}
 		});
 		req.send(JSON.stringify(data));
-	
-
 }
 
 	/* button click event listener */
@@ -54,26 +52,12 @@ function afterPageLoad(){
 		
 		req.open("POST", "http://54.213.219.47:3000/insert", true);
 		req.setRequestHeader("Content-Type", "application/json");
-		
-		/* Example Code
-		req.addEventListener('load',function(){
-			if(req.status >= 200 && req.status < 400){
-				var response = JSON.parse(req.responseText);
-				document.getElementById('originalUrl').textContent = response.longUrl;
-				document.getElementById('shortUrl').textContent = response.id;
-			} else {
-				console.log("Error in network request: " + request.statusText);
-			}
-			});
-			req.send(JSON.stringify(payload));
-			event.preventDefault();
-		*/
-		
 		req.addEventListener("load", function(){
-			console.log("Inside Load Event");
 			if (req.status>200 && req.status<400){
 				var response = JSON.parse(req.response);
+				console.log("req.status= " + req.status);
 				buildTable(response);
+				console.log("passed buildTable");
 			}else{
 				console.log("error " + req.statusText);
 				return;
@@ -81,7 +65,6 @@ function afterPageLoad(){
 			console.log("We fell through the cracks");
 		});
 		req.send(JSON.stringify(data));
-		console.log(req.status);
 		event.preventDefault();
 	});
 
