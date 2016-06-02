@@ -43,10 +43,11 @@ app.get("/", function(req,res,next){
 
 app.post("/formSubmit", function(req,res,next){
 	var context={};
-	console.log(req.body.date);
+	
+	// console.log(req.body.date);
 	/* pool.query("INSERT INTO workouts (`date`) VALUES (?)", [req.body.date], function(err, rows, fields){*/
 	
-	
+	/*
 	pool.query("INSERT INTO workouts" + 
 			  "(`name`, `reps`, `weight`, `date`, `lbs`)" +
 			  "values (?)", [req.body.name], [req.body.reps], [req.body.weight], [req.body.date], [req.body.lbs], function(err, rows){
@@ -58,12 +59,15 @@ app.post("/formSubmit", function(req,res,next){
 			return;
 		}else{
 			context.results = JSON.stringify(rows);
-			/* context.greeting = "Welcome to the Exercise Tracker!"; */ 
-			/* context.date = new Date(); */
+		
+		
 			res.render("home",context);
-			/* res.send(context); */
+		
 		}
 	});
+	*/
+	context.results = stringify(req.body);
+	res.render("postTest",context);
 });
 
 app.get("/make-table",function(req,res,next){
