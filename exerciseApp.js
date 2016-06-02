@@ -104,7 +104,7 @@ app.get('/insert',function(req,res,next){
   var context = {};
 	 pool.query('insert into workouts (exercise, reps) values ("' + req.query.exercise + '", "' + req.query.reps + '")'
  /*  pool.query("INSERT INTO workouts (`exercise`,`reps`) VALUES (?)", [req.query.exercise, req.query.reps], */
-  function(err, result){
+  ,function(err, result){
     if(err){
       next(err);
       return;
