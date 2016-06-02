@@ -1,7 +1,7 @@
 /*Exercise Tracker home page javascript*/
 
 function buildTable(response){
-	console.log("we got to buildTable");
+	
 	var table = document.getElementById("tblOutput");
 	table.parentNode.removeChild(table);
 	
