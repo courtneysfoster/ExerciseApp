@@ -29,6 +29,7 @@ app.get("/", function(req,res,next){
 	/* If no prior session exists, then return empty dataset for table structure */
 	pool.query("select * from workouts", function(err, rows, fields){
 		if (err){
+			console.log("this is where the error is");
 			next(err);
 			console.log("query failure. " + err.description);
 			return;
