@@ -45,13 +45,15 @@ app.get("/select", function(req,res,next){
 
 app.post("/formSubmit", function(req,res,next){
 	var context={};
+	var dtDate = req.body.date;
+	var dtString = dtDate.getFullYear() + "-" + dtDate.getMonth() + "-" + dtDate.getDay();
 	pool.query("insert into workouts" + 
 			  "(`exercise`, `reps`, `weight`, `date`, `lbs`)" +
 			  "values (?, ?, ?, ?, ?)"
 			  , [req.body.exercise
 			  , req.body.reps
 			  , req.body.weight
-			  , req.body.date
+			  , dtString
 			  , req.body.lbs] 
 			  , function(err, results){
 					if (err){
