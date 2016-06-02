@@ -36,37 +36,37 @@ function afterPageLoad(){
 		req.send(JSON.stringify(data));
 }
 
-	/* button click event listener */
-	document.getElementById("btnNew").addEventListener("click", function(event){
-		
-		var req = new XMLHttpRequest();
-		var data = {};
-		data.exercise = document.getElementById("txtExercise").value;
-		data.reps = document.getElementById("txtReps").value;
-		data.weight = document.getElementById("txtWeight").value;
-		if (document.getElementById("optLbs").checked){
-			data.lbs = 1;
+/* button click event listener */
+document.getElementById("btnNew").addEventListener("click", function(event){
+	
+	var req = new XMLHttpRequest();
+	var data = {};
+	data.exercise = document.getElementById("txtExercise").value;
+	data.reps = document.getElementById("txtReps").value;
+	data.weight = document.getElementById("txtWeight").value;
+	if (document.getElementById("optLbs").checked){
+		data.lbs = 1;
+	}else{
+		data.lbs = 0;
+	}
+	
+	req.open("POST", "http://54.213.219.47:3000/insert", true);
+	req.setRequestHeader("Content-Type", "application/json");
+	req.addEventListener("load", function(){
+		if (req.status>200 && req.status<400){
+			var response = JSON.parse(req.response);
+			console.log("req.status= " + req.status);
+			buildTable(response);
+			console.log("passed buildTable");
 		}else{
-			data.lbs = 0;
+			console.log("error " + req.status + " " + req.statusText);
+			return;
 		}
-		
-		req.open("POST", "http://54.213.219.47:3000/insert", true);
-		req.setRequestHeader("Content-Type", "application/json");
-		req.addEventListener("load", function(){
-			if (req.status>200 && req.status<400){
-				var response = JSON.parse(req.response);
-				console.log("req.status= " + req.status);
-				buildTable(response);
-				console.log("passed buildTable");
-			}else{
-				console.log("error " + req.statusText);
-				return;
-			}
-			console.log("We fell through the cracks");
-		});
-		req.send(JSON.stringify(data));
-		event.preventDefault();
+		console.log("We fell through the cracks");
 	});
+	req.send(JSON.stringify(data));
+	event.preventDefault();
+});
 
 function getDate(){
 	var dtDate = new date(date.now());
