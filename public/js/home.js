@@ -30,11 +30,14 @@ function buildTable(response){
 	var tr;
 	for(var i=0, iLen=response.length; i<iLen; i++){
 		tr = document.createElement("tr");
+		console.log(response[i])
+		/*
 		var exerciseData = response[i];
 		for(var j=0; i<colNames.length; j++){
 			td.textContent = exerciseData[colNames[j]].value;
 			tr.appendChild(td);	
 		}
+		*/
 	}
 	document.getElementById("outputArea").appendChild(table);
 }
