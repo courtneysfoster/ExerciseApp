@@ -56,7 +56,7 @@ app.post("/formSubmit", function(req,res,next){
 			  , [req.body.exercise
 			  , req.body.reps
 			  , req.body.weight
-			  , dtString
+			  , req.body.date
 			  , req.body.lbs] 
 			  , function(err, results){
 					if (err){
