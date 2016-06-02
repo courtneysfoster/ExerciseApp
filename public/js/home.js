@@ -12,6 +12,17 @@ function buildTable(response){
 	var table = document.getElementById("tblOutput");
 	table.parentNode.removeChild(table);
 	
+	table = document.createElement(table);
+	table.id = "tblOutput";
+	table.border = 1;
+	table.style.borderCollapse = "collapse";
+	
+	for (var i=0; i<7; i++){
+		var th = document.createElement("th");
+		var td = document.createElement("td");
+		td.textContent = "Exercise";
+		table.appendChild(th);
+	}
 
 }
 
