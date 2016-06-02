@@ -54,8 +54,8 @@ document.getElementById("btnNew").addEventListener("click", function(event){
 	req.setRequestHeader("Content-Type", "application/json");
 	req.addEventListener("load", function(){
 		if (req.status>=200 && req.status<400){
-			console.log(req.response);
-			var response = JSON.parse(req.response);
+			console.log(req.responseText);
+			var response = JSON.parse(req.responseText);
 			console.log("req.status= " + req.status);
 			buildTable(response);
 			console.log("passed buildTable");
