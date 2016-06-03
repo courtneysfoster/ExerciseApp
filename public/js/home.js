@@ -13,7 +13,6 @@ function buildTable(response){
 
 	var idCol = document.createElement("col");
 	idCol.id = "colID";
-	idCol.span = 1;
 	table.appendChild(idCol);
 	
 
@@ -37,7 +36,6 @@ function buildTable(response){
 					}else{
 						td.textContent = key;	
 					}
-					//table.appendChild(td);
 					break;
 				default:
 					td = document.createElement("td");
@@ -50,6 +48,9 @@ function buildTable(response){
 					}else{
 						td.textContent = item[key];
 					}		
+			}
+			if(key=="id"){
+				td.width = 0;
 			}
 			tr.appendChild(td);
 		}
