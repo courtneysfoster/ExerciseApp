@@ -64,6 +64,7 @@ th{
 	border-style: solid;
 	border-color: teal;
 	width: 800px;
+	overflow:auto; 
 }
 
 #tblOutput{
