@@ -11,11 +11,12 @@ function buildTable(response){
 	table.style.borderCollapse = "collapse";
 	table.align = "center";
 
-	/*
+	
 	var idCol = document.createElement("col");
+	idCol.span = 1;
 	idCol.style.visibility ="hidden";
 	table.appendChild(idCol);
-	*/
+	
 	
 	var tr;
 	var td;
