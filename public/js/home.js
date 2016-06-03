@@ -5,14 +5,16 @@ function buildTable(response){
 	
 	var table;
 	if(!!document.getElementById("tblOutput")){
+		
 		table = document.createElement("table");
 		table.id = "tblOutput";
 		table.border = 1;
 		table.style.borderCollapse = "collapse";
-	}else{
 		console.log(table.id);
+	}else{
 		table = document.getElementById("tblOutput");
 		table.parentNode.removeChild(table);	
+		console.log(table.id);
 		return;
 	}
 
