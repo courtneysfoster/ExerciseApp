@@ -64,9 +64,9 @@ function button_click(directive, idx){
 			var table = document.getElementById("tblOutput");
 			var rIdx = 1;
 			var cIdx = 0;
-			var cellVal = table.rows[rIdx].cells[cIdx].textContent;
 			
 			for(rIdx=1, rLen=table.rows.length; rIdx<rLen; rIdx++){
+				var cellVal = table.rows[rIdx].cells[cIdx].textContent;
 				if(cellVal==idx){
 					document.getElementById("txtID").value=idx;
 					document.getElementById("txtExercise").value=table.rows[rIdx].cells[1].textContent;
