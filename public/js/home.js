@@ -3,7 +3,7 @@
 function buildTable(response){
 	
 	var table = document.getElementById("tblOutput");
-	if(!!document.getElementById("tblOutput"){
+	if(!!document.getElementById("tblOutput")){
 		table.parentNode.removeChild(table);	
 	}else{
 		table = document.createElement("table");
