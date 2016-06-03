@@ -47,7 +47,6 @@ app.get("/select", function(req,res,next){
 
 /* Insert Query */
 app.post("/insert", function(req,res,next){
-	console.log("We got here")
 	var context={};
 	pool.query("insert into workouts" + 
 			  "(`exercise`, `reps`, `weight`, `date`, `lbs`)" +

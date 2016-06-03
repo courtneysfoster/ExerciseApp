@@ -31,7 +31,7 @@ function buildTable(response){
 	for(var i=0, iLen=response.length; i<iLen; i++){
 		tr = document.createElement("tr");
 		item = response[i];
-		console.log(response[i]);
+		if (i=4){console.log(item);};
 		for(var j=0; j<item.length; j++){
 			console.log("inner loop " + item[j]);
 			/*
@@ -81,7 +81,6 @@ document.getElementById("btnNew").addEventListener("click", function(event){
 		if (req.status>=200 && req.status<400){
 			var response = JSON.parse(req.responseText);
 			buildTable(response);
-			console.log("passed buildTable");
 		}else{
 			console.log("error " + req.status + " " + req.statusText);
 			return;
