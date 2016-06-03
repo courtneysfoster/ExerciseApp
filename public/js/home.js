@@ -43,9 +43,9 @@ function buildTable(response){
 				}
 			}else{
 				td.textContent = item[key];
-				tr.appendChild(td);		
+				
 			}
-			
+			tr.appendChild(td);		
 		}
 	}
 	document.getElementById("outputArea").appendChild(table);
