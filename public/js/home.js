@@ -47,6 +47,7 @@ function Submit(type, data){
 	req.addEventListener("load", function(){
 		if (req.status>=200 && req.status<400){
 			var response = JSON.parse(req.responseText);
+			console.log(response);
 			buildTable(response);
 		}else{
 			console.log("error " + req.status + " " + req.statusText);
@@ -57,12 +58,7 @@ function Submit(type, data){
 	clearForm();
 }
 
-function getDate(){
-	var dtDate = new date(date.now());
-	var dtString = dtDate.getFullYear() + "-" + dtDate.getMonth() + "-" + dtDate.getDay();
-	document.getElementById("txtDate").value = dtString;
-	return;
-}
+
 
 function button_click(directive, idx){
 	var table = document.getElementById("tblOutput");
@@ -221,3 +217,9 @@ function buildTable(response){
 	document.getElementById("outputArea").appendChild(table);
 }
 
+function getDate(){
+	var dtDate = new date(date.now());
+	var dtString = dtDate.getFullYear() + "-" + dtDate.getMonth() + "-" + dtDate.getDay();
+	document.getElementById("txtDate").value = dtString;
+	return;
+}
