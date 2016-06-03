@@ -12,26 +12,19 @@
 	width: 500px;
 }
 
+#divButtons{
+	position: absolute;
+	right: 25px;
+	top: 25px;
+	width: 100px;
+	margin-left: auto;
+	margin-right: auto;	
+}
+
 hr{
 	margin-top: 15px;
 	margin-bottom: 15px;
 	color: maroon;
-}
-
-#outputArea{
-	position: relative;
-	border-style: solid;
-	border-color: teal;
-	width: 800px;
-}
-
-#tblOutput{
-	position: absolute;
-	left: 25px;
-	top: 25px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	width: 700px;
 }
 
 label{
@@ -66,8 +59,20 @@ th{
 	background-color: #DDDDDD;
 }
 
-.colID{
-	display: none;
+#outputArea{
+	position: relative;
+	border-style: solid;
+	border-color: teal;
+	width: 800px;
+}
+
+#tblOutput{
+	position: absolute;
+	left: 25px;
+	top: 25px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 700px;
 }
 
 #btnResetTbl{
@@ -79,12 +84,6 @@ th{
 	color: #EEEEEE;
 }
 
-#divButtons{
-	position: absolute;
-	right: 25px;
-	top: 25px;
-	width: 100px;
-	margin-left: auto;
-	margin-right: auto;
-	
+#colID{
+	display: none;
 }
