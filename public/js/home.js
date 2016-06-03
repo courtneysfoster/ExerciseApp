@@ -44,11 +44,10 @@ function buildTable(response){
 				tr.appendChild(td);		
 			}
 			
-			//console.log(td.textContent);
-			
 		}
 	}
 	document.getElementById("outputArea").appendChild(table);
+	console.log("We got to the end of buildTable");
 }
 
 document.addEventListener("DOMContentLoaded", afterPageLoad);
@@ -80,13 +79,6 @@ document.getElementById("btnNew").addEventListener("click", function(event){
 	data.weight = document.getElementById("txtWeight").value;
 	data.date = document.getElementById("txtDate").value;
 	data.lbs = document.getElementById("optLbs").checked;
-	/*
-	if (document.getElementById("optLbs").checked){
-		data.lbs = 1;
-	}else{
-		data.lbs = 0;
-	}
-	*/
 	
 	req.open("POST", "http://54.213.219.47:3000/insert", true);
 	req.setRequestHeader("Content-Type", "application/json");
