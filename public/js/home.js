@@ -157,12 +157,16 @@ function buildTable(response){
 		tr.appendChild(td);
 		td = document.createElement("th");
 		td.textContent = "reps";
+		tr.appendChild(td);
 		td = document.createElement("th");
 		td.textContent = "weight";
+		tr.appendChild(td);
 		td = document.createElement("th");
 		td.textContent = "date";
+		tr.appendChild(td);
 		td = document.createElement("th");
 		td.textContent = "units";
+		tr.appendChild(td);
 		table.appendChild(tr);
 		document.getElementById("outputArea").appendChild(table);
 		return;
