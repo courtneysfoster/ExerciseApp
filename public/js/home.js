@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", afterPageLoad);
 function afterPageLoad(){
 	var req = new XMLHttpRequest();
 	var data = {};
-	req.open("GET", ip+"/select", true);
+	req.open("GET", ip+"select", true);
 	req.setRequestHeader("Content-Type", "application/json");
 	req.addEventListener("load", function(dataResponse, status){
 		if(req.status >= 200 && req.status < 400){
