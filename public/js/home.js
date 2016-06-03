@@ -2,17 +2,18 @@
 
 function buildTable(response){
 	
-	var table = document.getElementById("tblOutput");
-	console.log("doc exists = " + !!document.getElementById("tblOutput"))
-	if(!!document.getElementById("tblOutput")){
-		table.parentNode.removeChild(table);	
-	}else{
-		table = document.createElement("table");
-		table.id = "tblOutput";
-		table.border = 1;
-		table.style.borderCollapse = "collapse";	
-	}	
 	
+	
+	if(!!document.getElementById("tblOutput")){
+		var table = document.getElementById("tblOutput");
+		table.parentNode.removeChild(table);	
+	}
+	
+	table = document.createElement("table");
+	table.id = "tblOutput";
+	table.border = 1;
+	table.style.borderCollapse = "collapse";	
+		
 	var idCol = document.createElement("col");
 	idCol.style.visibility ="hidden";
 	table.appendChild(idCol);
