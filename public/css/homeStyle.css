@@ -4,6 +4,7 @@
 }
 
 #inputArea{
+	position: relative;
 	margin-left: 50px;
 	margin-top: 10px;
 	border-style: solid;
@@ -73,4 +74,10 @@ th{
 #btnResetTbl{
 	margin: 20px 20px 20px 20px;
 	background-color: red;
+}
+
+#divButtons{
+	position: absolute;
+	right: 0;
+	top: 0;
 }

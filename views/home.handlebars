@@ -4,22 +4,25 @@
 <br>
 <section id="inputArea">
 	<form id="frmInput">
-		<label id="lblID" type="hidden"></label>
-			<input class="dataInput" id="txtID" type="hidden" name="id"><br>
-		<label id="lblDate">Date (yyyy-mm-dd):</label>
-			<input class="dataInput" id="txtDate" type="date" name="date" onload="getDate()"><br>
-		<label id="lblExercise">Exercise:</label>
-			<input class="dataInput" id="txtExercise" type="text" name="exercise" value=""><br>
-		<label id="lblReps">Reps:</label>
-			<input class="dataInput" id="txtReps" type="text" name="reps" value=""><br>
-		<label id="lblWeight">Weight:</label>
-			<input class="dataInput" id="txtWeight" type="text" name="weight" value=""><br>
-		<label id="lblUnits">Units in Lbs.:</label>
-			<input class="dataInput" id="chkLbs" type="checkbox" name="units" value="Lbs" checked> (uncheck for Kgs)
-		<!-- <button id="btnSubmit">Submit</button>	-->
-		<input type="Submit" id="btnNew" name="Submit" value="Submit as New">
-		<input type="hidden" id="btnEdit" name="Submit" value="Submit Changes">
-		<input type="button" onclick="clearForm()" id="btnClearForm" value="Clear Form">
+		<div id="divInputs">
+			<label id="lblID" type="hidden"></label>
+				<input class="dataInput" id="txtID" type="hidden" name="id"><br>
+			<label id="lblDate">Date (yyyy-mm-dd):</label>
+				<input class="dataInput" id="txtDate" type="date" name="date" onload="getDate()"><br>
+			<label id="lblExercise">Exercise:</label>
+				<input class="dataInput" id="txtExercise" type="text" name="exercise" value=""><br>
+			<label id="lblReps">Reps:</label>
+				<input class="dataInput" id="txtReps" type="text" name="reps" value=""><br>
+			<label id="lblWeight">Weight:</label>
+				<input class="dataInput" id="txtWeight" type="text" name="weight" value=""><br>
+			<label id="lblUnits">Units in Lbs.:</label>
+				<input class="dataInput" id="chkLbs" type="checkbox" name="units" value="Lbs" checked> (uncheck for Kgs)
+		</div>
+		<div id="divButtons">
+			<input type="Submit" id="btnNew" name="Submit" value="Submit as New">
+			<input type="hidden" id="btnEdit" name="Submit" value="Submit Changes">
+			<input type="button" onclick="clearForm()" id="btnClearForm" value="Clear Form">
+		</div>
 	</form>
 	
 </section>
