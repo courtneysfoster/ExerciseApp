@@ -17,6 +17,8 @@ function buildTable(response){
 	
 	var tr;
 	var td;
+	var btnEdit;
+	var btnDel;
     for (var i=-1, iLen=response.length; i<iLen; i++){
 		if (i==-1){
 			item = response[0];
@@ -43,6 +45,7 @@ function buildTable(response){
 						}else{
 							td.textContent = "Kgs";
 						}
+						btnEdit = document.createElement("button")
 					}else{
 						td.textContent = item[key];
 					}		
@@ -51,6 +54,24 @@ function buildTable(response){
 				td.display = "none";
 			}
 			tr.appendChild(td);
+		}
+		if (i!=-1){
+			
+			td = document.createElement("td");
+			tr.appendChild(td);
+			btnEdit = document.createElement("button");
+			btnEdit.id = "btnEdit-"+item["id"];
+			console.log("btnEdit.id = " + btnEdit.id);
+			btnEdit.addEventListener("click", function(){button_click("Edit", item["id"])});
+			td.appendChild(btnEdit);
+			
+			td = document.createElement("td");
+			tr.appendChild(td);
+			btnDel = document.createElement("button");
+			btnDel.id = "btnDel-"item["id"];
+			console.log("btnDel.id = " + btnDel.id);
+			btnDel.addEventListener("click", function(){button_click("Delete", item["id"])});
+			td.appendChild(btnDel);
 		}
 		table.appendChild(tr);
 	}
@@ -108,4 +129,18 @@ function getDate(){
 	var dtString = dtDate.getFullYear() + "-" + dtDate.getMonth() + "-" + dtDate.getDay();
 	document.getElementById("txtDate").value = dtString;
 	return;
+}
+
+function button_click(directive, idx){
+	switch (directive){
+		case "Edit":
+			
+			break;
+		case "Delete":
+			/* Call Delete Function */
+			break;
+		default:
+			/* Should never get here. */
+			
+	}
 }
