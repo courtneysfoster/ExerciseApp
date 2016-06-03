@@ -134,7 +134,7 @@ function getDate(){
 function button_click(directive, idx){
 	switch (directive){
 		case "Edit":
-			
+			console.log("Edit button Clicked for idx = "+idx);
 			break;
 		case "Delete":
 			/* Call Delete Function */
