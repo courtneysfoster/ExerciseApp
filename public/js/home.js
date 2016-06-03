@@ -18,7 +18,6 @@ function buildTable(response){
 */
 	
 	var tr;
-	var th;
 	var td;
     for (var i=-1, iLen=response.length; i<iLen; i++){
 		if (i==-1){
@@ -31,9 +30,9 @@ function buildTable(response){
 		for (var key in item){
 			switch (i){
 				case -1:
-					th = document.createElement("th");	
-					table.appendChild(th);
-					th.textContent = key;
+					td = document.createElement("th");	
+					table.appendChild(td);
+					td.textContent = key;
 					break;
 				default:
 					td = document.createElement("td");
