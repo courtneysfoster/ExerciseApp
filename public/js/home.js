@@ -1,5 +1,5 @@
 /*Exercise Tracker home page javascript*/
-var ip = "http://54.213.219.47:3000"
+var ip = "http://54.213.219.47:3000/"
 
 
 document.addEventListener("DOMContentLoaded", afterPageLoad);
@@ -24,7 +24,8 @@ function afterPageLoad(){
 
 /* button click event listener */
 document.getElementById("btnNew").addEventListener("click", function(event){
-	
+	Submit("insert");
+	/*
 	var req = new XMLHttpRequest();
 	var data = {};
 	data.exercise = document.getElementById("txtExercise").value;
@@ -46,9 +47,40 @@ document.getElementById("btnNew").addEventListener("click", function(event){
 	}); 
 	req.send(JSON.stringify(data));
 	clearForm();
+	
 	event.preventDefault();
+	*/
 });
 
+document.getElementById("btnUpdate").addEventListener("click", function(event){
+	Submit("update");
+});
+
+function Submit(type){
+	var req = new XMLHttpRequest();
+	var data = {};
+	data.exercise = document.getElementById("txtExercise").value;
+	data.reps = document.getElementById("txtReps").value;
+	data.weight = document.getElementById("txtWeight").value;
+	data.date = document.getElementById("txtDate").value;
+	data.lbs = document.getElementById("chkLbs").checked;
+	
+	req.open("POST", ip+type, true);
+	req.setRequestHeader("Content-Type", "application/json");
+	req.addEventListener("load", function(){
+		if (req.status>=200 && req.status<400){
+			var response = JSON.parse(req.responseText);
+			buildTable(response);
+		}else{
+			console.log("error " + req.status + " " + req.statusText);
+			return;
+		}
+	}); 
+	req.send(JSON.stringify(data));
+	clearForm();
+	
+	event.preventDefault();
+}
 
 function getDate(){
 	var dtDate = new date(date.now());
@@ -190,4 +222,5 @@ function clearForm(){
 	document.getElementById("txtWeight").value="";
 	document.getElementById("chkLbs").checked=1;
 	document.getElementById("btnUpdate").type="hidden";
+	document.getElementById("lgdInputHeader").textContent="Input New Workout";
 }
