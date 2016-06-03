@@ -31,6 +31,7 @@ function buildTable(response){
 	table.appendChild(th);
 	
 	var td;
+
 	var tr;
     for (var i=-1, iLen=response.length; i<iLen; i++){
 		if (i=-1){
@@ -69,6 +70,11 @@ function buildTable(response){
 		
 	}
 /*
+=======
+	
+    var item = response[0];
+    
+
 	for (var key in item) {
     
 		td = document.createElement("td");
@@ -97,37 +103,33 @@ function buildTable(response){
 		}
 		table.appendChild(tr);
 	}
-*/
 	document.getElementById("outputArea").appendChild(table);
 }
 /*
+var table = document.createElement("table");
+table.id = "table1";
+table.border = 1;
+table.style.borderCollapse = "collapse";
+table.align = "center";
 
-
-
-for (var i=0, iLen=response.length; i<iLen; i++){
-	for (var key in item){
+var td;
+for (var i=0; i<4; i++){
+	for (var j=0; j<4; j++){
 		td = document.createElement("td");
+		td.id = ("td"+j)+i;
 		switch (i){
 			case 0:
 				var nr = document.createElement("th");
 				table.appendChild(nr);
-				td.textContent = td.textContent = key; ;
+				td.textContent = "Header " + (j+1);
 				break;
 			default:
-				if (key=="id"){
+				if (j==0){
 					var nr = document.createElement("tr");
 					nr.style.textAlign = "center";
 					table.appendChild(nr);
 				}
-				if (key=="lbs"){
-					if(item[key]==1){
-						td.textContent = "Lbs";
-					}else{
-						td.textContent = "Kgs";
-					}
-				}else{
-					td.textContent = item[key];
-				}		
+				td.textContent = (j+1) + ", " + (i);		
 		}
 		nr.appendChild(td);
 	}
