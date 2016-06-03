@@ -30,10 +30,10 @@ function buildTable(response){
 	var tr;
 	for(var i=0, iLen=response.length; i<iLen; i++){
 		tr = document.createElement("tr");
-		var exerciseData = response[i];
-		//console.log(exerciseData.length);
-		for(var j=0; j<exerciseData.length; j++){
-			console.log("inner loop " + exerciseData[j]);
+		item = response[i];
+		console.log(response[i]);
+		for(var j=0; j<item.length; j++){
+			console.log("inner loop " + item[j]);
 			/*
 			td.textContent = exerciseData[colNames[j]].value;
 			tr.appendChild(td);	
