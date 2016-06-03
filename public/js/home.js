@@ -78,11 +78,8 @@ document.getElementById("btnNew").addEventListener("click", function(event){
 	data.exercise = document.getElementById("txtExercise").value;
 	data.reps = document.getElementById("txtReps").value;
 	data.weight = document.getElementById("txtWeight").value;
-	if (document.getElementById("optLbs").checked){
-		data.lbs = "1";
-	}else{
-		data.lbs = "0";
-	}
+	data.date = document.getElementById("txtDate");
+	data.lbs = document.getElementById("optLbs").checked;
 	
 	req.open("POST", "http://54.213.219.47:3000/insert", true);
 	req.setRequestHeader("Content-Type", "application/json");
