@@ -81,7 +81,7 @@ function button_click(directive, idx){
 			break;
 			
 		case "Delete":
-			Submit("delete", {"id": idx});
+			Submit("delete", {"ID": idx});
 			//Submit("delete", getData("table", table, idx));
 			break;
 		default:
@@ -93,9 +93,9 @@ function getData(inputFrom, table, rIdx){
 	var tblData = {};
 	if (inputFrom=="form"){
 		if(document.getElementById("txtID").value==""){
-			tblData.id = null;
+			tblData.ID = null;
 		}else{
-			tblData.id = document.getElementById("txtID").value; 
+			tblData.ID = document.getElementById("txtID").value; 
 		}
 		tblData.exercise = document.getElementById("txtExercise").value;
 		tblData.reps = document.getElementById("txtReps").value;
@@ -103,7 +103,7 @@ function getData(inputFrom, table, rIdx){
 		tblData.date = document.getElementById("txtDate").value;
 		tblData.lbs = document.getElementById("chkLbs").checked;
 	}else{
-		tblData.id=table.rows[rIdx].cells[0].textContent;
+		tblData.ID=table.rows[rIdx].cells[0].textContent;
 		tblData.exercise=table.rows[rIdx].cells[1].textContent;
 		tblData.reps=table.rows[rIdx].cells[2].textContent;
 		tblData.weight=table.rows[rIdx].cells[3].textContent;
@@ -114,7 +114,7 @@ function getData(inputFrom, table, rIdx){
 }
 
 function fillForm(data){
-	document.getElementById("txtID").value=data.id;
+	document.getElementById("txtID").value=data.ID;
 	document.getElementById("txtExercise").value=data.exercise;
 	document.getElementById("txtReps").value=data.reps;
 	document.getElementById("txtWeight").value=data.weight;
@@ -138,13 +138,13 @@ function buildTable(response){
 	document.getElementById("outputArea").removeChild(document.getElementById("tblOutput"));
 	
 	var table = document.createElement("table");
-	table.id = "tblOutput";
+	table.ID = "tblOutput";
 	table.border = 1;
 	table.style.borderCollapse = "collapse";
 	table.align = "center";
 
 	var idCol = document.createElement("col");
-	idCol.id = "colID";
+	idCol.ID = "colID";
 	table.appendChild(idCol);
 	
 	var tr;
@@ -182,7 +182,7 @@ function buildTable(response){
 						td.textContent = item[key];
 					}		
 			}
-			if(key=="id"){
+			if(key=="ID"){
 				td.display = "none";
 			}
 			tr.appendChild(td);
@@ -192,7 +192,7 @@ function buildTable(response){
 			td = document.createElement("td");
 			tr.appendChild(td);
 			btnEdit = document.createElement("button");
-			btnEdit.id = "btnEdit-"+item["id"];
+			btnEdit.ID = "btnEdit-"+item["ID"];
 			btnEdit.textContent = "Edit";
 			
 			td.appendChild(btnEdit);
@@ -200,13 +200,13 @@ function buildTable(response){
 			td = document.createElement("td");
 			tr.appendChild(td);
 			btnDel = document.createElement("button");
-			btnDel.id = "btnDel-"+item["id"];
+			btnDel.ID = "btnDel-"+item["ID"];
 			btnDel.textContent = "Delete";
 			td.appendChild(btnDel);
 			(function(idx){
 				btnEdit.addEventListener("click", function(){button_click("Edit", idx)});
 				btnDel.addEventListener("click", function(){button_click("Delete", idx)});
-			})(item["id"]);
+			})(item["ID"]);
 		}
 
 		table.appendChild(tr);
