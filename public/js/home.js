@@ -31,12 +31,10 @@ function buildTable(response){
 	for(var i=0, iLen=response.length; i<iLen; i++){
 		tr = document.createElement("tr");
 		item = response[i];
-		
-		for(var j=0; j<colNames.length; j++){
-			//console.log(item[colNames[j]]);
-			/*
-			if (item[colNames[j]]=="lbs"){
-				if(item[colNames[j]].value==1){
+		for(var key in item){
+			
+			if (item[key]=="lbs"){
+				if(item[key].value==1){
 					td.textContent = "Lbs";
 				}else{
 					td.textContent = "Kgs";
@@ -45,7 +43,7 @@ function buildTable(response){
 				td.textContent = item[colNames[j]];
 				tr.appendChild(td);		
 			}
-			*/
+			
 			//console.log(td.textContent);
 			
 		}
@@ -91,7 +89,6 @@ document.getElementById("btnNew").addEventListener("click", function(event){
 	req.addEventListener("load", function(){
 		if (req.status>=200 && req.status<400){
 			var response = JSON.parse(req.responseText);
-			console.log(response[0]);
 			buildTable(response);
 		}else{
 			console.log("error " + req.status + " " + req.statusText);
