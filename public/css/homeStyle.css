@@ -7,9 +7,12 @@
 	position: relative;
 	margin-left: 50px;
 	margin-top: 10px;
+	width: 500px;
+}
+
+legend{
 	border-style: solid;
 	border-color: teal;
-	width: 500px;
 }
 
 #divButtons{
