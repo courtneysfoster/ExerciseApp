@@ -82,7 +82,7 @@ app.post("/delete", function(req,res,next){
 		}else{
 			pool.query("select * from workouts", function(err, rows, fields){
 				context.results = rows;
-				res.send(context.results);
+				res.send("home", context.results);
 				return;	
 			});
 		}
