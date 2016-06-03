@@ -84,6 +84,7 @@ function button_click(directive, idx){
 						document.getElementById("chkLbs").checked=false;
 					}
 					document.getElementById("btnUpdate").type="button";
+					document.getElementById("lgdInputHeader").textContent = "Edit Existing Workout";
 					break;
 				}
 			}
