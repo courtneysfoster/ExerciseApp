@@ -9,7 +9,7 @@
 	margin-top: 10px;
 	border-style: solid;
 	border-color: teal;
-	width: 600px;
+	width: 500px;
 }
 
 hr{
@@ -19,7 +19,7 @@ hr{
 }
 
 #outputArea{
-	
+	position: relative;
 	border-style: solid;
 	border-color: teal;
 	width: 800px;
@@ -68,6 +68,9 @@ th{
 }
 
 #btnResetTbl{
+	position: absolute;
+	right: 25px;
+	bottom: 25px;
 	margin: 20px;
 	background-color: red;
 }
