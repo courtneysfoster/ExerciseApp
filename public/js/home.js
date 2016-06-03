@@ -13,7 +13,7 @@ function buildTable(response){
 
 	var idCol = document.createElement("col");
 	idCol.span = 1;
-	idCol.style.visibility = "collapse";
+	idCol.style.visibility = "hidden";
 	table.appendChild(idCol);
 
 	
