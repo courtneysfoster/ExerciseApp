@@ -100,7 +100,7 @@ app.post("/update", function(req,res,next){
 		}else if(result.length==1){
 			var curVals = result[0];
 			
-			pool.query("update workouts set exercise=?, reps=?, weight=?, due=?, lbs=? where id=?",
+			pool.query("update workouts set exercise=?, reps=?, weight=?, date=?, lbs=? where id=?",
 				
 				
 				[req.body.exercise || curVals.exercise
