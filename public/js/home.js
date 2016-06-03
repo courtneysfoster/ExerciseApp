@@ -31,13 +31,9 @@ function buildTable(response){
 	for(var i=0, iLen=response.length; i<iLen; i++){
 		tr = document.createElement("tr");
 		item = response[i];
-		if (i==4){console.log("array len = " + item.length);};
-		for(var j=0; j<item.length; j++){
-			console.log("inner loop " + item[j]);
-			/*
-			td.textContent = exerciseData[colNames[j]].value;
+		for(var key in item){
+			td.textContent = item[key].value;
 			tr.appendChild(td);	
-			*/
 		}
 	}
 	document.getElementById("outputArea").appendChild(table);
