@@ -33,7 +33,7 @@ function buildTable(response){
 		item = response[i];
 		
 		for(var j=0; j<colNames.length; j++){
-			console.log(item[colNames[j]]);
+			//console.log(item[colNames[j]]);
 			/*
 			if (item[colNames[j]]=="lbs"){
 				if(item[colNames[j]].value==1){
@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", afterPageLoad);
 
 function afterPageLoad(){
 	/* Initial table select section */
+	console.log(document.getElementById("optLbs").checked);
 	var req = new XMLHttpRequest();
 		var data = {};
 		req.open("GET", "http://54.213.219.47:3000/select", true);
