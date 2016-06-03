@@ -1,7 +1,6 @@
 /*Exercise Tracker home page javascript*/
 var ip = "http://54.213.219.47:3000/";
 
-
 document.addEventListener("DOMContentLoaded", afterPageLoad);
 
 function afterPageLoad(){
@@ -22,51 +21,28 @@ function afterPageLoad(){
 	req.send(JSON.stringify(data));
 }
 
-/* button click event listener */
+/* button click event listeners */
 document.getElementById("btnNew").addEventListener("click", function(event){
-	Submit("insert");
+	if(document.getElementById("txtExercise").value==""){
+		alert("Exercise field cannot be blank!");
+		return;
+	}
+	Submit("insert", getData("form"));
 	event.preventDefault();
-	/*
-	var req = new XMLHttpRequest();
-	var data = {};
-	data.exercise = document.getElementById("txtExercise").value;
-	data.reps = document.getElementById("txtReps").value;
-	data.weight = document.getElementById("txtWeight").value;
-	data.date = document.getElementById("txtDate").value;
-	data.lbs = document.getElementById("chkLbs").checked;
-	
-	req.open("POST", ip+"/insert", true);
-	req.setRequestHeader("Content-Type", "application/json");
-	req.addEventListener("load", function(){
-		if (req.status>=200 && req.status<400){
-			var response = JSON.parse(req.responseText);
-			buildTable(response);
-		}else{
-			console.log("error " + req.status + " " + req.statusText);
-			return;
-		}
-	}); 
-	req.send(JSON.stringify(data));
-	clearForm();
-	
-	event.preventDefault();
-	*/
 });
 
 document.getElementById("btnUpdate").addEventListener("click", function(event){
-	Submit("update");
+	if(document.getElementById("txtExercise").value==""){
+		alert("Exercise field cannot be blank!");
+		return;
+	}
+	Submit("update", getData("form"));
 	event.preventDefault();
 });
 
-function Submit(type){
+function Submit(type, data){
 	var req = new XMLHttpRequest();
-	var data = {};
-	data.exercise = document.getElementById("txtExercise").value;
-	data.reps = document.getElementById("txtReps").value;
-	data.weight = document.getElementById("txtWeight").value;
-	data.date = document.getElementById("txtDate").value;
-	data.lbs = document.getElementById("chkLbs").checked;
-	
+	//var data = getData("form");
 	req.open("POST", ip+type, true);
 	req.setRequestHeader("Content-Type", "application/json");
 	req.addEventListener("load", function(){
@@ -80,8 +56,6 @@ function Submit(type){
 	}); 
 	req.send(JSON.stringify(data));
 	clearForm();
-	
-	
 }
 
 function getDate(){
@@ -96,7 +70,6 @@ function button_click(directive, idx){
 		case "Edit":
 			if(document.getElementById("txtExercise").value!=""){
 				if(!confirm("There is unsaved data in the form. Click 'no' to cancel. click 'yes' to discard.")){
-					console.log("user abort");
 					return;
 				}
 			}
@@ -113,14 +86,14 @@ function button_click(directive, idx){
 					break;
 				}
 			}
-		
 			break;
+			
 		case "Delete":
 			console.log("Delete button clicked for idx = "+idx);
+			Submit("delete", getData("table", rIdx));
 			break;
 		default:
 			/* Should never get here. */
-			
 	}
 }
 
@@ -155,6 +128,17 @@ function fillForm(data){
 	document.getElementById("txtWeight").value=data.weight;
 	document.getElementById("txtDate").value=data.date;
 	document.getElementById("chkLbs").checked=data.lbs;
+}
+
+function clearForm(){
+	document.getElementById("txtID").value="";
+	document.getElementById("txtDate").value="";
+	document.getElementById("txtExercise").value="";
+	document.getElementById("txtReps").value="";
+	document.getElementById("txtWeight").value="";
+	document.getElementById("chkLbs").checked=1;
+	document.getElementById("btnUpdate").type="hidden";
+	document.getElementById("lgdInputHeader").textContent="Input New Workout";
 }
 
 function buildTable(response){
@@ -238,13 +222,3 @@ function buildTable(response){
 	document.getElementById("outputArea").appendChild(table);
 }
 
-function clearForm(){
-	document.getElementById("txtID").value="";
-	document.getElementById("txtDate").value="";
-	document.getElementById("txtExercise").value="";
-	document.getElementById("txtReps").value="";
-	document.getElementById("txtWeight").value="";
-	document.getElementById("chkLbs").checked=1;
-	document.getElementById("btnUpdate").type="hidden";
-	document.getElementById("lgdInputHeader").textContent="Input New Workout";
-}
