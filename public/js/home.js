@@ -17,8 +17,8 @@ function buildTable(response){
 	table.appendChild(idCol);
 */
 	
-	
 	var tr;
+	var th;
 	var td;
     for (var i=-1, iLen=response.length; i<iLen; i++){
 		if (i==-1){
@@ -28,16 +28,14 @@ function buildTable(response){
 		}
 		
 		for (var key in item){
-			td = document.createElement("td");
 			switch (i){
 				case -1:
-					if(key=="id"){
-						tr = document.createElement("th");	
-						table.appendChild(tr);
-					}
-					td.textContent = key;
+					th = document.createElement("th");	
+					table.appendChild(th);
+					th.textContent = key;
 					break;
 				default:
+					td = document.createElement("td");
 					if (key=="id"){
 						tr = document.createElement("tr");
 						tr.style.textAlign = "center";
