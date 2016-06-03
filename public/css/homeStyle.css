@@ -60,12 +60,16 @@ th{
 }
 
 #outputArea{
+	position: relative;
 	border-style: solid;
 	border-color: teal;
 	width: 800px;
 }
 
 #tblOutput{
+	position: absolute;
+	top: 0;
+	left: 0;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	margin-left: 10px;
