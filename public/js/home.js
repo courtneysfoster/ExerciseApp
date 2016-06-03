@@ -32,6 +32,7 @@ function buildTable(response){
 		tr = document.createElement("tr");
 		item = response[i];
 		for(var key in item){
+			console.log("i= "+i+" keyVal= " +key);
 			if (key=="lbs"){
 				if(item[key].value==1){
 					td.textContent = "Lbs";
