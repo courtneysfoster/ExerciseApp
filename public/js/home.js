@@ -3,6 +3,9 @@
 function buildTable(response){
 	
 	var table = document.getElementById("tblOutput");
+	table.border = 1;
+	table.style.borderCollapse = "collapse";
+	table.align = "center";
 
 	/*
 	var idCol = document.createElement("col");
