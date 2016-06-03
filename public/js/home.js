@@ -68,7 +68,7 @@ function buildTable(response){
 			td = document.createElement("td");
 			tr.appendChild(td);
 			btnDel = document.createElement("button");
-			btnDel.id = "btnDel-"item["id"];
+			btnDel.id = "btnDel-"+item["id"];
 			console.log("btnDel.id = " + btnDel.id);
 			btnDel.addEventListener("click", function(){button_click("Delete", item["id"])});
 			td.appendChild(btnDel);
