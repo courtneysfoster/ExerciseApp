@@ -73,7 +73,7 @@ app.post("/insert", function(req,res,next){
 
 /* Delete Query */
 app.post("/delete", function(req,res,next){
-	console.log("did we make it here?");
+	console.log(req);
 	var context={};
 	pool.query("delete from workouts where id=?", [req.body.id], function(err, results){
 		if (err){
