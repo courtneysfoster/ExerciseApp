@@ -22,6 +22,35 @@ function buildTable(response){
 	
     var item = response[0];
     
+	for (var i=0, iLen=response.length; i<iLen; i++){
+		for (var key in item){
+			td = document.createElement("td");
+			switch (i){
+				case 0:
+					var nr = document.createElement("th");
+					table.appendChild(nr);
+					td.textContent = td.textContent = key; ;
+					break;
+				default:
+					if (key=="id"){
+						var nr = document.createElement("tr");
+						nr.style.textAlign = "center";
+						table.appendChild(nr);
+					}
+					if (key=="lbs"){
+						if(item[key]==1){
+							td.textContent = "Lbs";
+						}else{
+							td.textContent = "Kgs";
+						}
+					}else{
+						td.textContent = item[key];
+					}		
+			}
+			nr.appendChild(td);
+		}
+	}
+/*
 	for (var key in item) {
     
 		td = document.createElement("td");
@@ -50,34 +79,38 @@ function buildTable(response){
 		}
 		table.appendChild(tr);
 	}
+*/
 	document.getElementById("outputArea").appendChild(table);
 	console.log("We got to the end of buildTable");
 }
 /*
-var table = document.createElement("table");
-table.id = "table1";
-table.border = 1;
-table.style.borderCollapse = "collapse";
-table.align = "center";
 
-var td;
-for (var i=0; i<4; i++){
-	for (var j=0; j<4; j++){
+
+
+for (var i=0, iLen=response.length; i<iLen; i++){
+	for (var key in item){
 		td = document.createElement("td");
-		td.id = ("td"+j)+i;
 		switch (i){
 			case 0:
 				var nr = document.createElement("th");
 				table.appendChild(nr);
-				td.textContent = "Header " + (j+1);
+				td.textContent = td.textContent = key; ;
 				break;
 			default:
-				if (j==0){
+				if (key=="id"){
 					var nr = document.createElement("tr");
 					nr.style.textAlign = "center";
 					table.appendChild(nr);
 				}
-				td.textContent = (j+1) + ", " + (i);		
+				if (key=="lbs"){
+					if(item[key]==1){
+						td.textContent = "Lbs";
+					}else{
+						td.textContent = "Kgs";
+					}
+				}else{
+					td.textContent = item[key];
+				}		
 		}
 		nr.appendChild(td);
 	}
