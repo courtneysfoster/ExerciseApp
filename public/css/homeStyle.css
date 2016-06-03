@@ -15,6 +15,9 @@ fieldset{
 	border-color: teal;	
 }
 
+legend{
+	font-size: medium;
+}
 
 #divButtons{
 	position: absolute;
