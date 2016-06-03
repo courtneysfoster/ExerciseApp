@@ -40,8 +40,6 @@ document.getElementById("btnUpdate").addEventListener("click", function(event){
 
 function Submit(type, data){
 	var req = new XMLHttpRequest();
-	//var data = getData("form");
-	console.log(JSON.stringify(data));
 	req.open("POST", ip+type, true);
 	req.setRequestHeader("Content-Type", "application/json");
 	req.addEventListener("load", function(){
@@ -84,7 +82,6 @@ function button_click(directive, idx){
 			break;
 			
 		case "Delete":
-			console.log("Delete button clicked for idx = "+idx);
 			Submit("delete", getData("table", table, idx));
 			break;
 		default:
