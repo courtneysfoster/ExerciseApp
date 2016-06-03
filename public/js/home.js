@@ -14,7 +14,7 @@ function buildTable(response){
 	var td;
     for (var i=-1, iLen=response.length; i<iLen; i++){
 		console.log("value of i= "+ i);
-		if (i=-1){
+		if (i==-1){
 			item = response[0];
 		}else{
 			item = response[i];
