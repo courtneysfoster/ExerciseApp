@@ -129,11 +129,6 @@ document.getElementById("btnNew").addEventListener("click", function(event){
 	event.preventDefault();
 });
 
-document.getElementById("btnResetTbl").addEventListener("click", function(event){
-	var req = new XMLHttpRequest();
-	req.open("GET", ip+"/make-table", true);
-	req.send(null);
-});
 
 function getDate(){
 	var dtDate = new date(date.now());
