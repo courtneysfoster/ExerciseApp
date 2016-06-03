@@ -57,7 +57,10 @@ label{
 table{
 	border-color: DarkGreen;
 }
-td{
+td, th{
 	padding: 5px;
 }
 
+#colID{
+	style.visible: hidden;
+}

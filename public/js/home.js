@@ -56,7 +56,7 @@ function buildTable(response){
 		table.appendChild(tr);
 	}
 	document.getElementById("outputArea").appendChild(table);
-	document.getElementById("colID").style.visibility="hidden";
+	
 }
 
 document.addEventListener("DOMContentLoaded", afterPageLoad);
