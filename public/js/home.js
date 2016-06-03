@@ -1,5 +1,5 @@
 /*Exercise Tracker home page javascript*/
-
+var ip = "http://54.213.219.47:3000/"
 function buildTable(response){
 	
 	
@@ -90,11 +90,12 @@ function afterPageLoad(){
 	
 	var req = new XMLHttpRequest();
 		var data = {};
-		req.open("GET", "http://54.213.219.47:3000/select", true);
+		req.open("GET", ip+"/select", true);
 		req.setRequestHeader("Content-Type", "application/json");
 		req.addEventListener("load", function(dataResponse, status){
 			if(req.status >= 200 && req.status < 400){
 				dataResponse =  JSON.parse(req.responseText);
+				buildTable(dataResponse);
 			}else{
 				console.log("Error: " + req.statusText);
 			}
@@ -126,6 +127,11 @@ document.getElementById("btnNew").addEventListener("click", function(event){
 	}); 
 	req.send(JSON.stringify(data));
 	event.preventDefault();
+});
+
+document.getElementById("btnReset").addEventListener("click", function(event){
+	var req = new XMLHttpRequest();
+	var url = ""
 });
 
 function getDate(){
