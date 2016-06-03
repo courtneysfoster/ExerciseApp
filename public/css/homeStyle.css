@@ -26,6 +26,9 @@ hr{
 }
 
 #tblOutput{
+	position: absolute;
+	left: 25px;
+	top: 25px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	width: 700px;
@@ -72,7 +75,8 @@ th{
 	right: 0;
 	bottom: 0;
 	margin: 25px;
-	background-color: red;
+	background-color: #880000;
+	color: #EEEEEE;
 }
 
 #divButtons{
