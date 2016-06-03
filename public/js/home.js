@@ -133,7 +133,7 @@ function clearForm(){
 }
 
 function buildTable(response){
-	console.log(response);
+	console.log(response.length);
 	document.getElementById("outputArea").removeChild(document.getElementById("tblOutput"));
 	
 	var table = document.createElement("table");
