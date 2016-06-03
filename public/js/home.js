@@ -31,11 +31,11 @@ function buildTable(response){
 	for(var i=0, iLen=response.length; i<iLen; i++){
 		tr = document.createElement("tr");
 		item = response[i];
-		console.log("i= "+i+" item array= " +item);
-		for(var key in item){
+		console.log("i= "+i+" Key= " item(key);
+		for(var j=0; j<colNames.length; j++){
 			
-			if (key=="lbs"){
-				if(item[key].value==1){
+			if (item[colNames[j]]=="lbs"){
+				if(item[colNames[j]].value==1){
 					td.textContent = "Lbs";
 				}else{
 					td.textContent = "Kgs";
