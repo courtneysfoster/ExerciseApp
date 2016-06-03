@@ -108,6 +108,8 @@ function button_click(directive, idx){
 			for(rIdx=1, rLen=table.rows.length; rIdx<rLen; rIdx++){
 				var cellVal = table.rows[rIdx].cells[cIdx].textContent;
 				if(cellVal==idx){
+					fillForm(getData("table", rIdx));
+					/*
 					document.getElementById("txtID").value=idx;
 					document.getElementById("txtExercise").value=table.rows[rIdx].cells[1].textContent;
 					document.getElementById("txtReps").value=table.rows[rIdx].cells[2].textContent;
@@ -118,13 +120,12 @@ function button_click(directive, idx){
 					}else{
 						document.getElementById("chkLbs").checked=false;
 					}
+					*/
 					document.getElementById("btnUpdate").type="button";
 					document.getElementById("lgdInputHeader").textContent = "Edit Existing Workout";
 					break;
 				}
 			}
-			
-		
 		
 			break;
 		case "Delete":
@@ -134,6 +135,39 @@ function button_click(directive, idx){
 			/* Should never get here. */
 			
 	}
+}
+
+function getData(inputFrom, rIdx){
+	var tblData = {};
+	if (inputFrom=="form"){
+		if(document.getElementById("txtID").value==""){
+			tblData.id = null;
+		}else{
+			tblData.id = document.getElementById("txtID").value; 
+		}
+		tblData.exercise = document.getElementById("txtExercise").value;
+		tblData.reps = document.getElementById("txtReps").value;
+		tblData.weight = document.getElementById("txtWeight").value;
+		tblData.date = document.getElementById("txtDate").value;
+		tblData.lbs = document.getElementById("chkLbs").checked;
+	}else{
+		tblData.id=table.rows[rIdx].cells[0].textContent;
+		tblData.exercise=table.rows[rIdx].cells[1].textContent;
+		tblData.reps=table.rows[rIdx].cells[2].textContent;
+		tblData.weight=table.rows[rIdx].cells[3].textContent;
+		tblData.date=table.rows[rIdx].cells[4].textContent;
+		tblData.lbs=(table.rows[rIdx].cells[5].textContent=="Lbs")
+	}
+	return tblData;
+}
+
+function fillForm(data){
+	document.getElementById("txtID").value=data.id;
+	document.getElementById("txtExercise").value=data.exercise;
+	document.getElementById("txtReps").value=data.reps;
+	document.getElementById("txtWeight").value=data.weight;
+	document.getElementById("txtDate").value=data.date;
+	document.getElementById("chkLbs").checked=data.lbs;
 }
 
 function buildTable(response){
