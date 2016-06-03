@@ -34,8 +34,7 @@ app.get("/", function(req,res,next){
 
 /* Select Query*/
 app.get("/select", function(req,res,next){
-	pool.query("SELECT id as 'ID', exercise as 'Exercise', reps as 'Reps', weight as 'Weight', date as 'Date', lbs as 'Units'  FROM workouts", function(err, rows, fields){
-	//pool.query("SELECT * FROM workouts", function(err, rows, fields){
+	pool.query("SELECT * FROM workouts", function(err, rows, fields){
 		if(err){
 			console.log("query failure. " + err.description);
 			next(err);
@@ -74,7 +73,6 @@ app.post("/insert", function(req,res,next){
 
 /* Delete Query */
 app.post("/delete", function(req,res,next){
-	console.log(req.body);
 	var context={};
 	pool.query("delete from workouts where id=?", [req.body.id], function(err, results){
 		if (err){
@@ -133,11 +131,11 @@ app.get("/make-table",function(req,res,next){
     var context = {};
     pool.query("DROP TABLE IF EXISTS workouts", function(err){
     var createString = "CREATE TABLE workouts("+
-    "id INT PRIMARY KEY AUTO_INCREMENT,"+
-    "exercise VARCHAR(255) NOT NULL,"+
-    "reps INT,"+
-    "weight INT,"+
-    "date DATE,"+
+    "ID INT PRIMARY KEY AUTO_INCREMENT,"+
+    "Exercise VARCHAR(255) NOT NULL,"+
+    "Reps INT,"+
+    "Weight INT,"+
+    "Date DATE,"+
     "lbs BOOLEAN)";
     pool.query(createString, function(err){
     res.redirect("back");
