@@ -26,7 +26,8 @@ function buildTable(response){
 		}else{
 			item = response[i];
 		}
-		
+		tr = document.createElement("tr");
+		tr.style.textAlign = "center";
 		for (var key in item){
 			switch (i){
 				case -1:
@@ -36,11 +37,13 @@ function buildTable(response){
 					break;
 				default:
 					td = document.createElement("td");
+					/*
 					if (key=="id"){
 						tr = document.createElement("tr");
 						tr.style.textAlign = "center";
-						//table.appendChild(tr);
+						table.appendChild(tr);
 					}
+					*/
 					if (key=="lbs"){
 						if(item[key]==1){
 							td.textContent = "Lbs";
