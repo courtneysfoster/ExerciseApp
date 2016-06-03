@@ -71,11 +71,12 @@ function buildTable(response){
 			btnDel.id = "btnDel-"+item["id"];
 			btnDel.textContent = "Delete";
 			td.appendChild(btnDel);
+			(function(idx){
+				btnEdit.addEventListener("click", function(){button_click("Edit", idx)});
+				btnDel.addEventListener("click", function(){button_click("Delete", idx)});
+			})(item["id"]);
 		}
-		(function(idx){
-			btnEdit.addEventListener("click", function(){button_click("Edit", idx)});
-			btnDel.addEventListener("click", function(){button_click("Delete", idx)});
-		})(item["id"]);
+
 		table.appendChild(tr);
 	}
 	document.getElementById("outputArea").appendChild(table);
