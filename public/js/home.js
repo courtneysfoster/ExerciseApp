@@ -40,7 +40,7 @@ function buildTable(response){
 					td.textContent = "Kgs";
 				}
 			}else{
-				td.textContent = item[colNames[j]];
+				td.textContent = item[key];
 				tr.appendChild(td);		
 			}
 			
