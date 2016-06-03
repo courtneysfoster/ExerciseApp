@@ -3,6 +3,7 @@
 function buildTable(response){
 	
 	var table = document.getElementById("tblOutput");
+	console.log("doc exists = " + !!document.getElementById("tblOutput"))
 	if(!!document.getElementById("tblOutput")){
 		table.parentNode.removeChild(table);	
 	}else{
