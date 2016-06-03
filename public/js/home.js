@@ -6,9 +6,9 @@ function buildTable(response){
 	var table;
 	if(!!document.getElementById("tblOutput")){
 		console.log(table.id);
-		return;
 		table = document.getElementById("tblOutput");
 		table.parentNode.removeChild(table);	
+		return;
 	}else{
 		table = document.createElement("table");
 		table.id = "tblOutput";
