@@ -133,7 +133,7 @@ function clearForm(){
 }
 
 function buildTable(response){
-	console.log(response.length);
+	
 	document.getElementById("outputArea").removeChild(document.getElementById("tblOutput"));
 	
 	var table = document.createElement("table");
@@ -150,7 +150,23 @@ function buildTable(response){
 	var td;
 	var btnEdit;
 	var btnDel;
-	
+	if(response.length==0){
+		tr = document.createElement("tr");
+		td = document.createElement("th");
+		td.textContent = "exercise";
+		tr.appendChild(td);
+		td = document.createElement("th");
+		td.textContent = "reps";
+		td = document.createElement("th");
+		td.textContent = "weight";
+		td = document.createElement("th");
+		td.textContent = "date";
+		td = document.createElement("th");
+		td.textContent = "units";
+		table.appendChild(tr);
+		document.getElementById("outputArea").appendChild(table);
+		return;
+	}
     for (var i=-1, iLen=response.length; i<iLen; i++){
 		if (i==-1){
 			item = response[0];
