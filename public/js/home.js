@@ -13,7 +13,7 @@ function afterPageLoad(){
 			dataResponse =  JSON.parse(req.responseText);
 			buildTable(dataResponse);
 		}else{
-			console.log("Error: " + req.statusText);
+			console.log("Error: " + req.status + ", " + req.statusText);
 		}
 	});
 	req.send(JSON.stringify(data));
