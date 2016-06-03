@@ -44,7 +44,7 @@ function buildTable(response){
 				tr.appendChild(td);		
 			}
 			
-			//console.log(td.textContent);
+			console.log(td.textContent);
 			
 		}
 	}
