@@ -11,7 +11,9 @@ function buildTable(response){
 	table.style.borderCollapse = "collapse";
 	table.align = "center";
 
-	
+	var colGrp = document.createElement("colgroup");
+	colGrp.span = 1;
+	table.appendChild(colGrp);
 	var idCol = document.createElement("col");
 	idCol.span = 1;
 	idCol.style.visibility ="hidden";
@@ -56,6 +58,7 @@ function buildTable(response){
 		}
 		table.appendChild(tr);
 	}
+	colGrp.visibility = "hidden";
 	document.getElementById("outputArea").appendChild(table);
 }
 
