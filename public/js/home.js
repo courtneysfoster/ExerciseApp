@@ -66,6 +66,7 @@ function getDate(){
 }
 
 function button_click(directive, idx){
+	var table = document.getElementById("tblOutput");
 	switch (directive){
 		case "Edit":
 			if(document.getElementById("txtExercise").value!=""){
@@ -73,7 +74,6 @@ function button_click(directive, idx){
 					return;
 				}
 			}
-			var table = document.getElementById("tblOutput");
 			var rIdx = 1;
 			var cIdx = 0;
 			
@@ -90,7 +90,7 @@ function button_click(directive, idx){
 			
 		case "Delete":
 			console.log("Delete button clicked for idx = "+idx);
-			Submit("delete", getData("table", rIdx));
+			Submit("delete", getData("table", table, idx));
 			break;
 		default:
 			/* Should never get here. */
