@@ -4,8 +4,6 @@ var ip = "http://54.213.219.47:3000/";
 document.addEventListener("DOMContentLoaded", afterPageLoad);
 
 function afterPageLoad(){
-	/* Initial table select section */
-	
 	var req = new XMLHttpRequest();
 	var data = {};
 	req.open("GET", ip+"/select", true);
@@ -15,7 +13,7 @@ function afterPageLoad(){
 			dataResponse =  JSON.parse(req.responseText);
 			buildTable(dataResponse);
 		}else{
-			//console.log("Error: " + req.statusText);
+			console.log("Error: " + req.statusText);
 		}
 	});
 	req.send(JSON.stringify(data));
