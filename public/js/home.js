@@ -63,7 +63,7 @@ function button_click(directive, idx){
 			var table = document.getElementById("tblOutput");
 			var rIdx = 1;
 			var cIdx = 0;
-			var cellVal = table.rows[rIdx].cells[cIdx].value;
+			var cellVal = table.rows[rIdx].cells[cIdx].textContent;
 			console.log(cellVal);
 			/*
 			if(cellVal==idx){
