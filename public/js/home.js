@@ -20,10 +20,9 @@ function buildTable(response){
 	
 	var td;
 	
-    for (var i=0, iLen=response.length; i<iLen; i++){
+    for (var i=-1, iLen=response.length; i<iLen; i++){
 		if (i=-1){
 			item = response[0];
-			//console.log(item);
 			return;
 		}else{
 			item = response[i];
@@ -36,13 +35,13 @@ function buildTable(response){
 					var nr = document.createElement("th");
 					table.appendChild(nr);
 					td.textContent = key;
-					console.log("we got here. " + key + " = " + item[key] );
 					break;
 				default:
 					if (key=="id"){
 						var nr = document.createElement("tr");
 						nr.style.textAlign = "center";
 						table.appendChild(nr);
+						break;
 					}
 					if (key=="lbs"){
 						if(item[key]==1){
@@ -56,6 +55,7 @@ function buildTable(response){
 			}
 			nr.appendChild(td);
 		}
+		
 	}
 /*
 	for (var key in item) {
@@ -164,7 +164,6 @@ document.getElementById("btnNew").addEventListener("click", function(event){
 			return;
 		}
 	});
-	console.log(JSON.stringify(data));
 	req.send(JSON.stringify(data));
 	event.preventDefault();
 });
