@@ -23,6 +23,8 @@ function buildTable(response){
     for (var i=0, iLen=response.length; i<iLen; i++){
 		if (i=-1){
 			item = response[0];
+			console.log(item);
+			return;
 		}else{
 			item = response[i];
 		}
