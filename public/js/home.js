@@ -21,18 +21,20 @@ function buildTable(response){
 	var td;
 	var colNames = [];
     var item = response[0];
-    for (var key in item) {
+    /*
+	for (var key in item) {
         colNames.push(key);
 		td = document.createElement("td");
 		td.textContent = key;
 		th.appendChild(td);
-    }
+    } 
+	*/
 	var tr;
 	for(var i=0, iLen=response.length; i<iLen; i++){
 		tr = document.createElement("tr");
 		item = response[i];
 		for(var key in item){
-			console.log("Item keyVal for item "+i+" = " +key + " = "+ item[key]);
+			
 			if (item[key]=="lbs"){
 				if(item[key].value==1){
 					td.textContent = "Lbs";
