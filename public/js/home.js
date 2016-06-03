@@ -38,7 +38,7 @@ document.getElementById("btnNew").addEventListener("click", function(event){
 	req.addEventListener("load", function(){
 		if (req.status>=200 && req.status<400){
 			var response = JSON.parse(req.responseText);
-			//buildTable(response);
+			buildTable(response);
 		}else{
 			console.log("error " + req.status + " " + req.statusText);
 			return;
