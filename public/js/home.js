@@ -3,16 +3,21 @@
 function buildTable(response){
 	
 	
-	
+	var table;
 	if(!!document.getElementById("tblOutput")){
-		var table = document.getElementById("tblOutput");
+		console.log(table.id);
+		return;
+		table = document.getElementById("tblOutput");
 		table.parentNode.removeChild(table);	
+	}else{
+		table = document.createElement("table");
+		table.id = "tblOutput";
+		table.border = 1;
+		table.style.borderCollapse = "collapse";		
 	}
+
 	
-	table = document.createElement("table");
-	table.id = "tblOutput";
-	table.border = 1;
-	table.style.borderCollapse = "collapse";	
+	
 		
 	var idCol = document.createElement("col");
 	idCol.style.visibility ="hidden";
