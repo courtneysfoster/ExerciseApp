@@ -50,7 +50,7 @@ function buildTable(response){
 					}		
 			}
 			if(key=="id"){
-				td.class = "idCol";
+				td.display = "none";
 			}
 			tr.appendChild(td);
 		}
