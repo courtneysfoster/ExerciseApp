@@ -13,11 +13,12 @@ function buildTable(response){
 
 	var colGrp = document.createElement("colgroup");
 	colGrp.span = 1;
-	colGrp.style.visibility = false;
+	colGrp.style.visibility = "collapse";
 	table.appendChild(colGrp);
+	
 	var idCol = document.createElement("col");
 	idCol.span = 1;
-	idCol.style.visibility =false;
+	idCol.style.visibility = "collapse";
 	table.appendChild(idCol);
 	
 	
