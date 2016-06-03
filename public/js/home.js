@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", afterPageLoad);
 
 function afterPageLoad(){
 	/* Initial table select section */
-	console.log(document.getElementById("optLbs").checked);
+	
 	var req = new XMLHttpRequest();
 		var data = {};
 		req.open("GET", "http://54.213.219.47:3000/select", true);
@@ -91,6 +91,7 @@ document.getElementById("btnNew").addEventListener("click", function(event){
 	req.addEventListener("load", function(){
 		if (req.status>=200 && req.status<400){
 			var response = JSON.parse(req.responseText);
+			console.log(response[0]);
 			buildTable(response);
 		}else{
 			console.log("error " + req.status + " " + req.statusText);
