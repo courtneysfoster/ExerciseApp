@@ -84,7 +84,6 @@ function buildTable(response){
 	}
 */
 	document.getElementById("outputArea").appendChild(table);
-	console.log("We got to the end of buildTable");
 }
 /*
 
