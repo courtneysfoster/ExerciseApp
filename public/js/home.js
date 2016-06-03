@@ -15,8 +15,6 @@ function buildTable(response){
 	idCol.id = "colID";
 	table.appendChild(idCol);
 	
-
-	
 	var tr;
 	var td;
     for (var i=-1, iLen=response.length; i<iLen; i++){
@@ -100,7 +98,7 @@ document.getElementById("btnNew").addEventListener("click", function(event){
 			console.log("error " + req.status + " " + req.statusText);
 			return;
 		}
-	});
+	}); 
 	req.send(JSON.stringify(data));
 	event.preventDefault();
 });
