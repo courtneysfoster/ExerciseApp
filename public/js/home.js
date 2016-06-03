@@ -10,12 +10,12 @@ function buildTable(response){
 	table.border = 1;
 	table.style.borderCollapse = "collapse";
 	table.align = "center";
-
+/*
 	var colGrp = document.createElement("colgroup");
 	colGrp.span = 1;
 	colGrp.style.visibility = "collapse";
 	table.appendChild(colGrp);
-	
+*/
 	var idCol = document.createElement("col");
 	idCol.span = 1;
 	idCol.style.visibility = "collapse";
