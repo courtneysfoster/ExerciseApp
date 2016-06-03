@@ -23,13 +23,15 @@ function buildTable(response){
     var item = response[0];
     
 	for (var i=0, iLen=response.length; i<iLen; i++){
+		if(i!=-1){item = response[i];};
 		for (var key in item){
 			td = document.createElement("td");
 			switch (i){
-				case 0:
+				case -1:
 					var nr = document.createElement("th");
 					table.appendChild(nr);
-					td.textContent = td.textContent = key;
+					td.textContent = key;
+					break;
 				default:
 					if (key=="id"){
 						var nr = document.createElement("tr");
