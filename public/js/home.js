@@ -141,7 +141,7 @@ function button_click(directive, idx){
 			console.log("Edit button Clicked for idx = "+idx);
 			break;
 		case "Delete":
-			/* Call Delete Function */
+			console.log("Delete button Clicked for idx = "+idx);
 			break;
 		default:
 			/* Should never get here. */
