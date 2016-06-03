@@ -59,6 +59,7 @@ document.getElementById("btnUpdate").addEventListener("click", function(event){
 });
 
 function Submit(type){
+	console.log(ip+type);
 	var req = new XMLHttpRequest();
 	var data = {};
 	data.exercise = document.getElementById("txtExercise").value;
