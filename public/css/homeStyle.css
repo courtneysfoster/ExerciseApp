@@ -38,16 +38,8 @@ label{
 	text-align: right;
 }
 
-#btnNew{
-	margin-left: 20px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-
-#btnEdit{
-	margin-left: 15px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+.buttons{
+	margin: 10px 10px 10px 10px;
 }
 
 .dataInput{
