@@ -130,9 +130,7 @@ app.get("/make-table",function(req,res,next){
     "date DATE,"+
     "lbs BOOLEAN)";
     pool.query(createString, function(err){
-      context.results = "Table Created";
-      res.redirect("back");
-	  //res.render("home",context);
+    res.redirect("back");
       });
   });
 });
