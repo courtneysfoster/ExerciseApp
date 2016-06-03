@@ -133,7 +133,7 @@ function clearForm(){
 }
 
 function buildTable(response){
-	
+	console.log(response);
 	document.getElementById("outputArea").removeChild(document.getElementById("tblOutput"));
 	
 	var table = document.createElement("table");
@@ -141,7 +141,7 @@ function buildTable(response){
 	table.border = 1;
 	table.style.borderCollapse = "collapse";
 	table.align = "center";
-
+	
 	var idCol = document.createElement("col");
 	idCol.id = "colID";
 	table.appendChild(idCol);
@@ -150,6 +150,7 @@ function buildTable(response){
 	var td;
 	var btnEdit;
 	var btnDel;
+	
     for (var i=-1, iLen=response.length; i<iLen; i++){
 		if (i==-1){
 			item = response[0];
