@@ -45,7 +45,6 @@ function Submit(type, data){
 	req.addEventListener("load", function(){
 		if (req.status>=200 && req.status<400){
 			var response = JSON.parse(req.responseText);
-			console.log(response);
 			buildTable(response);
 		}else{
 			console.log("error " + req.status + " " + req.statusText);
@@ -82,9 +81,7 @@ function button_click(directive, idx){
 			break;
 			
 		case "Delete":
-			console.log("Delete button clicked for idx= " + idx);
 			Submit("delete", {"id": idx});
-			//Submit("delete", getData("table", table, idx));
 			break;
 		default:
 			/* Should never get here. */
