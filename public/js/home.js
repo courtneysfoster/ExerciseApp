@@ -23,7 +23,7 @@ function buildTable(response){
 	table.appendChild(th);
 	
 	var td;
-	
+	var tr;
     for (var i=-1, iLen=response.length; i<iLen; i++){
 		if (i=-1){
 			item = response[0];
@@ -35,15 +35,15 @@ function buildTable(response){
 			td = document.createElement("td");
 			switch (i){
 				case -1:
-					var nr = document.createElement("th");
-					table.appendChild(nr);
+					tr = document.createElement("th");
+					table.appendChild(tr);
 					td.textContent = key;
 					break;
 				default:
 					if (key=="id"){
-						var nr = document.createElement("tr");
-						nr.style.textAlign = "center";
-						table.appendChild(nr);
+						tr = document.createElement("tr");
+						tr.style.textAlign = "center";
+						table.appendChild(tr);
 						break;
 					}
 					if (key=="lbs"){
@@ -56,7 +56,7 @@ function buildTable(response){
 						td.textContent = item[key];
 					}		
 			}
-			nr.appendChild(td);
+			tr.appendChild(td);
 		}
 		
 	}
