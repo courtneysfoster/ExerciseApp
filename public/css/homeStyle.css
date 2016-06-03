@@ -39,7 +39,10 @@ label{
 }
 
 .buttons{
-	margin: 10px 10px 10px 10px;
+	width: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	
 }
 
 .dataInput{
@@ -64,7 +67,7 @@ th{
 }
 
 #btnResetTbl{
-	margin: 20px 20px 20px 20px;
+	margin: 20px;
 	background-color: red;
 }
 
@@ -72,4 +75,8 @@ th{
 	position: absolute;
 	right: 0;
 	top: 0;
+	width: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	
 }
