@@ -110,7 +110,7 @@ app.post("/update", function(req,res,next){
 				, req.body.lbs || curVals.lbs
 				, req.body.id]
 				
-				,function(err,result[0]){
+				,function(err,result){
 					if(err){
 						console.log("update query failure. " + err.description);
 						next(err);
