@@ -21,7 +21,6 @@ function buildTable(response){
 	var tr;
 	var td;
     for (var i=-1, iLen=response.length; i<iLen; i++){
-		console.log("value of i= "+ i);
 		if (i==-1){
 			item = response[0];
 		}else{
@@ -32,8 +31,10 @@ function buildTable(response){
 			td = document.createElement("td");
 			switch (i){
 				case -1:
-					tr = document.createElement("th");
-					table.appendChild(tr);
+					if(key=="id"){
+						tr = document.createElement("th");	
+						table.appendChild(tr);
+					}
 					td.textContent = key;
 					break;
 				default:
