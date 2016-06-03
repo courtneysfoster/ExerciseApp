@@ -6,7 +6,7 @@
 #inputArea{
 	position: relative;
 	margin-left: 50px;
-	margin-top: 10px;
+	top: -25px;
 	width: 500px;
 }
 

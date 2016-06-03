@@ -91,6 +91,7 @@ app.post("/delete", function(req,res,next){
 
 /* Update Query */
 app.post("/update", function(req,res,next){
+	console.log("We got here.");
 	var context = {};
 	pool.query("select * from workouts where id=?", [req.body.id], function(err,result){
 		if(err){
