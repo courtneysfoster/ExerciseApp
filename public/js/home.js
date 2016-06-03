@@ -32,7 +32,7 @@ function buildTable(response){
 		tr = document.createElement("tr");
 		item = response[i];
 		for(var key in item){
-			
+			console.log(item[key]);
 			if (item[key]=="lbs"){
 				if(item[key].value==1){
 					td.textContent = "Lbs";
@@ -44,7 +44,7 @@ function buildTable(response){
 				tr.appendChild(td);		
 			}
 			
-			console.log(td.textContent);
+			//console.log(td.textContent);
 			
 		}
 	}
