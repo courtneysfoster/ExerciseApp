@@ -4,7 +4,8 @@
 <br>
 <section id="inputArea">
 	<form id="frmInput">
-		<div id="divInputs" title="Enter New Data"><legend id="lgdInputHeader">Input New Workout</legend>
+	<fieldset id="fldSet"><legend id="lgdInputHeader">Input New Workout</legend>
+		<div id="divInputs" title="Enter New Data">
 			<label id="lblID" type="hidden"></label>
 				<input class="dataInput" id="txtID" type="hidden" name="id"><br>
 			<label id="lblDate">Date (yyyy-mm-dd):</label>
@@ -23,7 +24,9 @@
 			<input type="hidden" class="buttons" id="btnUpdate" name="Submit" value="Submit Changes"><br>
 			<input type="button" class="buttons" onclick="clearForm()" id="btnClearForm" value="Clear Form"><br>
 		</div>
+	</fieldset>
 	</form>
+	
 	
 </section>
 <hr>
