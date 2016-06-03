@@ -60,27 +60,36 @@ function getDate(){
 function button_click(directive, idx){
 	switch (directive){
 		case "Edit":
-			console.log("Edit button clicked for idx = " + idx);
-			var table = document.getElementById("tblOutput");
-			var rIdx = 1;
-			var cIdx = 0;
-			
-			for(rIdx=1, rLen=table.rows.length; rIdx<rLen; rIdx++){
-				var cellVal = table.rows[rIdx].cells[cIdx].textContent;
-				if(cellVal==idx){
-					document.getElementById("txtID").value=idx;
-					document.getElementById("txtExercise").value=table.rows[rIdx].cells[1].textContent;
-					document.getElementById("txtReps").value=table.rows[rIdx].cells[2].textContent;
-					document.getElementById("txtWeight").value=table.rows[rIdx].cells[3].textContent;
-					document.getElementById("txtDate").value=table.rows[rIdx].cells[4].textContent;
-					if (table.rows[rIdx].cells[5].textContent=="Lbs"){
-						document.getElementById("chkLbs").checked=true;
-					}else{
-						document.getElementById("chkLbs").checked=false;
-					}
-					break;
+			if(document.getElementById("txtExercise").value!=""){
+				if(!confirm("There is unsaved data in the form. Click 'no' to cancel. click 'yes' to discard.")){
+					console.log("user abort");
+					return;
 				}
+				var table = document.getElementById("tblOutput");
+				var rIdx = 1;
+				var cIdx = 0;
+				
+				for(rIdx=1, rLen=table.rows.length; rIdx<rLen; rIdx++){
+					var cellVal = table.rows[rIdx].cells[cIdx].textContent;
+					if(cellVal==idx){
+						document.getElementById("txtID").value=idx;
+						document.getElementById("txtExercise").value=table.rows[rIdx].cells[1].textContent;
+						document.getElementById("txtReps").value=table.rows[rIdx].cells[2].textContent;
+						document.getElementById("txtWeight").value=table.rows[rIdx].cells[3].textContent;
+						document.getElementById("txtDate").value=table.rows[rIdx].cells[4].textContent;
+						if (table.rows[rIdx].cells[5].textContent=="Lbs"){
+							document.getElementById("chkLbs").checked=true;
+						}else{
+							document.getElementById("chkLbs").checked=false;
+						}
+						break;
+					}
+				}
+				
+				document.getElementById("btnUpdate").type="button"
 			}
+			
+			
 			
 			break;
 		case "Delete":
