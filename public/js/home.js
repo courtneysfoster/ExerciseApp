@@ -58,7 +58,7 @@ function buildTable(response){
 		}
 		table.appendChild(tr);
 	}
-	colGrp.visibility = "hidden";
+	colGrp.style.visibility = "hidden";
 	document.getElementById("outputArea").appendChild(table);
 }
 
