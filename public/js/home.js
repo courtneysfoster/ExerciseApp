@@ -81,7 +81,6 @@ function button_click(directive, idx){
 			break;
 			
 		case "Delete":
-			console.log("Delete button clicked for idx= " + idx);
 			Submit("delete", {"id": idx});
 			//Submit("delete", getData("table", table, idx));
 			break;

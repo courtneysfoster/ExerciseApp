@@ -34,7 +34,8 @@ app.get("/", function(req,res,next){
 
 /* Select Query*/
 app.get("/select", function(req,res,next){
-	pool.query("SELECT * FROM workouts", function(err, rows, fields){
+	pool.query("SELECT id as "ID", exercise as "Exercise", reps as "Reps", weight as "Weight", date as "Date", lbs as "Units"  FROM workouts", function(err, rows, fields){
+	//pool.query("SELECT * FROM workouts", function(err, rows, fields){
 		if(err){
 			console.log("query failure. " + err.description);
 			next(err);
