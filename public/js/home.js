@@ -114,7 +114,7 @@ document.getElementById("btnNew").addEventListener("click", function(event){
 	data.date = document.getElementById("txtDate").value;
 	data.lbs = document.getElementById("optLbs").checked;
 	
-	req.open("POST", "http://54.213.219.47:3000/insert", true);
+	req.open("POST", ip+"/insert", true);
 	req.setRequestHeader("Content-Type", "application/json");
 	req.addEventListener("load", function(){
 		if (req.status>=200 && req.status<400){
@@ -129,9 +129,10 @@ document.getElementById("btnNew").addEventListener("click", function(event){
 	event.preventDefault();
 });
 
-document.getElementById("btnReset").addEventListener("click", function(event){
+document.getElementById("btnResetTbl").addEventListener("click", function(event){
 	var req = new XMLHttpRequest();
-	var url = ""
+	req.open("GET", ip+"/make-table", true);
+	req.send(null);
 });
 
 function getDate(){
