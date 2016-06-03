@@ -50,7 +50,7 @@ function buildTable(response){
 					}		
 			}
 			if(key=="id"){
-				td.width = 0;
+				td.visibility = "hidden";
 			}
 			tr.appendChild(td);
 		}
