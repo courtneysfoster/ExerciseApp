@@ -31,8 +31,9 @@ function buildTable(response){
 	for(var i=0, iLen=response.length; i<iLen; i++){
 		tr = document.createElement("tr");
 		item = response[i];
+		console.log("i= "+i+" item array= " +item);
 		for(var key in item){
-			console.log("i= "+i+" keyVal= " +key);
+			
 			if (key=="lbs"){
 				if(item[key].value==1){
 					td.textContent = "Lbs";
@@ -43,7 +44,7 @@ function buildTable(response){
 				td.textContent = item[key].value;
 				tr.appendChild(td);		
 			}
-			console.log(td.textContent);
+			//console.log(td.textContent);
 			
 		}
 	}
