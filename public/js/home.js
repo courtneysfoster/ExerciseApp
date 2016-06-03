@@ -2,7 +2,11 @@
 
 function buildTable(response){
 	
-	var table = document.getElementById("tblOutput");
+	
+	document.getElementById("outputArea").removeChild(document.getElementById("tblOutput"));
+	
+	var table = document.createElement("table");
+	table.id = "tblOutput";
 	table.border = 1;
 	table.style.borderCollapse = "collapse";
 	table.align = "center";
