@@ -99,15 +99,18 @@ app.post("/update", function(req,res,next){
 			return;
 		}else if(result.length==1){
 			var curVals = result[0];
-			console.log(result[0]);
+			
 			pool.query("update workouts set exercise=?, reps=?, weight=?, due=?, lbs=?, where id=?",
+				
+				
 				[req.body.exercise || curVals.exercise
 				, req.body.reps || curVals.reps
 				, req.body.weight || curVals.weight
 				, req.body.date || curVals.date
-				, req.body.lbs || curVals.lbs]
-				, req.body.id
-				,function(err,result){
+				, req.body.lbs || curVals.lbs
+				, req.body.id]
+				
+				,function(err,result[0]){
 					if(err){
 						console.log("update query failure. " + err.description);
 						next(err);
@@ -126,7 +129,7 @@ app.post("/update", function(req,res,next){
 /* delete old table and make a new one */
 app.get("/make-table",function(req,res,next){
     var context = {};
-    pool.query("DROP TABLE IF EXISTS workouts", function(err){ //replace your connection pool with the your variable containing the connection pool
+    pool.query("DROP TABLE IF EXISTS workouts", function(err){
     var createString = "CREATE TABLE workouts("+
     "id INT PRIMARY KEY AUTO_INCREMENT,"+
     "exercise VARCHAR(255) NOT NULL,"+
