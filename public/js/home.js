@@ -203,7 +203,7 @@ function buildTable(response){
 					}		
 			}
 			if(key=="id"){
-				td.display = "none";
+				td.display = 0;
 			}
 			tr.appendChild(td);
 		}
