@@ -25,7 +25,7 @@ function buildTable(response){
 		if(i!=-1){item = response[i];};
 		for (var key in item){
 			if(i==-1){
-				console.log(key);
+				console.log(item);
 			}
 			td = document.createElement("td");
 			switch (i){
