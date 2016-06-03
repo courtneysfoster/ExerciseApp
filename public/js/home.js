@@ -78,7 +78,7 @@ document.getElementById("btnNew").addEventListener("click", function(event){
 	data.exercise = document.getElementById("txtExercise").value;
 	data.reps = document.getElementById("txtReps").value;
 	data.weight = document.getElementById("txtWeight").value;
-	data.date = document.getElementById("txtDate");
+	data.date = document.getElementById("txtDate").value;
 	if (document.getElementById("optLbs").checked){
 		data.lbs = 1;
 	}else{
@@ -98,7 +98,7 @@ document.getElementById("btnNew").addEventListener("click", function(event){
 		}
 	});
 	console.log(JSON.stringify(data));
-	//req.send(JSON.stringify(data));
+	req.send(JSON.stringify(data));
 	event.preventDefault();
 });
 
