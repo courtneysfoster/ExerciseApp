@@ -60,8 +60,23 @@ function getDate(){
 function button_click(directive, idx){
 	switch (directive){
 		case "Edit":
-			console.log("Edit button Clicked for idx = "+idx);
+			var table = document.getElementById("tblOutput");
+			var rIdx = 1;
+			var cIdx = 0;
+			var cellVal = table.rows[rIdx].cells[cIdx].value;
+			console.log(cellVal);
+			/*
+			if(cellVal==idx){
+				
+			}
 			
+			document.getElementById("txtID").value="";
+			document.getElementById("txtDate").value="";
+			document.getElementById("txtExercise").value="";
+			document.getElementById("txtReps").value="";
+			document.getElementById("txtWeight").value="";
+			document.getElementById("chkLbs").checked=1;
+			*/
 			break;
 		case "Delete":
 			console.log("Delete button Clicked for idx = "+idx);
