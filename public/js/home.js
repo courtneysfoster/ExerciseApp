@@ -108,18 +108,6 @@ function button_click(directive, idx){
 				var cellVal = table.rows[rIdx].cells[cIdx].textContent;
 				if(cellVal==idx){
 					fillForm(getData("table", table, rIdx));
-					/*
-					document.getElementById("txtID").value=idx;
-					document.getElementById("txtExercise").value=table.rows[rIdx].cells[1].textContent;
-					document.getElementById("txtReps").value=table.rows[rIdx].cells[2].textContent;
-					document.getElementById("txtWeight").value=table.rows[rIdx].cells[3].textContent;
-					document.getElementById("txtDate").value=table.rows[rIdx].cells[4].textContent;
-					if (table.rows[rIdx].cells[5].textContent=="Lbs"){
-						document.getElementById("chkLbs").checked=true;
-					}else{
-						document.getElementById("chkLbs").checked=false;
-					}
-					*/
 					document.getElementById("btnUpdate").type="button";
 					document.getElementById("lgdInputHeader").textContent = "Edit Existing Workout";
 					break;
