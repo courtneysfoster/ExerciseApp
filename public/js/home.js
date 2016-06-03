@@ -25,6 +25,7 @@ function afterPageLoad(){
 /* button click event listener */
 document.getElementById("btnNew").addEventListener("click", function(event){
 	Submit("insert");
+	event.preventDefault();
 	/*
 	var req = new XMLHttpRequest();
 	var data = {};
@@ -54,6 +55,7 @@ document.getElementById("btnNew").addEventListener("click", function(event){
 
 document.getElementById("btnUpdate").addEventListener("click", function(event){
 	Submit("update");
+	event.preventDefault();
 });
 
 function Submit(type){
@@ -79,7 +81,7 @@ function Submit(type){
 	req.send(JSON.stringify(data));
 	clearForm();
 	
-	event.preventDefault();
+	
 }
 
 function getDate(){
