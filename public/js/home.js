@@ -29,8 +29,7 @@ function buildTable(response){
 				case 0:
 					var nr = document.createElement("th");
 					table.appendChild(nr);
-					td.textContent = td.textContent = key; ;
-					break;
+					td.textContent = td.textContent = key;
 				default:
 					if (key=="id"){
 						var nr = document.createElement("tr");
