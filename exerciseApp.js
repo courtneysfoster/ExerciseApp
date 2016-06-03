@@ -131,7 +131,7 @@ app.get("/make-table",function(req,res,next){
     "lbs BOOLEAN)";
     pool.query(createString, function(err){
       context.results = "Table Created";
-      res.redirect(context, "back");
+      res.redirect("/", context);
 	  //res.render("home",context);
       });
   });
