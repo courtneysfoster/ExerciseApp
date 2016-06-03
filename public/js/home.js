@@ -27,7 +27,6 @@ function buildTable(response){
     for (var i=-1, iLen=response.length; i<iLen; i++){
 		if (i=-1){
 			item = response[0];
-			return;
 		}else{
 			item = response[i];
 		}
