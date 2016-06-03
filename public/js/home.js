@@ -59,7 +59,6 @@ document.getElementById("btnUpdate").addEventListener("click", function(event){
 });
 
 function Submit(type){
-	console.log(ip+type);
 	var req = new XMLHttpRequest();
 	var data = {};
 	data.exercise = document.getElementById("txtExercise").value;
@@ -108,7 +107,7 @@ function button_click(directive, idx){
 			for(rIdx=1, rLen=table.rows.length; rIdx<rLen; rIdx++){
 				var cellVal = table.rows[rIdx].cells[cIdx].textContent;
 				if(cellVal==idx){
-					fillForm(getData("table", rIdx));
+					fillForm(getData("table", table, rIdx));
 					/*
 					document.getElementById("txtID").value=idx;
 					document.getElementById("txtExercise").value=table.rows[rIdx].cells[1].textContent;
@@ -137,7 +136,7 @@ function button_click(directive, idx){
 	}
 }
 
-function getData(inputFrom, rIdx){
+function getData(inputFrom, table, rIdx){
 	var tblData = {};
 	if (inputFrom=="form"){
 		if(document.getElementById("txtID").value==""){
