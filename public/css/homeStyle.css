@@ -57,10 +57,15 @@ label{
 table{
 	border-color: DarkGreen;
 }
-td, th{
+td{
 	padding: 5px;
 }
 
+th{
+	padding: 5px;
+	background-color: gray;
+}
+
 #colID{
-	visibility: hidden;
+	display: none;
 }
