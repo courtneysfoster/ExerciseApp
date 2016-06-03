@@ -69,9 +69,9 @@ th{
 
 #btnResetTbl{
 	position: absolute;
-	right: 25px;
-	bottom: 25px;
-	margin: 20px;
+	right: 0;
+	bottom: 0;
+	margin: 25px;
 	background-color: red;
 }
 
