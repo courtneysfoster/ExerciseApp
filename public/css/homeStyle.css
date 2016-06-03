@@ -78,7 +78,8 @@ th{
 
 #btnResetTbl{
 	
-	margin: 25px;
+	margin-top: 10px;
+	margin-left: 650;
 	background-color: #880000;
 	color: #EEEEEE;
 }
