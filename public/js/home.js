@@ -13,6 +13,7 @@ function buildTable(response){
 
 	var colGrp = document.createElement("colgroup");
 	colGrp.span = 1;
+	colGrp.style.visibility = "hidden";
 	table.appendChild(colGrp);
 	var idCol = document.createElement("col");
 	idCol.span = 1;
@@ -42,6 +43,7 @@ function buildTable(response){
 					if (key=="id"){
 						tr = document.createElement("tr");
 						tr.style.textAlign = "center";
+						tr.style.visibility = "hidden";
 						table.appendChild(tr);
 					}
 					if (key=="lbs"){
@@ -58,7 +60,6 @@ function buildTable(response){
 		}
 		table.appendChild(tr);
 	}
-	colGrp.style.visibility = "hidden";
 	document.getElementById("outputArea").appendChild(table);
 }
 
