@@ -20,19 +20,22 @@ function buildTable(response){
 	
 	var td;
 	
-    var item = response[0];
-	for (var i=0, iLen=response.length; i<iLen; i++){
-		if(i!=-1){item = response[i];};
+    for (var i=0, iLen=response.length; i<iLen; i++){
+		if (i=-1){
+			item = response[0];
+		}else{
+			item = response[i];
+		}
+		
 		for (var key in item){
-			if(i==-1){
-				console.log(item);
-			}
 			td = document.createElement("td");
 			switch (i){
 				case -1:
+					
 					var nr = document.createElement("th");
 					table.appendChild(nr);
 					td.textContent = key;
+					console.log("we got here. " + key + " = " + item[key] );
 					break;
 				default:
 					if (key=="id"){
