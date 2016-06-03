@@ -33,8 +33,17 @@ function buildTable(response){
 		item = response[i];
 		for(var key in item){
 			console.log(item[key]);
-			td.textContent = item[key].value;
-			tr.appendChild(td);	
+			if (key=="lbs"){
+				if(item[key].value==1){
+					td.textContent = "Lbs";
+				}else{
+					td.textContent = "Kgs";
+				}
+			}else{
+				td.textContent = item[key].value;
+				tr.appendChild(td);		
+			}
+			
 		}
 	}
 	document.getElementById("outputArea").appendChild(table);
