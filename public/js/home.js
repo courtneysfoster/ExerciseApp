@@ -41,6 +41,7 @@ document.getElementById("btnUpdate").addEventListener("click", function(event){
 function Submit(type, data){
 	var req = new XMLHttpRequest();
 	//var data = getData("form");
+	console.log(data);
 	req.open("POST", ip+type, true);
 	req.setRequestHeader("Content-Type", "application/json");
 	req.addEventListener("load", function(){
