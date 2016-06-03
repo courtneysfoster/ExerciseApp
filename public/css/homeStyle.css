@@ -54,7 +54,10 @@ label{
 	margin-top: 10px;
 }
 
-ul{
-	border-style: solid;
+table{
+	border-color: DarkGreen;
+}
+td{
+	padding: 5px;
 }
 

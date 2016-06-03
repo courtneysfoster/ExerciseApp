@@ -12,9 +12,10 @@ function buildTable(response){
 	table.align = "center";
 
 	var idCol = document.createElement("col");
+	idCol.id = "colID";
 	idCol.span = 1;
-	idCol.style.visibility = "hidden";
 	table.appendChild(idCol);
+	
 
 	
 	var tr;
@@ -32,7 +33,11 @@ function buildTable(response){
 				case -1:
 					td = document.createElement("th");	
 					table.appendChild(td);
-					td.textContent = key;
+					if(key=="lbs"){
+						td.textContent = "Units";
+					}else{
+						td.textContent = key;	
+					}
 					break;
 				default:
 					td = document.createElement("td");
@@ -51,6 +56,7 @@ function buildTable(response){
 		table.appendChild(tr);
 	}
 	document.getElementById("outputArea").appendChild(table);
+	document.getElementById("colID").style.visibility="hidden";
 }
 
 document.addEventListener("DOMContentLoaded", afterPageLoad);
