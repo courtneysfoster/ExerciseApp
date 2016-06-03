@@ -65,32 +65,31 @@ function button_click(directive, idx){
 					console.log("user abort");
 					return;
 				}
-				var table = document.getElementById("tblOutput");
-				var rIdx = 1;
-				var cIdx = 0;
-				
-				for(rIdx=1, rLen=table.rows.length; rIdx<rLen; rIdx++){
-					var cellVal = table.rows[rIdx].cells[cIdx].textContent;
-					if(cellVal==idx){
-						document.getElementById("txtID").value=idx;
-						document.getElementById("txtExercise").value=table.rows[rIdx].cells[1].textContent;
-						document.getElementById("txtReps").value=table.rows[rIdx].cells[2].textContent;
-						document.getElementById("txtWeight").value=table.rows[rIdx].cells[3].textContent;
-						document.getElementById("txtDate").value=table.rows[rIdx].cells[4].textContent;
-						if (table.rows[rIdx].cells[5].textContent=="Lbs"){
-							document.getElementById("chkLbs").checked=true;
-						}else{
-							document.getElementById("chkLbs").checked=false;
-						}
-						break;
+			}
+			var table = document.getElementById("tblOutput");
+			var rIdx = 1;
+			var cIdx = 0;
+			
+			for(rIdx=1, rLen=table.rows.length; rIdx<rLen; rIdx++){
+				var cellVal = table.rows[rIdx].cells[cIdx].textContent;
+				if(cellVal==idx){
+					document.getElementById("txtID").value=idx;
+					document.getElementById("txtExercise").value=table.rows[rIdx].cells[1].textContent;
+					document.getElementById("txtReps").value=table.rows[rIdx].cells[2].textContent;
+					document.getElementById("txtWeight").value=table.rows[rIdx].cells[3].textContent;
+					document.getElementById("txtDate").value=table.rows[rIdx].cells[4].textContent;
+					if (table.rows[rIdx].cells[5].textContent=="Lbs"){
+						document.getElementById("chkLbs").checked=true;
+					}else{
+						document.getElementById("chkLbs").checked=false;
 					}
+					document.getElementById("btnUpdate").type="button";
+					break;
 				}
-				
-				document.getElementById("btnUpdate").type="button"
 			}
 			
-			
-			
+		
+		
 			break;
 		case "Delete":
 			console.log("Delete button clicked for idx = "+idx);
@@ -189,4 +188,5 @@ function clearForm(){
 	document.getElementById("txtReps").value="";
 	document.getElementById("txtWeight").value="";
 	document.getElementById("chkLbs").checked=1;
+	document.getElementById("btnUpdate").type="hidden";
 }
