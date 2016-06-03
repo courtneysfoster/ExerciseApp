@@ -31,9 +31,9 @@ function buildTable(response){
 	for(var i=0, iLen=response.length; i<iLen; i++){
 		tr = document.createElement("tr");
 		item = response[i];
-		console.log("i= "+i+" Key= " item(key));
+		
 		for(var j=0; j<colNames.length; j++){
-			
+			console.log(item[colNames[j]]);
 			if (item[colNames[j]]=="lbs"){
 				if(item[colNames[j]].value==1){
 					td.textContent = "Lbs";
