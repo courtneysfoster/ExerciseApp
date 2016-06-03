@@ -62,7 +62,7 @@ function buildTable(response){
 			btnEdit = document.createElement("button");
 			btnEdit.id = "btnEdit-"+item["id"];
 			btnEdit.textContent = "Edit";
-			btnEdit.addEventListener("click", function(){button_click("Edit", item["id"])});
+			
 			td.appendChild(btnEdit);
 			
 			td = document.createElement("td");
@@ -70,9 +70,12 @@ function buildTable(response){
 			btnDel = document.createElement("button");
 			btnDel.id = "btnDel-"+item["id"];
 			btnDel.textContent = "Delete";
-			btnDel.addEventListener("click", function(){button_click("Delete", item["id"])});
 			td.appendChild(btnDel);
 		}
+		(function(idx){
+			btnEdit.addEventListener("click", function(){button_click("Edit", idx)});
+			btnDel.addEventListener("click", function(){button_click("Delete", idx)});
+		})(item["id"]);
 		table.appendChild(tr);
 	}
 	document.getElementById("outputArea").appendChild(table);
