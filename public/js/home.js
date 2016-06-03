@@ -40,7 +40,7 @@ function buildTable(response){
 					if (key=="id"){
 						tr = document.createElement("tr");
 						tr.style.textAlign = "center";
-						table.appendChild(tr);
+						//table.appendChild(tr);
 					}
 					if (key=="lbs"){
 						if(item[key]==1){
