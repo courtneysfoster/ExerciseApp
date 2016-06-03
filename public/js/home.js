@@ -2,7 +2,10 @@
 
 function buildTable(response){
 	
-	
+	if (1){
+		console.log(response);
+		break;
+	}
 	var table = document.getElementById("tblOutput");
 
 	/*
