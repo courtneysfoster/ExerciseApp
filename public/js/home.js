@@ -8,18 +8,18 @@ function afterPageLoad(){
 	/* Initial table select section */
 	
 	var req = new XMLHttpRequest();
-		var data = {};
-		req.open("GET", ip+"/select", true);
-		req.setRequestHeader("Content-Type", "application/json");
-		req.addEventListener("load", function(dataResponse, status){
-			if(req.status >= 200 && req.status < 400){
-				dataResponse =  JSON.parse(req.responseText);
-				buildTable(dataResponse);
-			}else{
-				console.log("Error: " + req.statusText);
-			}
-		});
-		req.send(JSON.stringify(data));
+	var data = {};
+	req.open("GET", ip+"/select", true);
+	req.setRequestHeader("Content-Type", "application/json");
+	req.addEventListener("load", function(dataResponse, status){
+		if(req.status >= 200 && req.status < 400){
+			dataResponse =  JSON.parse(req.responseText);
+			buildTable(dataResponse);
+		}else{
+			//console.log("Error: " + req.statusText);
+		}
+	});
+	req.send(JSON.stringify(data));
 }
 
 /* button click event listener */
