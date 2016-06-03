@@ -81,9 +81,9 @@ document.getElementById("btnNew").addEventListener("click", function(event){
 	data.reps = document.getElementById("txtReps").value;
 	data.weight = document.getElementById("txtWeight").value;
 	if (document.getElementById("optLbs").checked){
-		data.lbs = 1;
+		data.lbs = "1";
 	}else{
-		data.lbs = 0;
+		data.lbs = "0";
 	}
 	
 	req.open("POST", "http://54.213.219.47:3000/insert", true);
