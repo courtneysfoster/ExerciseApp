@@ -64,19 +64,23 @@ function button_click(directive, idx){
 			var rIdx = 1;
 			var cIdx = 0;
 			var cellVal = table.rows[rIdx].cells[cIdx].textContent;
-			console.log(cellVal);
-			/*
-			if(cellVal==idx){
-				
+			
+			for(rIdx=1, rLen=table.rows.length; rIdx<rLen; rIdx++){
+				if(cellVal==idx){
+					document.getElementById("txtID").value=idx;
+					document.getElementById("txtDate").value=table.rows[rIdx].cells[1].textContent;
+					document.getElementById("txtExercise").value=table.rows[rIdx].cells[2].textContent;
+					document.getElementById("txtReps").value=table.rows[rIdx].cells[3].textContent;
+					document.getElementById("txtWeight").value=table.rows[rIdx].cells[4].textContent;
+					if (table.rows[rIdx].cells[5].textContent=="Lbs"){
+						document.getElementById("chkLbs").checked=true;
+					}else{
+						document.getElementById("chkLbs").checked=false;
+					}
+					break;
+				}
 			}
 			
-			document.getElementById("txtID").value="";
-			document.getElementById("txtDate").value="";
-			document.getElementById("txtExercise").value="";
-			document.getElementById("txtReps").value="";
-			document.getElementById("txtWeight").value="";
-			document.getElementById("chkLbs").checked=1;
-			*/
 			break;
 		case "Delete":
 			console.log("Delete button Clicked for idx = "+idx);
