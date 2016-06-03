@@ -60,7 +60,7 @@ th{
 }
 
 #outputArea{
-	width: 1000px;
+	
 	border-style: solid;
 	border-color: teal;
 	
@@ -68,7 +68,7 @@ th{
 }
 
 #tblOutput{
-	
+	width: 700px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	margin-left: 10px;
