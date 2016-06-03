@@ -10,10 +10,11 @@
 	width: 500px;
 }
 
-legend{
+fieldset, legend{
 	border-style: solid;
-	border-color: teal;
+	border-color: teal;	
 }
+
 
 #divButtons{
 	position: absolute;
