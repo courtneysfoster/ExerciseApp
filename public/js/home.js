@@ -4,7 +4,7 @@ function buildTable(response){
 	
 	if (1){
 		console.log(response);
-		break;
+		return;
 	}
 	var table = document.getElementById("tblOutput");
 
