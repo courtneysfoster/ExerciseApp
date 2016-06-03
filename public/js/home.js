@@ -32,6 +32,7 @@ function buildTable(response){
 		tr = document.createElement("tr");
 		item = response[i];
 		for(var key in item){
+			console.log(item[key]);
 			td.textContent = item[key].value;
 			tr.appendChild(td);	
 		}
