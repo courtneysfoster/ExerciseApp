@@ -31,7 +31,7 @@ document.getElementById("btnNew").addEventListener("click", function(event){
 	data.reps = document.getElementById("txtReps").value;
 	data.weight = document.getElementById("txtWeight").value;
 	data.date = document.getElementById("txtDate").value;
-	data.lbs = document.getElementById("optLbs").checked;
+	data.lbs = document.getElementById("chkLbs").checked;
 	
 	req.open("POST", ip+"/insert", true);
 	req.setRequestHeader("Content-Type", "application/json");
@@ -45,6 +45,7 @@ document.getElementById("btnNew").addEventListener("click", function(event){
 		}
 	}); 
 	req.send(JSON.stringify(data));
+	clearForm();
 	event.preventDefault();
 });
 
@@ -60,6 +61,7 @@ function button_click(directive, idx){
 	switch (directive){
 		case "Edit":
 			console.log("Edit button Clicked for idx = "+idx);
+			
 			break;
 		case "Delete":
 			console.log("Delete button Clicked for idx = "+idx);
@@ -149,5 +151,13 @@ function buildTable(response){
 		table.appendChild(tr);
 	}
 	document.getElementById("outputArea").appendChild(table);
-	
+}
+
+function clearForm(){
+	document.getElementById("txtID").value="";
+	document.getElementById("txtDate").value="";
+	document.getElementById("txtExercise").value="";
+	document.getElementById("txtReps").value="";
+	document.getElementById("txtWeight").value="";
+	document.getElementById("chkLbs").checked=1;
 }
