@@ -31,7 +31,7 @@ function buildTable(response){
 	for(var i=0, iLen=response.length; i<iLen; i++){
 		tr = document.createElement("tr");
 		item = response[i];
-		if (i=4){console.log(item);};
+		if (i==4){console.log(item);};
 		for(var j=0; j<item.length; j++){
 			console.log("inner loop " + item[j]);
 			/*
