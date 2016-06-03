@@ -1,7 +1,76 @@
 /*Exercise Tracker home page javascript*/
-var ip = "http://54.213.219.47:3000/"
-function buildTable(response){
+var ip = "http://54.213.219.47:3000"
+
+
+document.addEventListener("DOMContentLoaded", afterPageLoad);
+
+function afterPageLoad(){
+	/* Initial table select section */
 	
+	var req = new XMLHttpRequest();
+		var data = {};
+		req.open("GET", ip+"/select", true);
+		req.setRequestHeader("Content-Type", "application/json");
+		req.addEventListener("load", function(dataResponse, status){
+			if(req.status >= 200 && req.status < 400){
+				dataResponse =  JSON.parse(req.responseText);
+				buildTable(dataResponse);
+			}else{
+				console.log("Error: " + req.statusText);
+			}
+		});
+		req.send(JSON.stringify(data));
+}
+
+/* button click event listener */
+document.getElementById("btnNew").addEventListener("click", function(event){
+	
+	var req = new XMLHttpRequest();
+	var data = {};
+	data.exercise = document.getElementById("txtExercise").value;
+	data.reps = document.getElementById("txtReps").value;
+	data.weight = document.getElementById("txtWeight").value;
+	data.date = document.getElementById("txtDate").value;
+	data.lbs = document.getElementById("optLbs").checked;
+	
+	req.open("POST", ip+"/insert", true);
+	req.setRequestHeader("Content-Type", "application/json");
+	req.addEventListener("load", function(){
+		if (req.status>=200 && req.status<400){
+			var response = JSON.parse(req.responseText);
+			//buildTable(response);
+		}else{
+			console.log("error " + req.status + " " + req.statusText);
+			return;
+		}
+	}); 
+	req.send(JSON.stringify(data));
+	event.preventDefault();
+});
+
+
+function getDate(){
+	var dtDate = new date(date.now());
+	var dtString = dtDate.getFullYear() + "-" + dtDate.getMonth() + "-" + dtDate.getDay();
+	document.getElementById("txtDate").value = dtString;
+	return;
+}
+
+function button_click(directive, idx){
+	switch (directive){
+		case "Edit":
+			console.log("Edit button Clicked for idx = "+idx);
+			break;
+		case "Delete":
+			console.log("Delete button Clicked for idx = "+idx);
+			break;
+		default:
+			/* Should never get here. */
+			
+	}
+}
+
+function buildTable(response){
 	
 	document.getElementById("outputArea").removeChild(document.getElementById("tblOutput"));
 	
@@ -81,72 +150,4 @@ function buildTable(response){
 	}
 	document.getElementById("outputArea").appendChild(table);
 	
-}
-
-document.addEventListener("DOMContentLoaded", afterPageLoad);
-
-function afterPageLoad(){
-	/* Initial table select section */
-	
-	var req = new XMLHttpRequest();
-		var data = {};
-		req.open("GET", ip+"/select", true);
-		req.setRequestHeader("Content-Type", "application/json");
-		req.addEventListener("load", function(dataResponse, status){
-			if(req.status >= 200 && req.status < 400){
-				dataResponse =  JSON.parse(req.responseText);
-				buildTable(dataResponse);
-			}else{
-				console.log("Error: " + req.statusText);
-			}
-		});
-		req.send(JSON.stringify(data));
-}
-
-/* button click event listener */
-document.getElementById("btnNew").addEventListener("click", function(event){
-	
-	var req = new XMLHttpRequest();
-	var data = {};
-	data.exercise = document.getElementById("txtExercise").value;
-	data.reps = document.getElementById("txtReps").value;
-	data.weight = document.getElementById("txtWeight").value;
-	data.date = document.getElementById("txtDate").value;
-	data.lbs = document.getElementById("optLbs").checked;
-	
-	req.open("POST", ip+"/insert", true);
-	req.setRequestHeader("Content-Type", "application/json");
-	req.addEventListener("load", function(){
-		if (req.status>=200 && req.status<400){
-			var response = JSON.parse(req.responseText);
-			buildTable(response);
-		}else{
-			console.log("error " + req.status + " " + req.statusText);
-			return;
-		}
-	}); 
-	req.send(JSON.stringify(data));
-	event.preventDefault();
-});
-
-
-function getDate(){
-	var dtDate = new date(date.now());
-	var dtString = dtDate.getFullYear() + "-" + dtDate.getMonth() + "-" + dtDate.getDay();
-	document.getElementById("txtDate").value = dtString;
-	return;
-}
-
-function button_click(directive, idx){
-	switch (directive){
-		case "Edit":
-			console.log("Edit button Clicked for idx = "+idx);
-			break;
-		case "Delete":
-			console.log("Delete button Clicked for idx = "+idx);
-			break;
-		default:
-			/* Should never get here. */
-			
-	}
 }
