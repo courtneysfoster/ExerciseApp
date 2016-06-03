@@ -36,7 +36,7 @@ function buildTable(response){
 		for(var key in item){
 			td = document.createElement("td");
 			if (key=="lbs"){
-				if(item[key].value==1){
+				if(item[key]==1){
 					td.textContent = "Lbs";
 				}else{
 					td.textContent = "Kgs";
