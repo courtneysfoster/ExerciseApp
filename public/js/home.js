@@ -31,7 +31,7 @@ function buildTable(response){
 	for(var i=0, iLen=response.length; i<iLen; i++){
 		tr = document.createElement("tr");
 		item = response[i];
-		console.log("i= "+i+" Key= " item(key);
+		console.log("i= "+i+" Key= " item(key));
 		for(var j=0; j<colNames.length; j++){
 			
 			if (item[colNames[j]]=="lbs"){
