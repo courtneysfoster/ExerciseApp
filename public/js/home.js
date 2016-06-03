@@ -47,6 +47,7 @@ function buildTable(response){
 			}
 			tr.appendChild(td);		
 		}
+		table.appendChild(tr);
 	}
 	document.getElementById("outputArea").appendChild(table);
 	console.log("We got to the end of buildTable");
