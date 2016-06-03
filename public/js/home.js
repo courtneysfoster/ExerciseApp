@@ -2,10 +2,6 @@
 
 function buildTable(response){
 	
-	if (1){
-		console.log(response);
-		return;
-	}
 	var table = document.getElementById("tblOutput");
 
 	/*
@@ -17,6 +13,7 @@ function buildTable(response){
 	var tr;
 	var td;
     for (var i=-1, iLen=response.length; i<iLen; i++){
+		console.log("value of i= "+ i);
 		if (i=-1){
 			item = response[0];
 		}else{
