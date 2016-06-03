@@ -4,35 +4,15 @@ function buildTable(response){
 	
 	
 	var table = document.getElementById("tblOutput");
-	console.log(table.id);
-	if(!!document.getElementById("tblOutput")){
-		
-		table = document.createElement("table");
-		table.id = "tblOutput";
-		table.border = 1;
-		table.style.borderCollapse = "collapse";
-		
-	}else{
-		table = document.getElementById("tblOutput");
-		table.parentNode.removeChild(table);	
-		
-		return;
-	}
 
-	
-	
-		
+	/*
 	var idCol = document.createElement("col");
 	idCol.style.visibility ="hidden";
 	table.appendChild(idCol);
+	*/
 	
-	
-	var th = document.createElement("th");
-	table.appendChild(th);
-	
-	var td;
-
 	var tr;
+	var td;
     for (var i=-1, iLen=response.length; i<iLen; i++){
 		if (i=-1){
 			item = response[0];
@@ -53,7 +33,6 @@ function buildTable(response){
 						tr = document.createElement("tr");
 						tr.style.textAlign = "center";
 						table.appendChild(tr);
-						break;
 					}
 					if (key=="lbs"){
 						if(item[key]==1){
@@ -67,74 +46,10 @@ function buildTable(response){
 			}
 			tr.appendChild(td);
 		}
-		
-	}
-/*
-=======
-	
-    var item = response[0];
-    
-
-	for (var key in item) {
-    
-		td = document.createElement("td");
-		td.textContent = key;
-		th.appendChild(td);
-    } 
-	
-	var tr;
-	for(var i=0, iLen=response.length; i<iLen; i++){
-		tr = document.createElement("tr");
-		item = response[i];
-		
-		for(var key in item){
-			td = document.createElement("td");
-			if (key=="lbs"){
-				if(item[key]==1){
-					td.textContent = "Lbs";
-				}else{
-					td.textContent = "Kgs";
-				}
-			}else{
-				td.textContent = item[key];
-				
-			}
-			tr.appendChild(td);		
-		}
 		table.appendChild(tr);
 	}
 	document.getElementById("outputArea").appendChild(table);
 }
-/*
-var table = document.createElement("table");
-table.id = "table1";
-table.border = 1;
-table.style.borderCollapse = "collapse";
-table.align = "center";
-
-var td;
-for (var i=0; i<4; i++){
-	for (var j=0; j<4; j++){
-		td = document.createElement("td");
-		td.id = ("td"+j)+i;
-		switch (i){
-			case 0:
-				var nr = document.createElement("th");
-				table.appendChild(nr);
-				td.textContent = "Header " + (j+1);
-				break;
-			default:
-				if (j==0){
-					var nr = document.createElement("tr");
-					nr.style.textAlign = "center";
-					table.appendChild(nr);
-				}
-				td.textContent = (j+1) + ", " + (i);		
-		}
-		nr.appendChild(td);
-	}
-}
-*/
 
 document.addEventListener("DOMContentLoaded", afterPageLoad);
 
