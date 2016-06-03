@@ -97,7 +97,8 @@ document.getElementById("btnNew").addEventListener("click", function(event){
 			return;
 		}
 	});
-	req.send(JSON.stringify(data));
+	console.log(JSON.stringify(data));
+	//req.send(JSON.stringify(data));
 	event.preventDefault();
 });
 
