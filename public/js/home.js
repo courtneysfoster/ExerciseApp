@@ -32,12 +32,12 @@ function buildTable(response){
 			switch (i){
 				case -1:
 					td = document.createElement("th");	
-					table.appendChild(td);
 					if(key=="lbs"){
 						td.textContent = "Units";
 					}else{
 						td.textContent = key;	
 					}
+					//table.appendChild(td);
 					break;
 				default:
 					td = document.createElement("td");
