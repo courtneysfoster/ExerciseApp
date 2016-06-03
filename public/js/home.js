@@ -10,12 +10,12 @@ function buildTable(response){
 	table.border = 1;
 	table.style.borderCollapse = "collapse";
 	table.align = "center";
-/*
+
 	var idCol = document.createElement("col");
 	idCol.span = 1;
 	idCol.style.visibility = "collapse";
 	table.appendChild(idCol);
-*/
+
 	
 	var tr;
 	var td;
@@ -36,13 +36,6 @@ function buildTable(response){
 					break;
 				default:
 					td = document.createElement("td");
-					/*
-					if (key=="id"){
-						tr = document.createElement("tr");
-						tr.style.textAlign = "center";
-						table.appendChild(tr);
-					}
-					*/
 					if (key=="lbs"){
 						if(item[key]==1){
 							td.textContent = "Lbs";
