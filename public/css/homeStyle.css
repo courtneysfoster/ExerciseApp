@@ -10,7 +10,7 @@
 	width: 500px;
 }
 
-fieldset, legend{
+fieldset{
 	border-style: solid;
 	border-color: teal;	
 }
