@@ -112,3 +112,7 @@ tr:nth-child(odd){
 #colID{
 	display: none;
 }
+
+body{
+	background-color: #EEEEEE;
+}
