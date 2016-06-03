@@ -34,6 +34,7 @@ function buildTable(response){
 		
 		for(var j=0; j<colNames.length; j++){
 			console.log(item[colNames[j]]);
+			/*
 			if (item[colNames[j]]=="lbs"){
 				if(item[colNames[j]].value==1){
 					td.textContent = "Lbs";
@@ -41,9 +42,10 @@ function buildTable(response){
 					td.textContent = "Kgs";
 				}
 			}else{
-				td.textContent = item[key].value;
+				td.textContent = item[colNames[j]];
 				tr.appendChild(td);		
 			}
+			*/
 			//console.log(td.textContent);
 			
 		}
