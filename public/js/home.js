@@ -1,5 +1,5 @@
 /*Exercise Tracker home page javascript*/
-var ip = "http://54.213.219.47:3000/"
+var ip = "http://54.213.219.47:3000/";
 
 
 document.addEventListener("DOMContentLoaded", afterPageLoad);
