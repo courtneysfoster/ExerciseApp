@@ -60,6 +60,7 @@ function getDate(){
 function button_click(directive, idx){
 	switch (directive){
 		case "Edit":
+			console.log("Edit button clicked for idx = " + idx);
 			var table = document.getElementById("tblOutput");
 			var rIdx = 1;
 			var cIdx = 0;
@@ -68,10 +69,10 @@ function button_click(directive, idx){
 			for(rIdx=1, rLen=table.rows.length; rIdx<rLen; rIdx++){
 				if(cellVal==idx){
 					document.getElementById("txtID").value=idx;
-					document.getElementById("txtDate").value=table.rows[rIdx].cells[1].textContent;
-					document.getElementById("txtExercise").value=table.rows[rIdx].cells[2].textContent;
-					document.getElementById("txtReps").value=table.rows[rIdx].cells[3].textContent;
-					document.getElementById("txtWeight").value=table.rows[rIdx].cells[4].textContent;
+					document.getElementById("txtExercise").value=table.rows[rIdx].cells[1].textContent;
+					document.getElementById("txtReps").value=table.rows[rIdx].cells[2].textContent;
+					document.getElementById("txtWeight").value=table.rows[rIdx].cells[3].textContent;
+					document.getElementById("txtDate").value=table.rows[rIdx].cells[4].textContent;
 					if (table.rows[rIdx].cells[5].textContent=="Lbs"){
 						document.getElementById("chkLbs").checked=true;
 					}else{
@@ -83,7 +84,7 @@ function button_click(directive, idx){
 			
 			break;
 		case "Delete":
-			console.log("Delete button Clicked for idx = "+idx);
+			console.log("Delete button clicked for idx = "+idx);
 			break;
 		default:
 			/* Should never get here. */
