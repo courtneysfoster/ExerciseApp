@@ -21,10 +21,12 @@ function buildTable(response){
 	var td;
 	
     var item = response[0];
-    
 	for (var i=0, iLen=response.length; i<iLen; i++){
 		if(i!=-1){item = response[i];};
 		for (var key in item){
+			if(i==-1){
+				console.log(key);
+			}
 			td = document.createElement("td");
 			switch (i){
 				case -1:
