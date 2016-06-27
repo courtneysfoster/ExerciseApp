@@ -107,7 +107,8 @@ app.post("/update", function(req,res,next){
 				, req.body.reps || curVals.reps
 				, req.body.weight || curVals.weight
 				, req.body.date || curVals.date
-				, req.body.lbs || curVals.lbs
+				/*, req.body.lbs || curVals.lbs */
+				, req.body.lbs
 				, req.body.id]
 				
 				,function(err,result){
