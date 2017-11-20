@@ -21,7 +21,7 @@ var pool = mysql.createPool({
 	database: "student"
 });
 
-app.set("port", 3000);
+app.set("port", 6645);
 
 /* ********* Routes & Handlers *********** */
 
@@ -158,6 +158,6 @@ app.use(function(err, req, res, next){
 });
 
 app.listen(app.get("port"), function(){
-	console.log("Express started on http://54.213.219.47:" + app.get("port") + "; press ctrl+c to terminate");
+	console.log("Express started on http://52.23.211.180:" + app.get("port") + "; press ctrl+c to terminate");
 });
 
