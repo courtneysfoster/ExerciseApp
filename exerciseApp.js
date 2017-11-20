@@ -18,7 +18,7 @@ var pool = mysql.createPool({
 	host: "localhost",
 	user: "root",
 	password: "password",
-	database: "student"
+	database: "exercise"
 });
 
 app.set("port", 6645);
