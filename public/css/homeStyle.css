@@ -116,3 +116,11 @@ tr:nth-child(odd){
 body{
 	background-color: #EEEEEE;
 }
+
+#rtb{
+	text-align: center;
+	font-family:"Palatino Linotype";
+	font-size: 20px;
+	color: blue; 
+	background-color: #ddd;
+}
